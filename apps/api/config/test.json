@@ -27,6 +27,12 @@
       "local-sqlite": {
         "filePath": ".data/test-site-requests.sqlite"
       }
+    },
+    "ai": {
+      "provider": "fixture"
+    },
+    "websites": {
+      "provider": "fixture"
     }
   }
 }

@@ -1,3 +1,4 @@
+import { renderToString } from 'react-dom/server';
 import { it, expect, vi, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Workspace, type WorkspaceProps } from './workspace';
@@ -49,4 +50,10 @@ it('previews coordinate edits, preserves them when changing radius and cancels b
 });
 it('submits a newly supported medical category without changing its provider identifier',async()=>{
  const request=vi.fn().mockResolvedValue(Response.json({...props.initial,companies:[]}));vi.stubGlobal('fetch',request);render(<Workspace {...props}/>);fireEvent.change(screen.getByLabelText(t.category),{target:{value:'medical_clinic'}});fireEvent.click(screen.getByRole('button',{name:t.search}));await waitFor(()=>expect(request).toHaveBeenCalledWith('/api/opportunities/search',expect.objectContaining({body:expect.stringContaining('"category":"medical_clinic"')})));
+});
+
+it('disables server-rendered filters until hydration and supports website selections and analysis',async()=>{
+ expect(renderToString(<Workspace {...props}/>)).toContain('disabled=""');const report={url:'https://example.com',model:'test',analyzedAt:'2026-11-16T12:00:00Z',summary:{en:'Summary','pt-BR':'Resumo'},findings:[],evidence:[]},existing={...company,website:'https://example.com'};
+ const request=vi.fn().mockImplementation(async(url:string)=>url==='/api/website-audits'?Response.json(report):url.includes('/site-requests/')?Response.json(null):url.includes('/search')?Response.json({...props.initial,companies:[existing]}):Response.json(existing));vi.stubGlobal('fetch',request);render(<Workspace {...props}/>);
+ fireEvent.click(screen.getByRole('checkbox',{name:t.noWebsite}));expect(screen.getByLabelText(t.websiteFilter)).toHaveValue('all');fireEvent.change(screen.getByLabelText(t.websiteFilter),{target:{value:'present'}});fireEvent.click(screen.getByRole('button',{name:t.search}));await waitFor(()=>expect(request).toHaveBeenCalledWith('/api/opportunities/search',expect.objectContaining({body:expect.stringContaining('"website":"present"')})));await screen.findByRole('link',{name:t.visitWebsite});fireEvent.click(screen.getByRole('button',{name:t.details}));await screen.findByRole('dialog');fireEvent.click(screen.getByRole('button',{name:t.analyzeWebsite}));expect(await screen.findByText('Resumo')).toBeVisible();fireEvent.click(screen.getAllByRole('button',{name:t.prepare}).at(-1)!);expect(screen.getByText('Resumo')).toBeVisible();request.mockResolvedValueOnce(new Response('',{status:502}));fireEvent.click(screen.getByRole('button',{name:t.analyzeWebsite}));expect(await screen.findByText(t.auditError)).toBeVisible();fireEvent.click(screen.getByRole('button',{name:t.cancel}));fireEvent.click(screen.getByRole('checkbox',{name:t.noWebsite}));expect(screen.getByLabelText(t.websiteFilter)).toHaveValue('missing');
 });

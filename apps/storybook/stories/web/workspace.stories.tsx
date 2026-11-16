@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import {userEvent,expect} from 'storybook/test';
 import { Workspace } from '../../../web/src/components/workspace';
 import type { Company } from '@core/domain/model';
 import denseCompanies from '../../fixtures/dense-companies.json';
@@ -11,3 +12,5 @@ export const Empty: Story = { args: { initial: { companies: [], provider: 'demo'
 export const Error: Story = { args: { initial: null } };
 export const LiveProviderError: Story = {args:{initial:null,placesProvider:'google-places'}};
 export const ManyResults: Story = {args:{initial:{companies:denseCompanies as Company[],provider:'demo',exhaustive:false,fetched:denseCompanies.length}}};
+
+export const WebsiteSelection:Story={play:async({canvas})=>{await userEvent.click(canvas.getByRole('checkbox',{name:t.noWebsite}));await expect(canvas.getByLabelText(t.websiteFilter)).toHaveValue('all');await userEvent.selectOptions(canvas.getByLabelText(t.websiteFilter),'present');await expect(canvas.getByRole('checkbox',{name:t.noWebsite})).not.toBeChecked();}};

@@ -1,0 +1,9 @@
+import {it,expect,vi} from 'vitest';
+import {AuditsFactory} from './audits.factory';
+import {JsonConfigManager} from '@core/infra/adapters/config/json/config-manager.adapter';
+import {GooglePlacesAdapter} from '../../adapters/places/google-places/google-places.adapter';
+import {HttpWebsiteReaderAdapter} from '../../adapters/websites/http/http-website-reader.adapter';
+import {VertexWebsiteAnalyzerAdapter} from '../../adapters/ai/vertex/vertex-website-analyzer.adapter';
+import {DemoPlacesAdapter} from '../../adapters/places/demo/demo-places.adapter';
+import {FixtureWebsiteAnalyzerAdapter} from '../../adapters/ai/fixture/fixture-website-analyzer.adapter';
+it('selects explicit test fixtures and live infrastructure through configuration',async()=>{const owner={id:'owner',name:'Owner',role:'owner' as const},test=new JsonConfigManager('api',{APP_ENV:'test'});expect((await new AuditsFactory(test).make().analyze.execute(owner,'website-oficina-horizonte')).model).toBe('fixture-no-model-call');vi.spyOn(GooglePlacesAdapter.prototype,'details').mockResolvedValue(await new DemoPlacesAdapter().details('website-oficina-horizonte'));vi.spyOn(HttpWebsiteReaderAdapter.prototype,'read').mockResolvedValue({url:'https://example.com',text:'',evidence:[{id:'missing-description',value:'Absent'}]});vi.spyOn(VertexWebsiteAnalyzerAdapter.prototype,'analyze').mockResolvedValue(await new FixtureWebsiteAnalyzerAdapter().analyze());const overrides:Record<string,unknown>={'infra.places.provider':'google-places','infra.websites.provider':'http','infra.ai.provider':'vertex'};const config={get:<T,>(key:string):T=>(overrides[key]??test.get(key)) as T,secret:()=> 'test-only'};expect((await new AuditsFactory(config).make().analyze.execute(owner,'place')).model).toBe('gemini-3.8-flash');vi.restoreAllMocks();});

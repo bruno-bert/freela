@@ -580,6 +580,15 @@
                       "instagram"
                     ]
                   },
+                  "website": {
+                    "default": "missing",
+                    "type": "string",
+                    "enum": [
+                      "missing",
+                      "present",
+                      "all"
+                    ]
+                  },
                   "locale": {
                     "type": "string",
                     "enum": [
@@ -630,6 +639,10 @@
                             "type": "string"
                           },
                           "phone": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "email": {
                             "nullable": true,
                             "type": "string"
                           },
@@ -809,6 +822,10 @@
                       "type": "string"
                     },
                     "phone": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "email": {
                       "nullable": true,
                       "type": "string"
                     },
@@ -1195,6 +1212,161 @@
                     "version",
                     "createdAt",
                     "schemaVersion"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/website-audits": {
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200,
+                    "pattern": "^[a-zA-Z0-9_-]+$"
+                  }
+                },
+                "required": [
+                  "companyId"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "analyzedAt": {
+                      "type": "string"
+                    },
+                    "model": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string"
+                        },
+                        "pt-BR": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "en",
+                        "pt-BR"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "findings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "evidenceId": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "object",
+                            "properties": {
+                              "en": {
+                                "type": "string"
+                              },
+                              "pt-BR": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "en",
+                              "pt-BR"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "recommendation": {
+                            "type": "object",
+                            "properties": {
+                              "en": {
+                                "type": "string"
+                              },
+                              "pt-BR": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "en",
+                              "pt-BR"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "observed",
+                              "suggestion"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "evidenceId",
+                          "title",
+                          "recommendation",
+                          "kind"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "evidence": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "value"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "analyzedAt",
+                    "model",
+                    "summary",
+                    "findings",
+                    "evidence"
                   ],
                   "additionalProperties": false
                 }

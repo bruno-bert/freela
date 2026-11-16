@@ -63,21 +63,23 @@
     "authentication": "Firebase CLI project access and local Application Default Credentials verified; Google provider enabled",
     "billingVerified": true,
     "enabledApis": [
-      "firebase.googleapis.com",
-      "firestore.googleapis.com",
-      "identitytoolkit.googleapis.com",
-      "cloudfunctions.googleapis.com",
-      "run.googleapis.com",
-      "cloudbuild.googleapis.com",
+      "aiplatform.googleapis.com",
+      "apikeys.googleapis.com",
       "artifactregistry.googleapis.com",
-      "iam.googleapis.com",
-      "iamcredentials.googleapis.com",
-      "secretmanager.googleapis.com",
+      "cloudbilling.googleapis.com",
+      "cloudbuild.googleapis.com",
+      "cloudfunctions.googleapis.com",
+      "firebase.googleapis.com",
       "firebaseapphosting.googleapis.com",
       "firebasehosting.googleapis.com",
-      "places.googleapis.com",
+      "firestore.googleapis.com",
+      "iam.googleapis.com",
+      "iamcredentials.googleapis.com",
+      "identitytoolkit.googleapis.com",
       "maps-backend.googleapis.com",
-      "apikeys.googleapis.com"
+      "places.googleapis.com",
+      "run.googleapis.com",
+      "secretmanager.googleapis.com"
     ],
     "verifiedResources": [
       "Firebase project freela-c8c75 (ACTIVE)",
@@ -124,13 +126,13 @@
       "lint": "passed",
       "typecheck": "passed",
       "coverage": {
-        "lines": 99.72,
-        "statements": 98.7,
-        "branches": 97.63,
-        "functions": 98.72
+        "lines": 99.77,
+        "statements": 98.84,
+        "branches": 97.83,
+        "functions": 98.95
       },
-      "e2e": "6 passed on isolated test ports",
-      "stories": "37 passed",
+      "e2e": "7 passed on isolated test ports",
+      "stories": "41 passed",
       "emulator": "3 passed",
       "builds": [
         "api",
@@ -138,8 +140,8 @@
         "docs",
         "storybook"
       ],
-      "builtApiSmoke": "health and Swagger HTTP 200",
-      "unitComponentApiContract": "78 passed across 32 test files",
+      "builtApiSmoke": "Health/Swagger and authenticated fixture website-audit returned HTTP 200",
+      "unitComponentApiContract": "96 passed across 38 test files",
       "cleanSourceTypecheck": "passed without generated next-env files"
     },
     "cloud": {
@@ -167,7 +169,14 @@
       "initialServedCommit": "c70e1acdb64d7e9ef0dba9d3f83a1a2fe9ae9eb9",
       "publicLoginRendered": true,
       "publicGoogleOAuthOpened": true,
-      "anonymousBusinessRequestsDenied": true
+      "anonymousBusinessRequestsDenied": true,
+      "websiteAnalysis": {
+        "api": "aiplatform.googleapis.com",
+        "model": "gemini-3.8-flash",
+        "localLiveHtmlAndModelVerified": true,
+        "runtimeRole": "projects/freela-c8c75/roles/freelaWebsiteAnalyzer",
+        "deployment": "pending-current-feature"
+      }
     },
     "runtime": "Public Firebase App Hosting web and second-generation Functions API with real Firebase/Google services; latest CI rollout verification in progress"
   },
