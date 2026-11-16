@@ -6,5 +6,6 @@ const meta = {title:'Web/Opportunities/RegionPresets',component:RegionPresets,ta
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
-export const Disabled: Story = {args:{disabled:true}};
+export const DisabledDuringNavigation: Story = {args:{disabled:true}};
 export const CustomRegion: Story = {args:{selected:''}};
+

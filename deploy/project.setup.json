@@ -55,12 +55,9 @@
     }
   },
   "pending": [
-    "Cloud backend provisioning and app deployment",
-    "WIF and CI environment setup",
-    "Private docs and Storybook access protection",
-    "App Check configuration",
-    "Production runtime identities and secret bindings",
-    "Production App Hosting/API provisioning, CI and served-commit verification"
+    "Latest CI served-commit verification",
+    "Private docs and Storybook access protection before their publication",
+    "App Check configuration"
   ],
   "provisioning": {
     "authentication": "Firebase CLI project access and local Application Default Credentials verified; Google provider enabled",
@@ -101,9 +98,8 @@
       "Browser Google Maps smoke: loaded, no authentication failure, no runtime errors"
     ],
     "pendingAgentActions": [
-      "Provision production runtime identities and Secret Manager bindings",
-      "Configure App Hosting/Functions, WIF and independent deployment pipelines",
-      "Configure production domains, App Check and private docs/Storybook protection, then deploy and verify the exact served commit"
+      "Complete latest independent CI rollout and served-commit verification",
+      "Configure App Check"
     ],
     "pendingUserActions": [],
     "lastVerifiedAt": "2026-11-16",
@@ -147,7 +143,7 @@
       "cleanSourceTypecheck": "passed without generated next-env files"
     },
     "cloud": {
-      "deployed": false,
+      "deployed": true,
       "liveSignInVerified": true,
       "livePlacesVerified": true,
       "billingEnabled": true,
@@ -166,9 +162,14 @@
         "type": "medical_clinic",
         "httpStatus": 200,
         "returned": 20
-      }
+      },
+      "siteUrl": "https://freela-web--freela-c8c75.us-central1.hosted.app",
+      "initialServedCommit": "c70e1acdb64d7e9ef0dba9d3f83a1a2fe9ae9eb9",
+      "publicLoginRendered": true,
+      "publicGoogleOAuthOpened": true,
+      "anonymousBusinessRequestsDenied": true
     },
-    "runtime": "Local frontend and API with real Firebase/Google cloud services; no public app rollout yet"
+    "runtime": "Public Firebase App Hosting web and second-generation Functions API with real Firebase/Google services; latest CI rollout verification in progress"
   },
   "costPreference": {
     "requested": "Cheapest or free",
@@ -186,13 +187,10 @@
   "deploymentRequest": {
     "authorized": true,
     "approvalPreference": "Proceed without repeated confirmations",
-    "status": "rollout-in-progress",
-    "blockers": [
-      "Production runtime identities, secret bindings, App Hosting/Functions and independent WIF/CI configuration remain pending",
-      "Production domains, App Check and private docs/Storybook access protection remain pending"
-    ],
+    "status": "public-site-live-ci-rollout-in-progress",
+    "blockers": [],
     "remotePushVerified": true,
-    "applicationDeploymentVerified": false,
+    "applicationDeploymentVerified": true,
     "localInitialCommit": "8499f077818872e6a7f62eb8e5db1837d680d67a",
     "repositoryUrl": "https://github.com/bruno-bert/freela",
     "sourceTransfer": "GitHub connector Git Data API; terminal Git has no HTTPS credentials",

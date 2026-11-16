@@ -22,7 +22,12 @@ try{
  }
  run(['exec','firebase','deploy','--project','freela-c8c75','--config',generated,'--only',app==='web'?'apphosting:freela-web':'functions:opportunities-api','--non-interactive']);
  const url=app==='web'?'https://freela-web--freela-c8c75.us-central1.hosted.app/api/health':'https://us-central1-freela-c8c75.cloudfunctions.net/api/health';
- const response=await fetch(`${url}?commit=${sha}`,{headers:{'Cache-Control':'no-cache'}});const result=await response.json();
- if(!response.ok||result.status!=='ok'||result.commit!==sha)throw Error('Served commit verification failed');
+ let verified=false;
+ for(let attempt=0;attempt<12;attempt++){
+  try{const response=await fetch(`${url}?commit=${sha}&attempt=${attempt}`,{headers:{'Cache-Control':'no-cache'},signal:AbortSignal.timeout(15000)});const result=await response.json();verified=response.ok&&result.status==='ok'&&result.commit===sha;}catch{/* The first public route can take time to propagate. */}
+  if(verified)break;
+  await new Promise(resolve=>setTimeout(resolve,10000));
+ }
+ if(!verified)throw Error('Served commit verification failed');
  console.log(`Verified ${app}: ${sha}`);
 }finally{if(app==='web')writeFileSync(yaml,original);try{unlinkSync(generated);}catch{}}
