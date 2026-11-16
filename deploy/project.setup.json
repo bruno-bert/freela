@@ -1,0 +1,134 @@
+{
+  "status": "in-progress",
+  "appName": "Freelancer Workspace",
+  "githubRepository": "bruno-bert/freela",
+  "environments": {
+    "production": {
+      "projectId": "freela-c8c75",
+      "projectNumber": "68606654717",
+      "region": "us-central1",
+      "webAppId": "1:68606654717:web:af89178b765f097eeb2694",
+      "authMethods": [
+        "google.com"
+      ],
+      "roleMapping": {
+        "authenticated": "owner"
+      },
+      "appHostingBackends": {
+        "web": "[TBD]",
+        "docs": "[TBD]"
+      },
+      "functionsCodebases": {
+        "api": "[TBD]"
+      },
+      "hostingTargets": {
+        "storybook": "[TBD]"
+      },
+      "firestore": {
+        "databaseId": "(default)",
+        "locationId": "us-central1",
+        "edition": "STANDARD",
+        "type": "FIRESTORE_NATIVE",
+        "freeTier": true,
+        "pointInTimeRecovery": "DISABLED",
+        "deleteProtection": "ENABLED",
+        "browserRules": "deny-all; deployed and compiled successfully",
+        "anonymousReadProbe": {
+          "httpStatus": 403,
+          "status": "PERMISSION_DENIED",
+          "message": "Missing or insufficient permissions."
+        }
+      }
+    }
+  },
+  "pending": [
+    "Billing activation",
+    "Firebase Auth initialization and Google provider consent/configuration",
+    "ADC for Admin SDK runtime",
+    "Restricted Places and Maps keys",
+    "Cloud backend provisioning and app deployment",
+    "WIF and CI environment setup",
+    "Private docs and Storybook access protection",
+    "App Check configuration"
+  ],
+  "provisioning": {
+    "authentication": "Firebase CLI project access verified; Admin ADC not verified",
+    "billingVerified": false,
+    "enabledApis": [
+      "firebase.googleapis.com",
+      "firestore.googleapis.com",
+      "identitytoolkit.googleapis.com"
+    ],
+    "verifiedResources": [
+      "Firebase project freela-c8c75 (ACTIVE)",
+      "Web App 1:68606654717:web:af89178b765f097eeb2694; SDK config retrieved",
+      "Firestore (default) database: Standard Native, us-central1, freeTier=true",
+      "Firestore deny-all browser rules compiled and released successfully",
+      "Anonymous Firestore REST document read denied with HTTP 403 PERMISSION_DENIED"
+    ],
+    "pendingAgentActions": [
+      "Resume service provisioning after billing is available",
+      "Initialize Auth, enable Google provider, configure runtime and restricted integrations",
+      "Configure separate CI/deploy pipelines after billing and private hosting protections are resolved"
+    ],
+    "pendingUserActions": [
+      "Enable billing for freela-c8c75",
+      "Complete Google consent/ADC interactively if needed; never share tokens in chat"
+    ],
+    "lastVerifiedAt": "2026-11-16"
+  },
+  "verification": {
+    "local": {
+      "lint": "passed",
+      "typecheck": "passed",
+      "coverage": {
+        "lines": 99.62,
+        "statements": 98.36,
+        "branches": 97.59,
+        "functions": 98.2
+      },
+      "e2e": "4 passed",
+      "stories": "24 passed",
+      "emulator": "2 passed",
+      "builds": [
+        "api",
+        "web",
+        "docs",
+        "storybook"
+      ],
+      "builtApiSmoke": "health and Swagger HTTP 200"
+    },
+    "cloud": {
+      "deployed": false,
+      "liveSignInVerified": false,
+      "livePlacesVerified": false
+    }
+  },
+  "costPreference": {
+    "requested": "Cheapest or free",
+    "selection": "us-central1 regional Standard default database",
+    "freeQuota": {
+      "storedDataGiB": 1,
+      "documentReadsPerDay": 50000,
+      "documentWritesPerDay": 20000,
+      "documentDeletesPerDay": 20000
+    },
+    "billingEnabled": false,
+    "paidRecoveryFeaturesEnabled": false,
+    "source": "https://cloud.google.com/firestore/pricing"
+  },
+  "deploymentRequest": {
+    "authorized": true,
+    "approvalPreference": "Proceed without repeated confirmations",
+    "status": "source-publication-in-progress-deployment-blocked",
+    "blockers": [
+      "Firebase billingEnabled is false; App Hosting and Functions require Blaze",
+      "Firebase Auth is not initialized; Google sign-in and Maps/Places credentials remain unresolved"
+    ],
+    "remotePushVerified": false,
+    "applicationDeploymentVerified": false,
+    "localInitialCommit": "8499f077818872e6a7f62eb8e5db1837d680d67a",
+    "repositoryUrl": "https://github.com/bruno-bert/freela",
+    "sourceTransfer": "GitHub connector Git Data API; terminal Git has no HTTPS credentials"
+  }
+}

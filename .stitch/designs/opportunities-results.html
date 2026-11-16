@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-canvas" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oportunidades | Freelancer Workspace</title>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration matching the precise Design Tokens -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#ffffff",
+            "primary-container": "#0f766e",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-tint": "#006a63",
+            "outline": "#6e7977",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "canvas": "#F8FAFC",
+            "surface-container-low": "#f1f4f3",
+            "main-text": "#0F172A",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e5e9e7",
+            "surface-dim": "#d7dbd9",
+            "secondary-fixed": "#dbe1ff",
+            "on-secondary-fixed": "#00174b",
+            "secondary-fixed-dim": "#b4c5ff",
+            "surface-variant": "#e0e3e1",
+            "tertiary-fixed-dim": "#ffb598",
+            "on-tertiary-container": "#ffe5db",
+            "secondary-text": "#475569",
+            "on-tertiary-fixed": "#370e00",
+            "on-secondary-fixed-variant": "#003ea8",
+            "surface-container": "#ebefed",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#a3faef",
+            "on-surface": "#181c1c",
+            "on-secondary-container": "#fefcff",
+            "error": "#B91C1C",
+            "secondary": "#0051d5",
+            "primary-fixed": "#9cf2e8",
+            "tertiary-container": "#9c573a",
+            "surface": "#FFFFFF",
+            "secondary-container": "#316bf3",
+            "on-surface-variant": "#3e4947",
+            "on-background": "#181c1c",
+            "primary-fixed-dim": "#80d5cb",
+            "on-tertiary-fixed-variant": "#72361b",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#e0e3e1",
+            "background": "#f7faf8",
+            "inverse-primary": "#80d5cb",
+            "tertiary": "#7f4025",
+            "tertiary-fixed": "#ffdbce",
+            "inverse-surface": "#2d3130",
+            "dividers": "#E2E8F0",
+            "success": "#166534",
+            "outline-variant": "#bdc9c6",
+            "surface-bright": "#f7faf8",
+            "inverse-on-surface": "#eef1f0",
+            "primary": "#005c55",
+            "input-boundary": "#64748B",
+            "warning": "#854D0E",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "32px",
+            "margin": "24px",
+            "gutter": "16px",
+            "space-sm": "8px",
+            "space-xs": "4px",
+            "space-lg": "24px",
+            "space-md": "16px"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-md": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "action": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "action": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F8FAFC;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+<body class="h-full bg-canvas text-main-text font-body-md text-body-md flex overflow-hidden antialiased select-none">
+<!-- ========================================================================= -->
+<!-- 1. PERSISTENT 216px MODULE SIDEBAR (Shared Component: SideNavBar)       -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-[216px] bg-surface border-r border-dividers flex flex-col justify-between p-space-md shrink-0 z-30">
+<div class="flex flex-col gap-space-md">
+<!-- App Header & Tag -->
+<div class="flex items-center gap-space-sm pb-space-sm border-b border-dividers">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-headline-md text-action shrink-0">
+<span class="material-symbols-outlined" data-icon="workspaces" style="font-size: 18px;">workspaces</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-headline-md text-action text-main-text truncate leading-tight">Workspace</span>
+<span class="font-label-md text-[11px] text-secondary-text leading-tight">Área de trabalho</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full flex items-center justify-center gap-space-xs py-space-sm px-space-md bg-surface-container-low hover:bg-surface-container border border-dividers rounded-lg text-primary-container font-action text-action transition-colors duration-150">
+<span class="material-symbols-outlined" data-icon="add" style="font-size: 18px;">add</span>
+<span>Nova Prospecção</span>
+</button>
+<!-- Main Navigation Items -->
+<nav class="flex flex-col gap-1 mt-1">
+<!-- Item 1: Oportunidades (ACTIVE) -->
+<a class="flex items-center justify-between px-space-md py-space-sm rounded-lg bg-surface-container-low text-primary-container font-action text-action border-l-[3px] border-primary-container" href="#oportunidades">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+<span class="leading-none">Oportunidades</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</a>
+<!-- Item 2: Financeiro -->
+<div class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-secondary-text hover:bg-surface-container-low transition-colors duration-150 font-body-md text-body-md cursor-not-allowed">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="leading-none">Financeiro</span>
+</div>
+<span class="text-[10px] font-semibold tracking-wide uppercase px-1.5 py-0.5 rounded bg-surface-container text-secondary-text">Em breve</span>
+</div>
+<!-- Item 3: Criação de sites com IA -->
+<div class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-secondary-text hover:bg-surface-container-low transition-colors duration-150 font-body-md text-body-md cursor-not-allowed"><div class="flex items-start gap-space-sm min-w-0 flex-1"><span class="material-symbols-outlined text-outline shrink-0 mt-0.5" data-icon="auto_awesome">auto_awesome</span><span class="leading-tight text-[12px]">Criação de sites com IA</span></div><span class="text-[10px] font-semibold tracking-wide uppercase px-1.5 py-0.5 rounded bg-surface-container text-secondary-text shrink-0 ml-1">Em breve</span></div>
+</nav>
+</div>
+<!-- Sidebar Footer / Account -->
+<div class="flex flex-col gap-space-xs border-t border-dividers pt-space-md">
+<!-- Configurações -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:bg-surface-container-low hover:text-main-text transition-colors duration-150 font-body-md text-body-md" href="#configuracoes">
+<span class="material-symbols-outlined text-outline" data-icon="settings">settings</span>
+<span>Configurações</span>
+</a>
+<!-- User Profile Row -->
+<div class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg bg-surface-container-low mt-1">
+<img class="w-8 h-8 rounded-full object-cover border border-dividers shrink-0" data-alt="A polished, professional corporate headshot of a Brazilian male freelancer named Lucas Martins with a neat haircut, wearing a crisp dark slate shirt, illuminated with soft studio light against a clean neutral workspace background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfsS_4Yf0ZTxaZuZnuNu-73wGXgNndzzbprOX1qqNbb3F6z8_qMFOSXqoxbLU5UmwzO9b7Ar-D6YdpDLRq4MlCiMplOaQEDUhDiDyPFhbXr_9zy50sSBbdo1V-cS1Tt7781o-WcNnbaM9hwUJ6wq9vfCOjNvGUh9aN1kDpkx2LQ6U8vwdYbgyEv9nC2rPorIZ-zQrFNqCIsgOXk8x6-twVl2w8WXO3lI3dytpQYxidFc4Q9OAKV98Ccb9yqU7YRzQY_xQ7vcOzZos"/>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-action text-[13px] text-main-text truncate">Lucas Martins</span>
+<span class="font-body-md text-[11px] text-secondary-text truncate">lucas@freelancer.pro</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE WRAPPER (Offset by sidebar 216px)                          -->
+<!-- ========================================================================= -->
+<div class="ml-[216px] flex-1 flex flex-col h-screen overflow-hidden bg-canvas">
+<!-- ======================================================================= -->
+<!-- 2. COMPACT TOP HEADER BAR (Shared Component: TopNavBar)                -->
+<!-- ======================================================================= -->
+<header class="h-16 px-space-lg bg-surface border-b border-dividers flex items-center justify-between shrink-0 z-20">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-md text-headline-md text-main-text font-bold leading-tight">Oportunidades</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[12px] font-label-md bg-amber-50 text-warning border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+              Dados fictícios de demonstração
+            </span>
+</div>
+<p class="font-body-md text-body-md text-secondary-text">Encontre negócios para sua próxima proposta</p>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<!-- Quick stats summary badge -->
+<div class="hidden lg:flex items-center gap-3 px-3 py-1.5 rounded-lg bg-canvas border border-dividers text-secondary-text text-[13px]">
+<span>Sem site informado: <strong class="text-primary-container font-action">100%</strong></span>
+<span class="text-dividers">|</span>
+<span>Região: <strong class="text-main-text font-action">Vila Mariana</strong></span>
+</div>
+<div class="flex items-center gap-1 text-secondary-text">
+<button class="p-2 rounded-lg hover:bg-surface-container-low text-secondary-text hover:text-main-text transition-colors duration-150" title="Ajuda">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-low text-secondary-text hover:text-main-text relative transition-colors duration-150" title="Notificações">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span>
+</button>
+</div>
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-dividers bg-surface text-secondary-text hover:text-main-text font-action text-action hover:bg-surface-container-low transition-colors duration-150">
+<span class="material-symbols-outlined" data-icon="play_circle" style="font-size: 18px;">play_circle</span>
+<span>Demonstração</span>
+</button>
+</div>
+</header>
+<!-- ======================================================================= -->
+<!-- 3 & 4. SPLIT WORKSPACE: ~45% LIST & ~55% MAP                            -->
+<!-- ======================================================================= -->
+<main class="flex-1 flex overflow-hidden">
+<!-- ===================================================================== -->
+<!-- LEFT PANEL: 45% COMPANY PROSPECTING LIST                             -->
+<!-- ===================================================================== -->
+<section class="w-[45%] border-r border-dividers flex flex-col bg-surface overflow-hidden">
+<!-- Filters Header Block -->
+<div class="p-space-md border-b border-dividers bg-surface flex flex-col gap-space-sm shrink-0">
+<!-- Filter Dropdowns Row -->
+<div class="grid grid-cols-3 gap-2">
+<!-- Categoria -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[11px] text-secondary-text font-semibold uppercase tracking-wider">Categoria</label>
+<div class="relative">
+<select class="w-full text-[13px] font-body-md text-main-text bg-canvas border border-input-boundary/40 rounded-lg py-1.5 pl-2.5 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-primary-container">
+<option selected="">Todos</option>
+<option>Comércio</option>
+<option>Serviços</option>
+<option>Gastronomia</option>
+<option>Floricultura</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2 top-2 text-outline" data-icon="expand_more" style="font-size: 16px;">expand_more</span>
+</div>
+</div>
+<!-- Status do contato -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[11px] text-secondary-text font-semibold uppercase tracking-wider">Status Contato</label>
+<div class="relative">
+<select class="w-full text-[13px] font-body-md text-main-text bg-canvas border border-input-boundary/40 rounded-lg py-1.5 pl-2.5 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-primary-container">
+<option selected="">Todos</option>
+<option>Não contatado</option>
+<option>Contatado</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2 top-2 text-outline" data-icon="expand_more" style="font-size: 16px;">expand_more</span>
+</div>
+</div>
+<!-- Canais disponíveis -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[11px] text-secondary-text font-semibold uppercase tracking-wider">Canais</label>
+<div class="relative">
+<select class="w-full text-[13px] font-body-md text-main-text bg-canvas border border-input-boundary/40 rounded-lg py-1.5 pl-2.5 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-primary-container">
+<option selected="">Todos canais</option>
+<option>WhatsApp</option>
+<option>Instagram</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2 top-2 text-outline" data-icon="expand_more" style="font-size: 16px;">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Crucial Checkbox & Current Location Tag -->
+<div class="flex items-center justify-between pt-1">
+<label class="inline-flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded border-input-boundary text-primary-container focus:ring-primary-container/20" type="checkbox"/>
+<span class="text-[13px] font-label-md text-main-text">Sem site informado</span>
+</label>
+<!-- Region Pill -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-secondary-text border border-dividers text-[12px] font-label-md">
+<span class="material-symbols-outlined text-primary-container" data-icon="near_me" style="font-size: 14px;">near_me</span>
+<span>Vila Mariana, SP · raio 2 km</span>
+</div>
+</div>
+</div>
+<!-- Result Summary & Technical Note -->
+<div class="px-space-md py-2 bg-canvas border-b border-dividers flex items-center justify-between text-[12px] text-secondary-text shrink-0">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
+<span class="font-action text-main-text">4 resultados ilustrativos</span>
+<span class="text-secondary-text">(demonstração não exaustiva)</span>
+</div>
+<span class="text-[11px] text-outline italic">Canais desconhecidos não são deduzidos do telefone</span>
+</div>
+<!-- Scrollable Business Cards List -->
+<div class="flex-1 overflow-y-auto custom-scroll p-space-md space-y-space-md bg-canvas">
+<!-- Card 1: Ateliê Aurora (Active/Highlighted state matching Pin 1) -->
+<article class="bg-surface rounded-xl border-2 border-primary-container shadow-xs p-4 flex flex-col gap-3 transition-shadow hover:shadow-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-primary-container text-white font-action text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-action text-[15px] text-main-text font-semibold">Ateliê Aurora <span class="font-normal text-secondary-text text-xs">(exemplo)</span></h2>
+</div>
+<span class="inline-block text-[12px] font-label-md text-secondary-text mt-0.5">Artesanato &amp; Decoração</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-md bg-slate-100 text-secondary-text border border-slate-200 shrink-0">
+                Não contatado
+              </span>
+</div>
+<!-- Details: Address & Phone -->
+<div class="text-[13px] text-secondary-text space-y-1 pl-8">
+<p class="flex items-center gap-1.5 text-main-text">
+<span class="material-symbols-outlined text-outline" data-icon="location_on" style="font-size: 16px;">location_on</span>
+<span>Rua Domingos de Morais, 1240 - Vila Mariana</span>
+</p>
+<p class="flex items-center gap-1.5 text-secondary-text">
+<span class="material-symbols-outlined text-outline" data-icon="phone" style="font-size: 16px;">phone</span>
+<span>(11) 98765-4321 <span class="text-[11px] text-outline">(fictício)</span></span>
+</p>
+</div>
+<!-- Badges & Channels -->
+<div class="flex flex-wrap items-center gap-2 pl-8 pt-1 text-[12px]">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-size: 14px;">check_circle</span>
+                WhatsApp verificado
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-800 border border-indigo-200">
+<span class="material-symbols-outlined" data-icon="photo_camera" style="font-size: 14px;">photo_camera</span>
+                Instagram verificado
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 font-label-md">
+<span class="material-symbols-outlined" data-icon="web_asset_off" style="font-size: 14px;">web_asset_off</span>
+                Sem site informado
+              </span>
+</div>
+<!-- Actions Row -->
+<div class="flex items-center justify-end gap-2 pt-2 border-t border-dividers mt-1 pl-8">
+<button class="px-3 py-1.5 rounded-lg border border-dividers text-secondary-text hover:text-main-text hover:bg-surface-container-low font-action text-action transition-colors text-[13px]">
+                Ver detalhes
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg bg-primary-container hover:bg-surface-tint text-white font-action text-action shadow-xs transition-colors text-[13px] flex items-center gap-1.5">
+<span class="material-symbols-outlined" data-icon="send" style="font-size: 15px;">send</span>
+<span>Preparar contato</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Oficina Horizonte -->
+<article class="bg-surface rounded-xl border border-dividers shadow-xs p-4 flex flex-col gap-3 transition-shadow hover:shadow-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-slate-700 text-white font-action text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-action text-[15px] text-main-text font-semibold">Oficina Horizonte <span class="font-normal text-secondary-text text-xs">(exemplo)</span></h2>
+</div>
+<span class="inline-block text-[12px] font-label-md text-secondary-text mt-0.5">Serviços Automotivos</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-md bg-slate-100 text-secondary-text border border-slate-200 shrink-0">
+                Não contatado
+              </span>
+</div>
+<div class="text-[13px] text-secondary-text space-y-1 pl-8">
+<p class="flex items-center gap-1.5 text-main-text">
+<span class="material-symbols-outlined text-outline" data-icon="location_on" style="font-size: 16px;">location_on</span>
+<span>Av. Lins de Vasconcelos, 890 - Vila Mariana</span>
+</p>
+<p class="flex items-center gap-1.5 text-secondary-text">
+<span class="material-symbols-outlined text-outline" data-icon="phone" style="font-size: 16px;">phone</span>
+<span>(11) 97654-3210 <span class="text-[11px] text-outline">(fictício)</span></span>
+</p>
+</div>
+<div class="flex flex-wrap items-center gap-2 pl-8 pt-1 text-[12px]">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-size: 14px;">check_circle</span>
+                WhatsApp verificado
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200">
+<span class="material-symbols-outlined" data-icon="block" style="font-size: 14px;">block</span>
+                Instagram: Não informado
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 font-label-md">
+<span class="material-symbols-outlined" data-icon="web_asset_off" style="font-size: 14px;">web_asset_off</span>
+                Sem site informado
+              </span>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2 border-t border-dividers mt-1 pl-8">
+<button class="px-3 py-1.5 rounded-lg border border-dividers text-secondary-text hover:text-main-text hover:bg-surface-container-low font-action text-action transition-colors text-[13px]">
+                Ver detalhes
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg bg-primary-container hover:bg-surface-tint text-white font-action text-action shadow-xs transition-colors text-[13px] flex items-center gap-1.5">
+<span class="material-symbols-outlined" data-icon="send" style="font-size: 15px;">send</span>
+<span>Preparar contato</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Floricultura Ipê (Contatado) -->
+<article class="bg-surface rounded-xl border border-dividers shadow-xs p-4 flex flex-col gap-3 transition-shadow hover:shadow-sm opacity-95">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-slate-700 text-white font-action text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-action text-[15px] text-main-text font-semibold">Floricultura Ipê <span class="font-normal text-secondary-text text-xs">(exemplo)</span></h2>
+</div>
+<span class="inline-block text-[12px] font-label-md text-secondary-text mt-0.5">Floricultura &amp; Paisagismo</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-label-md bg-emerald-100 text-success border border-emerald-300 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                Contatado há 2 dias
+              </span>
+</div>
+<div class="text-[13px] text-secondary-text space-y-1 pl-8">
+<p class="flex items-center gap-1.5 text-main-text">
+<span class="material-symbols-outlined text-outline" data-icon="location_on" style="font-size: 16px;">location_on</span>
+<span>Rua Vergueiro, 2450 - Vila Mariana</span>
+</p>
+<p class="flex items-center gap-1.5 text-secondary-text">
+<span class="material-symbols-outlined text-outline" data-icon="phone" style="font-size: 16px;">phone</span>
+<span>(11) 96543-2109 <span class="text-[11px] text-outline">(fictício)</span></span>
+</p>
+</div>
+<div class="flex flex-wrap items-center gap-2 pl-8 pt-1 text-[12px]">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-800 border border-indigo-200">
+<span class="material-symbols-outlined" data-icon="photo_camera" style="font-size: 14px;">photo_camera</span>
+                Instagram verificado
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200">
+<span class="material-symbols-outlined" data-icon="block" style="font-size: 14px;">block</span>
+                WhatsApp: Não informado
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 font-label-md">
+<span class="material-symbols-outlined" data-icon="web_asset_off" style="font-size: 14px;">web_asset_off</span>
+                Sem site informado
+              </span>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2 border-t border-dividers mt-1 pl-8">
+<button class="px-3 py-1.5 rounded-lg border border-dividers text-secondary-text hover:text-main-text hover:bg-surface-container-low font-action text-action transition-colors text-[13px]">
+                Ver detalhes
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary-container font-action text-action border border-dividers transition-colors text-[13px] flex items-center gap-1.5">
+<span class="material-symbols-outlined" data-icon="chat" style="font-size: 15px;">chat</span>
+<span>Ver histórico</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Café Jardim -->
+<article class="bg-surface rounded-xl border border-dividers shadow-xs p-4 flex flex-col gap-3 transition-shadow hover:shadow-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-slate-700 text-white font-action text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-action text-[15px] text-main-text font-semibold">Café Jardim <span class="font-normal text-secondary-text text-xs">(exemplo)</span></h2>
+</div>
+<span class="inline-block text-[12px] font-label-md text-secondary-text mt-0.5">Cafeteria &amp; Bistrô</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-md bg-slate-100 text-secondary-text border border-slate-200 shrink-0">
+                Não contatado
+              </span>
+</div>
+<div class="text-[13px] text-secondary-text space-y-1 pl-8">
+<p class="flex items-center gap-1.5 text-main-text">
+<span class="material-symbols-outlined text-outline" data-icon="location_on" style="font-size: 16px;">location_on</span>
+<span>Rua Joaquim Távora, 510 - Vila Mariana</span>
+</p>
+<p class="flex items-center gap-1.5 text-secondary-text">
+<span class="material-symbols-outlined text-outline" data-icon="phone" style="font-size: 16px;">phone</span>
+<span>(11) 95432-1098 <span class="text-[11px] text-outline">(fictício)</span></span>
+</p>
+</div>
+<div class="flex flex-wrap items-center gap-2 pl-8 pt-1 text-[12px]">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-size: 14px;">check_circle</span>
+                WhatsApp verificado
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-800 border border-indigo-200">
+<span class="material-symbols-outlined" data-icon="photo_camera" style="font-size: 14px;">photo_camera</span>
+                Instagram verificado
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 font-label-md">
+<span class="material-symbols-outlined" data-icon="web_asset_off" style="font-size: 14px;">web_asset_off</span>
+                Sem site informado
+              </span>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2 border-t border-dividers mt-1 pl-8">
+<button class="px-3 py-1.5 rounded-lg border border-dividers text-secondary-text hover:text-main-text hover:bg-surface-container-low font-action text-action transition-colors text-[13px]">
+                Ver detalhes
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg bg-primary-container hover:bg-surface-tint text-white font-action text-action shadow-xs transition-colors text-[13px] flex items-center gap-1.5">
+<span class="material-symbols-outlined" data-icon="send" style="font-size: 15px;">send</span>
+<span>Preparar contato</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- RIGHT PANEL: 55% INTERACTIVE GEOGRAPHIC MAP VIEW                     -->
+<!-- ===================================================================== -->
+<section class="w-[55%] flex flex-col bg-slate-100 relative overflow-hidden">
+<!-- Map Floating Top Toolbar -->
+<div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+<!-- Left side controls / helper banner -->
+<div class="flex items-center gap-2 pointer-events-auto">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/95 backdrop-blur-sm border border-dividers shadow-sm text-[12px] font-label-md text-main-text">
+<span class="material-symbols-outlined text-primary-container" data-icon="map" style="font-size: 16px;">map</span>
+<span class="font-action">Mapa ilustrativo</span>
+<span class="text-dividers">|</span>
+<span class="text-secondary-text">Vila Mariana</span>
+</div>
+<!-- Drawing and radius controls -->
+<button class="px-3 py-1.5 rounded-lg bg-white/95 backdrop-blur-sm border border-dividers hover:bg-white text-secondary-text hover:text-main-text shadow-sm text-[12px] font-action flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-outline" data-icon="polyline" style="font-size: 16px;">polyline</span>
+<span>Desenhar região</span>
+</button>
+<div class="relative bg-white/95 backdrop-blur-sm rounded-lg border border-dividers shadow-sm">
+<select class="text-[12px] font-label-md text-main-text bg-transparent py-1.5 pl-2.5 pr-7 appearance-none border-none focus:ring-0">
+<option selected="">Raio 2 km</option>
+<option>Raio 1 km</option>
+<option>Raio 3 km</option>
+<option>Raio 5 km</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-1.5 top-2 text-outline" data-icon="expand_more" style="font-size: 14px;">expand_more</span>
+</div>
+</div>
+<!-- Primary Trigger Button embedded in Map: "Buscar nesta região" -->
+<div class="flex items-center gap-2 pointer-events-auto">
+<button class="px-4 py-2 rounded-lg bg-primary-container hover:bg-surface-tint text-white font-action text-action shadow-md flex items-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="search" style="font-size: 18px;">search</span>
+<span>Buscar nesta região</span>
+</button>
+</div>
+</div>
+<!-- Floating Hint Pill: "Mover o mapa não inicia uma busca" -->
+<div class="absolute top-16 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+<div class="px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-label-md shadow-sm border border-slate-700/50 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-amber-300" data-icon="info" style="font-size: 14px;">info</span>
+<span>Mover o mapa não inicia uma busca automática</span>
+</div>
+</div>
+<!-- Floating Map Nav / Zoom Controls (Bottom Right) -->
+<div class="absolute right-4 bottom-8 z-20 flex flex-col gap-1 pointer-events-auto">
+<button class="w-9 h-9 rounded-lg bg-white border border-dividers shadow-sm hover:bg-slate-50 flex items-center justify-center text-main-text transition-colors" title="Aproximar">
+<span class="material-symbols-outlined" data-icon="add" style="font-size: 18px;">add</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-white border border-dividers shadow-sm hover:bg-slate-50 flex items-center justify-center text-main-text transition-colors" title="Afastar">
+<span class="material-symbols-outlined" data-icon="remove" style="font-size: 18px;">remove</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-white border border-dividers shadow-sm hover:bg-slate-50 flex items-center justify-center text-main-text transition-colors mt-1" title="Centralizar Vila Mariana">
+<span class="material-symbols-outlined" data-icon="my_location" style="font-size: 18px;">my_location</span>
+</button>
+</div>
+<!-- =================================================================== -->
+<!-- SCHEMATIC MAP CANVAS: VILA MARIANA, SÃO PAULO                        -->
+<!-- =================================================================== -->
+<div class="w-full h-full relative bg-[#E5E9E7] overflow-hidden select-none cursor-grab active:cursor-grabbing" data-location="São Paulo" style="">
+<!-- Detailed Vector SVG Map Blueprint for Vila Mariana -->
+<svg class="w-full h-full object-cover" viewbox="0 0 800 650" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- 2km Radius Gradient Overlay -->
+<radialgradient cx="48%" cy="46%" id="radiusGradient" r="42%">
+<stop offset="0%" stop-color="#0F766E" stop-opacity="0.08"></stop>
+<stop offset="85%" stop-color="#0F766E" stop-opacity="0.04"></stop>
+<stop offset="100%" stop-color="#0F766E" stop-opacity="0.2"></stop>
+</radialgradient>
+<filter height="140%" id="pinShadow" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="2" flood-color="#0F172A" flood-opacity="0.25" stddeviation="2"></fedropshadow>
+</filter>
+</defs>
+<!-- Base Canvas / City Blocks Tone -->
+<rect fill="#E9ECEF" height="100%" width="100%"></rect>
+<!-- Green Areas: Edge of Parque Ibirapuera & Local Praças -->
+<path d="M -20,20 Q 80,60 140,160 T 90,340 L -20,380 Z" fill="#D1E7DD" stroke="#BCD0C7" stroke-width="1.5"></path>
+<text fill="#2D6A4F" font-family="Inter" font-size="11" font-weight="600" letter-spacing="1" x="35" y="190">PARQUE IBIRAPUERA</text>
+<rect fill="#D1E7DD" height="45" rx="6" stroke="#BCD0C7" stroke-width="1" width="70" x="580" y="80"></rect>
+<text fill="#2D6A4F" font-family="Inter" font-size="9" x="590" y="105">Pça. Rosa Alves</text>
+<!-- Major Secondary Residential Grids (Streets) -->
+<g stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+<!-- East-West & Diagonal Local Streets -->
+<line x1="80" x2="750" y1="260" y2="160"></line>
+<line x1="100" x2="780" y1="360" y2="280"></line>
+<line x1="120" x2="760" y1="460" y2="390"></line>
+<line x1="140" x2="720" y1="560" y2="520"></line>
+<!-- Cross Avenues -->
+<line x1="220" x2="310" y1="80" y2="600"></line>
+<line x1="490" x2="560" y1="40" y2="620"></line>
+<line x1="640" x2="710" y1="70" y2="580"></line>
+</g>
+<!-- Primary Arterials & Metro Lines -->
+<!-- Rua Vergueiro (Long diagonal spine) -->
+<path d="M 180,30 L 390,320 L 530,590" fill="none" stroke="#FDE047" stroke-linecap="round" stroke-width="8"></path>
+<path d="M 180,30 L 390,320 L 530,590" fill="none" stroke="#CA8A04" stroke-dasharray="8 6" stroke-linecap="round" stroke-width="2"></path>
+<!-- Rua Domingos de Morais (Major Avenue) -->
+<path d="M 280,60 L 420,330 L 480,620" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="10"></path>
+<path d="M 280,60 L 420,330 L 480,620" fill="none" stroke="#CBD5E1" stroke-linecap="round" stroke-width="8"></path>
+<!-- Rua Joaquim Távora (Connecting cross artery) -->
+<path d="M 110,310 L 410,290 L 680,240" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="8"></path>
+<!-- Av. Lins de Vasconcelos (East side arterial) -->
+<path d="M 520,30 L 610,310 L 660,620" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="8"></path>
+<!-- Metro Stations Icons & Labels (Linha 1 Azul / Linha 2 Verde) -->
+<!-- Estação Ana Rosa -->
+<g transform="translate(305, 175)">
+<circle cx="0" cy="0" fill="#0284C7" r="7" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#0369A1" font-family="Inter" font-size="10" font-weight="700" x="12" y="4">Metrô Ana Rosa</text>
+</g>
+<!-- Estação Vila Mariana -->
+<g transform="translate(422, 335)">
+<circle cx="0" cy="0" fill="#0284C7" r="7" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#0369A1" font-family="Inter" font-size="10" font-weight="700" x="12" y="4">Metrô Vila Mariana</text>
+</g>
+<!-- Estação Chácara Klabin -->
+<g transform="translate(560, 360)">
+<circle cx="0" cy="0" fill="#16A34A" r="6" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#15803D" font-family="Inter" font-size="9" font-weight="600" x="10" y="4">Chácara Klabin</text>
+</g>
+<!-- Street Labels for context orientation -->
+<text fill="#64748B" font-family="Inter" font-size="10" font-weight="500" transform="rotate(62 430 270)" x="430" y="270">R. Domingos de Morais</text>
+<text fill="#64748B" font-family="Inter" font-size="10" font-weight="500" transform="rotate(52 260 140)" x="260" y="140">Rua Vergueiro</text>
+<text fill="#64748B" font-family="Inter" font-size="9" font-weight="500" transform="rotate(-6 230 280)" x="230" y="280">R. Joaquim Távora</text>
+<text fill="#64748B" font-family="Inter" font-size="9" font-weight="500" transform="rotate(70 590 240)" x="590" y="240">Av. Lins de Vasconcelos</text>
+<!-- 2 KM SEARCH RADIUS CIRCULAR OVERLAY (Centered on Vila Mariana core) -->
+<circle cx="400" cy="300" fill="url(#radiusGradient)" r="230" stroke="#0F766E" stroke-dasharray="6 4" stroke-width="2"></circle>
+<circle cx="400" cy="300" fill="#0F766E" r="4"></circle>
+<text fill="#0F766E" font-family="Inter" font-size="9" font-weight="600" x="408" y="304">Centro: Vila Mariana</text>
+<!-- =============================================================== -->
+<!-- INTERACTIVE NUMBERED MAP PINS (Plotted at matching locations)   -->
+<!-- =============================================================== -->
+<!-- Pin 2: Oficina Horizonte (Av. Lins de Vasconcelos) -->
+<g class="cursor-pointer" filter="url(#pinShadow)" transform="translate(595, 220)">
+<path d="M 0,0 C -12,0 -16,-12 -16,-20 C -16,-32 0,-44 0,-44 C 0,-44 16,-32 16,-20 C 16,-12 12,0 0,0 Z" fill="#0F172A"></path>
+<circle cx="0" cy="-22" fill="#FFFFFF" r="8"></circle>
+<text fill="#0F172A" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" x="0" y="-18">2</text>
+</g>
+<!-- Pin 3: Floricultura Ipê (Rua Vergueiro) -->
+<g class="cursor-pointer" filter="url(#pinShadow)" transform="translate(340, 240)">
+<path d="M 0,0 C -12,0 -16,-12 -16,-20 C -16,-32 0,-44 0,-44 C 0,-44 16,-32 16,-20 C 16,-12 12,0 0,0 Z" fill="#166534"></path>
+<circle cx="0" cy="-22" fill="#FFFFFF" r="8"></circle>
+<text fill="#166534" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" x="0" y="-18">3</text>
+</g>
+<!-- Pin 4: Café Jardim (Rua Joaquim Távora) -->
+<g class="cursor-pointer" filter="url(#pinShadow)" transform="translate(260, 290)">
+<path d="M 0,0 C -12,0 -16,-12 -16,-20 C -16,-32 0,-44 0,-44 C 0,-44 16,-32 16,-20 C 16,-12 12,0 0,0 Z" fill="#0F172A"></path>
+<circle cx="0" cy="-22" fill="#FFFFFF" r="8"></circle>
+<text fill="#0F172A" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" x="0" y="-18">4</text>
+</g>
+<!-- Pin 1: Ateliê Aurora (ACTIVE / SELECTED: Highlighted Teal Pin & Tooltip) -->
+<g class="cursor-pointer" filter="url(#pinShadow)" transform="translate(425, 235)">
+<!-- Pulsing focus ring -->
+<circle cx="0" cy="-24" fill="#0F766E" fill-opacity="0.2" r="24">
+<animate attributename="r" dur="2.4s" repeatcount="indefinite" values="20;28;20"></animate>
+<animate attributename="opacity" dur="2.4s" repeatcount="indefinite" values="0.6;0.1;0.6"></animate>
+</circle>
+<!-- Pin Shape -->
+<path d="M 0,0 C -14,0 -18,-14 -18,-24 C -18,-38 0,-52 0,-52 C 0,-52 18,-38 18,-24 C 18,-14 14,0 0,0 Z" fill="#0F766E" stroke="#FFFFFF" stroke-width="2"></path>
+<circle cx="0" cy="-26" fill="#FFFFFF" r="9"></circle>
+<text fill="#0F766E" font-family="Inter" font-size="12" font-weight="800" text-anchor="middle" x="0" y="-22">1</text>
+</g>
+</svg>
+<!-- Selected Micro Tooltip Card Overlay for Pin 1 -->
+<div class="absolute top-[130px] left-[320px] z-30 w-60 bg-white rounded-lg p-3 shadow-lg border border-dividers pointer-events-auto">
+<div class="flex items-center justify-between pb-1.5 border-b border-dividers">
+<span class="font-action text-[12px] text-main-text truncate">Ateliê Aurora</span>
+<span class="text-[10px] font-semibold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200 text-center leading-tight">Sem site informado</span>
+</div>
+<p class="text-[11px] text-secondary-text mt-1.5 line-clamp-1">R. Domingos de Morais, 1240</p>
+<div class="flex items-center justify-between mt-2 pt-1">
+<span class="text-[10px] text-emerald-700 font-label-md">WhatsApp verificado</span>
+<button class="text-[11px] font-action text-primary-container hover:underline">Ver ficha →</button>
+</div>
+</div>
+<!-- Bottom Map Scale & Attribution -->
+<div class="absolute bottom-2 left-4 z-20 flex items-center gap-3 text-[11px] text-secondary-text bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded border border-dividers shadow-2xs">
+<div class="flex items-center gap-1">
+<div class="w-8 h-1 bg-slate-700 border-l border-r border-slate-900"></div>
+<span>500 m</span>
+</div>
+<span class="text-dividers">|</span>
+<span>© OpenStreetMap contributors</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

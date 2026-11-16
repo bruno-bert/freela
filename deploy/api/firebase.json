@@ -1,0 +1,3 @@
+{
+  "functions": [{ "source": "build", "codebase": "opportunities-api", "predeploy": "pnpm --filter @apps/api build", "runtime": "nodejs22", "ignore": ["node_modules", "src", "**/*.test.*"] }]
+}

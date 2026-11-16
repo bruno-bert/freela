@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Freelancer Workspace - Buscando Oportunidades</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#181c1c",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "primary": "#005c55",
+            "canvas": "#F8FAFC",
+            "secondary-text": "#475569",
+            "tertiary-fixed": "#ffdbce",
+            "tertiary": "#7f4025",
+            "dividers": "#E2E8F0",
+            "inverse-on-surface": "#eef1f0",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e0e3e1",
+            "on-secondary-fixed": "#00174b",
+            "surface-container": "#ebefed",
+            "secondary-container": "#316bf3",
+            "on-tertiary-container": "#ffe5db",
+            "on-secondary-fixed-variant": "#003ea8",
+            "surface-tint": "#006a63",
+            "inverse-surface": "#2d3130",
+            "on-tertiary-fixed": "#370e00",
+            "on-tertiary": "#ffffff",
+            "input-boundary": "#64748B",
+            "tertiary-fixed-dim": "#ffb598",
+            "main-text": "#0F172A",
+            "on-error-container": "#93000a",
+            "on-surface": "#181c1c",
+            "outline": "#6e7977",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#00504a",
+            "secondary-fixed-dim": "#b4c5ff",
+            "inverse-primary": "#80d5cb",
+            "tertiary-container": "#9c573a",
+            "primary-fixed-dim": "#80d5cb",
+            "error": "#B91C1C",
+            "on-secondary-container": "#fefcff",
+            "on-primary": "#ffffff",
+            "background": "#f7faf8",
+            "success": "#166534",
+            "primary-container": "#0f766e",
+            "secondary-fixed": "#dbe1ff",
+            "primary-fixed": "#9cf2e8",
+            "surface-bright": "#f7faf8",
+            "secondary": "#0051d5",
+            "warning": "#854D0E",
+            "outline-variant": "#bdc9c6",
+            "on-tertiary-fixed-variant": "#72361b",
+            "surface-container-low": "#f1f4f3",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e5e9e7",
+            "surface-container-highest": "#e0e3e1",
+            "surface": "#FFFFFF",
+            "on-surface-variant": "#3e4947",
+            "on-primary-container": "#a3faef",
+            "surface-dim": "#d7dbd9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "8px",
+            "gutter": "16px",
+            "space-xl": "32px",
+            "space-lg": "24px",
+            "space-xs": "4px",
+            "margin": "24px",
+            "space-md": "16px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "action": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "action": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Continuous smooth shimmer animation for skeleton loader */
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .skeleton-box {
+      position: relative;
+      overflow: hidden;
+      background-color: #E2E8F0;
+    }
+    .skeleton-box::after {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 1.6s infinite;
+      content: '';
+    }
+
+    /* Map custom grid styling */
+    .map-canvas-grid {
+      background-color: #f1f5f9;
+      background-image: 
+        linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+        linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-main-text font-body-md antialiased overflow-hidden h-screen flex">
+<!-- ================= SIDEBAR (Shared Component: SideNavBar) ================= -->
+<aside class="fixed top-0 left-0 h-screen w-[216px] bg-surface border-r border-dividers flex flex-col justify-between p-space-md shrink-0 z-30 select-none">
+<!-- Header / Brand -->
+<div class="flex flex-col gap-space-lg">
+<div class="flex items-center gap-space-sm px-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-surface-container-lowest shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="business_center">business_center</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-headline-md text-headline-md font-bold text-main-text tracking-tight leading-tight">Workspace</span>
+<span class="font-body-md text-body-md text-secondary-text text-[12px] leading-tight">Área de trabalho</span>
+</div>
+</div>
+<!-- CTA Nova Prospecção -->
+<button class="w-full flex items-center justify-center gap-space-xs py-2 px-space-md rounded-lg bg-primary-container text-surface hover:opacity-95 transition-opacity font-action text-action shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>Nova Prospecção</span>
+</button>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1">
+<!-- Tab: Oportunidades (ACTIVE) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-low text-primary-container font-action text-action" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="business_center" style="font-variation-settings: 'FILL' 1;">business_center</span>
+<span>Oportunidades</span>
+</a>
+<!-- Tab: Financeiro (INACTIVE) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150 font-body-md text-body-md" href="#"><div class="flex items-center gap-space-sm flex-1 min-w-0"><span class="material-symbols-outlined text-[20px] shrink-0" data-icon="account_balance_wallet">account_balance_wallet</span><span class="leading-tight">Financeiro</span></div><span class="px-1.5 py-0.5 rounded bg-surface-container-high text-[10px] font-medium text-secondary-text shrink-0 leading-none">Em breve</span></a>
+<!-- Tab: Criação de sites com IA (INACTIVE) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150 font-body-md text-body-md" href="#"><div class="flex items-center gap-space-sm flex-1 min-w-0"><span class="material-symbols-outlined text-[20px] shrink-0" data-icon="auto_awesome">auto_awesome</span><span class="leading-tight">Criação de sites com IA</span></div><span class="px-1.5 py-0.5 rounded bg-surface-container-high text-[10px] font-medium text-secondary-text shrink-0 leading-none">Em breve</span></a>
+</nav>
+</div>
+<!-- Footer Tabs (Configurações, Perfil) -->
+<div class="flex flex-col gap-1 border-t border-dividers pt-space-md">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Configurações</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_circle">account_circle</span>
+<span>Perfil</span>
+</a>
+</div>
+</aside>
+<!-- ================= MAIN VIEW AREA ================= -->
+<div class="ml-[216px] flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TOP BAR (Shared Component: TopNavBar) -->
+<header class="h-16 px-space-lg bg-surface border-b border-dividers flex items-center justify-between shrink-0 z-20">
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-md text-headline-md font-semibold text-main-text">Oportunidades</h1>
+<!-- Context Badges -->
+<div class="flex items-center gap-2 ml-2">
+<!-- Demonstration Badge -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-secondary-text border border-dividers text-[12px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+            Dados fictícios de demonstração
+          </span>
+<!-- Sem site informado badge -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-success border border-emerald-200 text-[12px] font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="link_off">link_off</span>
+            Sem site informado: 100%
+          </span>
+<!-- Região Atual -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-low text-secondary-text border border-dividers text-[12px] font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary-container" data-icon="pin_drop">pin_drop</span>
+            Vila Mariana, SP · raio 2 km
+          </span>
+</div>
+</div>
+<!-- Trailing actions -->
+<div class="flex items-center gap-space-sm">
+<button class="px-3 py-1.5 rounded-lg border border-dividers text-secondary-text hover:text-main-text hover:bg-surface-container-low font-action text-action transition-colors">
+          Demonstração
+        </button>
+<button class="p-2 rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors" title="Ajuda">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-2 rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors relative" title="Notificações">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<div class="w-px h-6 bg-dividers mx-1"></div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-dividers flex items-center justify-center font-action text-action text-main-text overflow-hidden">
+<span class="text-xs">FP</span>
+</div>
+</div>
+</header>
+<!-- WORKSPACE SPLIT CONTENT: (45% List Skeleton + 55% Crisp Interactive Map) -->
+<main class="flex-1 flex overflow-hidden">
+<!-- ================= LEFT COLUMN: LIST & SKELETON (45%) ================= -->
+<section class="w-[45%] bg-surface border-r border-dividers flex flex-col h-full overflow-hidden">
+<!-- Filter Header Section -->
+<div class="p-space-md border-b border-dividers bg-surface flex flex-col gap-space-sm shrink-0">
+<div class="flex items-center justify-between gap-space-xs">
+<!-- Category Filter Dropdown -->
+<div class="flex-1 min-w-0">
+<label class="block text-[11px] font-medium text-secondary-text uppercase tracking-wider mb-1">Categoria</label>
+<div class="relative">
+<select class="w-full h-9 pl-2.5 pr-7 text-xs font-label-md text-main-text rounded-lg border border-dividers bg-surface-container-low/50 hover:border-slate-400 focus:border-primary-container focus:ring-0 transition-colors appearance-none cursor-pointer">
+<option selected="">Todos</option>
+<option>Restaurantes &amp; Gastronomia</option>
+<option>Comércio Varejista</option>
+<option>Serviços e Saúde</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2.5 text-[16px] text-secondary-text pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Contact Status Filter Dropdown -->
+<div class="flex-1 min-w-0">
+<label class="block text-[11px] font-medium text-secondary-text uppercase tracking-wider mb-1">Status Contato</label>
+<div class="relative">
+<select class="w-full h-9 pl-2.5 pr-7 text-xs font-label-md text-main-text rounded-lg border border-dividers bg-surface-container-low/50 hover:border-slate-400 focus:border-primary-container focus:ring-0 transition-colors appearance-none cursor-pointer">
+<option selected="">Todos</option>
+<option>Não abordado</option>
+<option>Em prospecção</option>
+<option>Reunião agendada</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2.5 text-[16px] text-secondary-text pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Channels Filter Dropdown -->
+<div class="flex-1 min-w-0">
+<label class="block text-[11px] font-medium text-secondary-text uppercase tracking-wider mb-1">Canais</label>
+<div class="relative">
+<select class="w-full h-9 pl-2.5 pr-7 text-xs font-label-md text-main-text rounded-lg border border-dividers bg-surface-container-low/50 hover:border-slate-400 focus:border-primary-container focus:ring-0 transition-colors appearance-none cursor-pointer">
+<option selected="">Todos canais</option>
+<option>Telefone / WhatsApp</option>
+<option>Instagram</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2.5 text-[16px] text-secondary-text pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Bottom Filter Bar: Checkbox + Chip -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary-container border-input-boundary focus:ring-0 focus:ring-offset-0 transition" type="checkbox"/>
+<span class="font-body-md text-body-md text-xs font-medium text-main-text">Sem site informado</span>
+</label>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-low text-secondary-text border border-dividers text-[11px] font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary-container" data-icon="location_on">location_on</span>
+<span>Vila Mariana, SP · raio 2 km</span>
+</div>
+</div>
+</div>
+<!-- Progress Status Indicator Section -->
+<div class="bg-surface-container-lowest border-b border-dividers px-space-md py-3.5 bg-gradient-to-r from-emerald-50/40 via-surface to-surface">
+<div class="flex items-start gap-3">
+<!-- Smooth loading spinner -->
+<div class="relative w-5 h-5 mt-0.5 shrink-0">
+<div class="w-5 h-5 rounded-full border-2 border-emerald-200 border-t-primary-container animate-spin"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<p class="font-action text-action text-xs text-primary-container tracking-tight">
+                  Buscando empresas nesta região…
+                </p>
+<span class="text-[11px] text-secondary-text font-medium animate-pulse">Sincronizando</span>
+</div>
+<p class="font-body-md text-body-md text-xs text-secondary-text mt-0.5">Consultando estabelecimentos públicos sem presença web cadastrada (modo demonstração com dados ilustrativos)...</p>
+<!-- Subtle pulsing progress rail -->
+<div class="w-full bg-dividers h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary-container h-full w-2/5 rounded-full animate-pulse transition-all duration-700"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Skeleton Loading Cards Container (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-md divide-y divide-dividers/0">
+<!-- SKELETON CARD 1 -->
+<div class="p-space-md rounded-xl border border-dividers bg-surface shadow-none flex flex-col gap-3">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 space-y-2">
+<div class="h-4 w-3/5 rounded-md skeleton-box"></div>
+<div class="h-3 w-4/5 rounded skeleton-box"></div>
+</div>
+<div class="h-6 w-20 rounded-full skeleton-box shrink-0"></div>
+</div>
+<!-- Channels line -->
+<div class="flex items-center gap-2 pt-1">
+<div class="h-6 w-16 rounded-md skeleton-box"></div>
+<div class="h-6 w-20 rounded-md skeleton-box"></div>
+<div class="h-6 w-14 rounded-md skeleton-box"></div>
+</div>
+<!-- Action footer line -->
+<div class="flex items-center justify-between border-t border-dividers/60 pt-3 mt-1">
+<div class="h-4 w-24 rounded skeleton-box"></div>
+<div class="flex gap-2">
+<div class="h-7 w-20 rounded-lg skeleton-box"></div>
+<div class="h-7 w-24 rounded-lg skeleton-box"></div>
+</div>
+</div>
+</div>
+<!-- SKELETON CARD 2 -->
+<div class="p-space-md rounded-xl border border-dividers bg-surface shadow-none flex flex-col gap-3">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 space-y-2">
+<div class="h-4 w-1/2 rounded-md skeleton-box"></div>
+<div class="h-3 w-3/4 rounded skeleton-box"></div>
+</div>
+<div class="h-6 w-24 rounded-full skeleton-box shrink-0"></div>
+</div>
+<!-- Channels line -->
+<div class="flex items-center gap-2 pt-1">
+<div class="h-6 w-14 rounded-md skeleton-box"></div>
+<div class="h-6 w-18 rounded-md skeleton-box"></div>
+</div>
+<!-- Action footer line -->
+<div class="flex items-center justify-between border-t border-dividers/60 pt-3 mt-1">
+<div class="h-4 w-28 rounded skeleton-box"></div>
+<div class="flex gap-2">
+<div class="h-7 w-20 rounded-lg skeleton-box"></div>
+<div class="h-7 w-24 rounded-lg skeleton-box"></div>
+</div>
+</div>
+</div>
+<!-- SKELETON CARD 3 -->
+<div class="p-space-md rounded-xl border border-dividers bg-surface shadow-none flex flex-col gap-3">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 space-y-2">
+<div class="h-4 w-2/3 rounded-md skeleton-box"></div>
+<div class="h-3 w-5/6 rounded skeleton-box"></div>
+</div>
+<div class="h-6 w-16 rounded-full skeleton-box shrink-0"></div>
+</div>
+<!-- Channels line -->
+<div class="flex items-center gap-2 pt-1">
+<div class="h-6 w-20 rounded-md skeleton-box"></div>
+<div class="h-6 w-16 rounded-md skeleton-box"></div>
+<div class="h-6 w-12 rounded-md skeleton-box"></div>
+</div>
+<!-- Action footer line -->
+<div class="flex items-center justify-between border-t border-dividers/60 pt-3 mt-1">
+<div class="h-4 w-20 rounded skeleton-box"></div>
+<div class="flex gap-2">
+<div class="h-7 w-20 rounded-lg skeleton-box"></div>
+<div class="h-7 w-24 rounded-lg skeleton-box"></div>
+</div>
+</div>
+</div>
+<!-- SKELETON CARD 4 -->
+<div class="p-space-md rounded-xl border border-dividers bg-surface shadow-none flex flex-col gap-3 opacity-70">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 space-y-2">
+<div class="h-4 w-3/5 rounded-md skeleton-box"></div>
+<div class="h-3 w-2/3 rounded skeleton-box"></div>
+</div>
+<div class="h-6 w-20 rounded-full skeleton-box shrink-0"></div>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<div class="h-6 w-16 rounded-md skeleton-box"></div>
+<div class="h-6 w-14 rounded-md skeleton-box"></div>
+</div>
+<div class="flex items-center justify-between border-t border-dividers/60 pt-3 mt-1">
+<div class="h-4 w-24 rounded skeleton-box"></div>
+<div class="flex gap-2">
+<div class="h-7 w-20 rounded-lg skeleton-box"></div>
+<div class="h-7 w-24 rounded-lg skeleton-box"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= RIGHT COLUMN: INTERACTIVE MAP (55%) ================= -->
+<section class="w-[55%] relative h-full bg-slate-100 flex flex-col overflow-hidden" data-location="Vila Mariana, São Paulo">
+<!-- Crisp Vector Map Layout (Simulating OpenStreetMap Canvas) -->
+<div class="absolute inset-0 map-canvas-grid w-full h-full overflow-hidden">
+<!-- Vector Road Network Simulation (SVG for sharp lines) -->
+<svg class="w-full h-full opacity-60 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<!-- Major Avenues -->
+<path d="M-50,200 L900,350" stroke="#cbd5e1" stroke-linecap="round" stroke-width="12"></path>
+<path d="M-50,200 L900,350" stroke="#f8fafc" stroke-linecap="round" stroke-width="8"></path>
+<path d="M220,-50 L380,850" stroke="#cbd5e1" stroke-linecap="round" stroke-width="14"></path>
+<path d="M220,-50 L380,850" stroke="#f8fafc" stroke-linecap="round" stroke-width="10"></path>
+<path d="M60,-80 L750,700" stroke="#e2e8f0" stroke-width="8"></path>
+<path d="M-20,620 L800,280" stroke="#e2e8f0" stroke-width="7"></path>
+<!-- Secondary Streets -->
+<line stroke="#e2e8f0" stroke-width="4" x1="80" x2="680" y1="120" y2="120"></line>
+<line stroke="#e2e8f0" stroke-width="4" x1="120" x2="820" y1="260" y2="260"></line>
+<line stroke="#e2e8f0" stroke-width="4" x1="90" x2="720" y1="420" y2="420"></line>
+<line stroke="#e2e8f0" stroke-width="4" x1="50" x2="850" y1="580" y2="580"></line>
+<line stroke="#e2e8f0" stroke-width="4" x1="160" x2="160" y1="20" y2="780"></line>
+<line stroke="#e2e8f0" stroke-width="4" x1="490" x2="490" y1="20" y2="780"></line>
+<line stroke="#e2e8f0" stroke-width="4" x1="640" x2="640" y1="20" y2="780"></line>
+<!-- Parque Ibirapuera / Green Zone Near Vila Mariana -->
+<path d="M-20,60 C40,40 120,70 140,160 C150,230 70,300 -10,310 Z" fill="#dcfce7" stroke="#bbf7d0" stroke-width="2"></path>
+<text fill="#166534" font-family="Inter" font-size="11" font-weight="500" letter-spacing="1" x="30" y="180">ÁREA VERDE</text>
+</svg>
+<!-- 2km Search Perimeter Area (High Visibility Circular Overlay) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border-2 border-primary-container bg-primary-container/10 pointer-events-none flex items-center justify-center transition-all duration-300">
+<!-- Center Crosshair Target -->
+<div class="w-8 h-8 rounded-full border border-primary-container/40 flex items-center justify-center bg-surface/80 backdrop-blur-sm shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary-container" data-icon="my_location">my_location</span>
+</div>
+<!-- Perimeter Label -->
+<div class="absolute bottom-4 bg-surface px-2 py-0.5 rounded-full border border-dividers text-[10px] font-action text-primary-container shadow-xs">
+              Raio de busca: 2.0 km
+            </div>
+</div>
+<!-- Floating Map Street Tags -->
+<div class="absolute top-[28%] left-[22%] pointer-events-none">
+<span class="text-[11px] font-medium text-slate-500 bg-surface/90 px-1.5 py-0.5 rounded border border-dividers/60 shadow-xs">
+              Av. Domingos de Morais
+            </span>
+</div>
+<div class="absolute top-[68%] left-[48%] pointer-events-none">
+<span class="text-[11px] font-medium text-slate-500 bg-surface/90 px-1.5 py-0.5 rounded border border-dividers/60 shadow-xs">
+              Rua Sena Madureira
+            </span>
+</div>
+<div class="absolute top-[42%] left-[62%] pointer-events-none">
+<span class="text-[11px] font-medium text-slate-500 bg-surface/90 px-1.5 py-0.5 rounded border border-dividers/60 shadow-xs">
+              Vila Mariana
+            </span>
+</div>
+</div>
+<!-- ================= TOP MAP OVERLAY CONTROLS ================= -->
+<div class="absolute top-space-md left-0 right-0 px-space-md flex flex-col items-center gap-2 pointer-events-none z-10">
+<!-- Disabled Action Button: "Buscar nesta região" with subtle spinner -->
+<div class="pointer-events-auto">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface border border-dividers text-slate-400 font-action text-action shadow-sm cursor-not-allowed select-none opacity-90 transition" disabled="">
+<!-- Inline micro spinner -->
+<span class="w-3.5 h-3.5 rounded-full border-2 border-slate-300 border-t-slate-500 animate-spin"></span>
+<span>Buscando nesta região...</span>
+</button>
+</div>
+<!-- Informational Floating Pill -->
+<div class="pointer-events-auto flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface/95 backdrop-blur-sm border border-dividers text-secondary-text shadow-sm text-xs">
+<span class="material-symbols-outlined text-[14px] text-slate-400" data-icon="info">info</span>
+<span>Mover o mapa não inicia uma busca automática</span>
+</div>
+</div>
+<!-- ================= MAP NAVIGATION FLOATING UTILITIES ================= -->
+<div class="absolute right-space-md bottom-12 flex flex-col gap-1.5 z-10 pointer-events-auto">
+<!-- Zoom in / out -->
+<div class="bg-surface rounded-lg border border-dividers shadow-sm flex flex-col divide-y divide-dividers overflow-hidden">
+<button class="p-2 text-secondary-text hover:text-main-text hover:bg-surface-container-low transition" title="Aumentar zoom">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+<button class="p-2 text-secondary-text hover:text-main-text hover:bg-surface-container-low transition" title="Diminuir zoom">
+<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
+</button>
+</div>
+<!-- Center location button -->
+<button class="p-2 bg-surface rounded-lg border border-dividers shadow-sm text-secondary-text hover:text-main-text hover:bg-surface-container-low transition" title="Centralizar em Vila Mariana">
+<span class="material-symbols-outlined text-[18px]" data-icon="near_me">near_me</span>
+</button>
+</div>
+<!-- ================= MAP FOOTER ATTRIBUTION & SCALE ================= -->
+<div class="absolute bottom-2 left-space-md right-space-md flex items-center justify-between text-[11px] text-slate-500 pointer-events-none z-10 select-none">
+<!-- Scale Bar -->
+<div class="flex items-center gap-1.5 bg-surface/90 px-2 py-0.5 rounded border border-dividers pointer-events-auto">
+<div class="w-12 h-1 bg-slate-700 border-x border-slate-700"></div>
+<span class="font-mono text-[10px]">500 m</span>
+</div>
+<!-- Attribution -->
+<div class="bg-surface/90 px-2 py-0.5 rounded border border-dividers pointer-events-auto">
+<span>© <a class="hover:underline" href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

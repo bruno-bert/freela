@@ -1,0 +1,9 @@
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { fn } from 'storybook/test';
+import { CompanyCard } from '../../../web/src/components/company-card';
+import { company, t } from '../../fixtures';
+const meta = { title: 'Web/Opportunities/CompanyCard', component: CompanyCard, tags: ['autodocs'], args: { company, index: 0, copy: t, onDetails: fn(), onContact: fn() } } satisfies Meta<typeof CompanyCard>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+export const Contacted: Story = { args: { company: { ...company, contact: { contacted: true, version: 1, history: [] } } } };

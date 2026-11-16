@@ -1,0 +1,10 @@
+import { beforeAll,afterAll,it,expect } from 'vitest';
+import { readFile } from 'node:fs/promises';
+import { initializeTestEnvironment,assertFails,type RulesTestEnvironment } from '@firebase/rules-unit-testing';
+import {doc,getDoc,setDoc} from 'firebase/firestore';
+import {FirestoreContactRepositoryAdapter} from '../apps/api/src/infra/adapters/repositories/firestore/firestore-contact-repository.adapter';
+let environment:RulesTestEnvironment;
+beforeAll(async()=>{environment=await initializeTestEnvironment({projectId:'demo-freela',firestore:{host:'127.0.0.1',port:8080,rules:await readFile('deploy/shared/firestore.rules','utf8')}});});
+afterAll(async()=>{await environment.cleanup();});
+it('denies both anonymous and authenticated browser access',async()=>{for(const context of [environment.unauthenticatedContext(),environment.authenticatedContext('owner')]){const db=context.firestore();await assertFails(getDoc(doc(db,'users/owner/contacts/place')));await assertFails(setDoc(doc(db,'users/owner/contacts/place'),{contacted:true}));}});
+it('atomically accepts one concurrent transition and replays its idempotent result',async()=>{const repo=new FirestoreContactRepositoryAdapter('demo-freela');const owner=crypto.randomUUID();const first={companyId:'google-place-id',expectedVersion:0,idempotencyKey:crypto.randomUUID(),note:'Confirmed in emulator'};const second={...first,idempotencyKey:crypto.randomUUID()};const results=await Promise.allSettled([repo.record(owner,first),repo.record(owner,second)]);expect(results.filter(r=>r.status==='fulfilled')).toHaveLength(1);expect(results.find(r=>r.status==='rejected')).toMatchObject({reason:{status:409}});const index=results[0].status==='fulfilled'?0:1;const accepted=index===0?first:second;expect(await repo.record(owner,accepted)).toEqual((results[index] as PromiseFulfilledResult<unknown>).value);expect((await repo.get(owner,first.companyId)).version).toBe(1);expect((await repo.get('other-owner',first.companyId)).contacted).toBe(false);});

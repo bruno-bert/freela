@@ -1,0 +1,78 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "functions": [
+    {
+      "source": "../../apps/api",
+      "codebase": "__FUNCTIONS_CODEBASE__",
+      "runtime": "nodejs22",
+      "predeploy": [
+        "pnpm --filter __APP_PACKAGE__ build"
+      ],
+      "ignore": [
+        "node_modules",
+        ".git",
+        "*.log",
+        ".secret.local",
+        ".env.local"
+      ]
+    }
+  ],
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    }
+  },
+  "apphosting": {
+    "backendId": "__APP_HOSTING_BACKEND_ID__",
+    "rootDir": "../../apps/web",
+    "ignore": [
+      "node_modules",
+      "**/node_modules",
+      ".git",
+      ".github",
+      ".next",
+      "functions",
+      "tests",
+      ".env*",
+      "**/.env*",
+      "**/.secret*",
+      ".firebase",
+      "test-results",
+      "playwright-report",
+      "coverage",
+      "assets",
+      "*.log",
+      "*.tsbuildinfo",
+      "gha-creds-*.json",
+      "service-account*.json",
+      "firebase-credentials*.json"
+    ]
+  },
+  "hosting": {
+    "target": "__HOSTING_TARGET__",
+    "public": "../../apps/storybook/storybook-static",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

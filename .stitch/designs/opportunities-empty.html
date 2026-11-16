@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oportunidades - Freelancer Workspace</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#181c1c",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "primary": "#005c55",
+            "canvas": "#F8FAFC",
+            "secondary-text": "#475569",
+            "tertiary-fixed": "#ffdbce",
+            "tertiary": "#7f4025",
+            "dividers": "#E2E8F0",
+            "inverse-on-surface": "#eef1f0",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e0e3e1",
+            "on-secondary-fixed": "#00174b",
+            "surface-container": "#ebefed",
+            "secondary-container": "#316bf3",
+            "on-tertiary-container": "#ffe5db",
+            "on-secondary-fixed-variant": "#003ea8",
+            "surface-tint": "#006a63",
+            "inverse-surface": "#2d3130",
+            "on-tertiary-fixed": "#370e00",
+            "on-tertiary": "#ffffff",
+            "input-boundary": "#64748B",
+            "tertiary-fixed-dim": "#ffb598",
+            "main-text": "#0F172A",
+            "on-error-container": "#93000a",
+            "on-surface": "#181c1c",
+            "outline": "#6e7977",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#00504a",
+            "secondary-fixed-dim": "#b4c5ff",
+            "inverse-primary": "#80d5cb",
+            "tertiary-container": "#9c573a",
+            "primary-fixed-dim": "#80d5cb",
+            "error": "#B91C1C",
+            "on-secondary-container": "#fefcff",
+            "on-primary": "#ffffff",
+            "background": "#f7faf8",
+            "success": "#166534",
+            "primary-container": "#0f766e",
+            "secondary-fixed": "#dbe1ff",
+            "primary-fixed": "#9cf2e8",
+            "surface-bright": "#f7faf8",
+            "secondary": "#0051d5",
+            "warning": "#854D0E",
+            "outline-variant": "#bdc9c6",
+            "on-tertiary-fixed-variant": "#72361b",
+            "surface-container-low": "#f1f4f3",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e5e9e7",
+            "surface-container-highest": "#e0e3e1",
+            "surface": "#FFFFFF",
+            "on-surface-variant": "#3e4947",
+            "on-primary-container": "#a3faef",
+            "surface-dim": "#d7dbd9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "8px",
+            "gutter": "16px",
+            "space-xl": "32px",
+            "space-lg": "24px",
+            "space-xs": "4px",
+            "margin": "24px",
+            "space-md": "16px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "action": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "action": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="h-full bg-canvas text-main-text font-body-md text-body-md antialiased overflow-hidden flex">
+<!-- Desktop SideNavBar (216px persistent) -->
+<aside class="fixed top-0 left-0 h-screen w-[216px] bg-surface border-r border-dividers flex flex-col justify-between p-space-md shrink-0 z-30 select-none">
+<div>
+<!-- Workspace Brand Header -->
+<div class="flex items-center gap-space-sm mb-space-lg px-space-xs pt-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-surface flex items-center justify-center font-action text-action">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-headline-md text-headline-md text-main-text leading-tight truncate">Workspace</span>
+<span class="font-label-md text-label-md text-secondary-text truncate">Área de trabalho</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full flex items-center justify-center gap-space-sm py-2 px-space-md mb-space-lg rounded-lg bg-primary-container text-surface hover:bg-primary font-action text-action transition-colors duration-150 ease-in-out shadow-none">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>Nova Prospecção</span>
+</button>
+<!-- Navigation Tabs -->
+<nav class="space-y-1">
+<!-- Active Tab: Oportunidades -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-low text-primary-container font-action text-action transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="business_center">business_center</span>
+<span>Oportunidades</span>
+</a>
+<!-- Inactive Tab: Financeiro -->
+<a class="flex items-start gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[20px] shrink-0 pt-0.5" data-icon="account_balance_wallet">account_balance_wallet</span><div class="flex flex-col leading-tight flex-1 min-w-0"><span class="leading-snug">Financeiro</span><span class="mt-1 inline-block w-fit text-[10px] font-label-md bg-surface-container-low text-secondary-text px-1.5 py-0.5 rounded border border-dividers">Em breve</span></div></a>
+<!-- Inactive Tab: Criação de sites com IA -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#"><div class="flex items-start gap-space-sm flex-1 min-w-0"><span class="material-symbols-outlined text-[20px] shrink-0 pt-0.5" data-icon="auto_awesome">auto_awesome</span><div class="flex flex-col leading-tight"><span class="leading-snug">Criação de sites com IA</span><span class="mt-1 inline-block w-fit text-[10px] font-label-md bg-surface-container-low text-secondary-text px-1.5 py-0.5 rounded border border-dividers">Em breve</span></div></div></a>
+</nav>
+</div>
+<!-- Footer Tabs -->
+<div class="pt-space-md border-t border-dividers space-y-1">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Configurações</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_circle">account_circle</span>
+<span>Perfil</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas Area with Left Margin for Sidebar -->
+<div class="ml-[216px] flex-1 flex flex-col h-screen min-w-0 bg-canvas">
+<!-- TopNavBar (Docked Full Width) -->
+<header class="bg-surface border-b border-dividers flex items-center justify-between h-16 px-space-lg w-full shrink-0 z-20">
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-md text-headline-md font-semibold text-main-text">Oportunidades</h1>
+<span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-xs font-label-md text-secondary-text bg-surface-container-low">Dados fictícios de demonstração</span>
+</div>
+<div class="flex items-center gap-space-md">
+<!-- Secondary Action: Demonstração -->
+<button class="px-space-md py-1.5 rounded-lg border border-dividers hover:bg-surface-container-low text-secondary-text hover:text-main-text font-action text-action transition-colors duration-150">
+          Demonstração
+        </button>
+<div class="h-5 w-[1px] bg-dividers"></div>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center gap-1">
+<button aria-label="Notificações" class="w-9 h-9 rounded-lg flex items-center justify-center text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150 relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span>
+</button>
+<button aria-label="Ajuda" class="w-9 h-9 rounded-lg flex items-center justify-center text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<!-- User Profile Avatar -->
+<div class="flex items-center gap-space-sm pl-space-xs cursor-pointer">
+<img alt="Foto do Freelancer" class="w-8 h-8 rounded-full border border-dividers object-cover" data-alt="A refined professional portrait of a modern Brazilian freelance web designer and tech consultant sitting in an elegant, sunlit co-working studio with clean geometric decor, wearing minimalist slate-toned attire with focused calm expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvPv9yJGFUs5fjFmlKl1y4vZ-rGoz4C8ZratmPkk8K0hLK_2vK8kbBzfeWjQ_0F1ZGqMiCLNXQr16DWUX7QhqrI8CdxMJ-ThJoTE2NbnkOeS88g8TpEIOvhSMmtQ3jhNp2WAVMBVLqMriotef39-GWw4LzezwUsVUJCI88jUm9LSr_dcegKpxg8ZLvPMKDCdaXWVjFpHEUpzbpEAXNc8D-jujZB16MIasTwFyDcHWklgocWvW5POJe-UhUFxptB_Y0XaO9p0C_nBk"/>
+</div>
+</div>
+</header>
+<!-- Split Content View (45% List / 55% Interactive Map) -->
+<main class="flex-1 flex overflow-hidden">
+<!-- LEFT COLUMN (45%): Filters & Empty State -->
+<section class="w-[45%] border-r border-dividers bg-surface flex flex-col h-full overflow-hidden shrink-0">
+<!-- Filters Bar Preserved at Top -->
+<div class="p-space-md border-b border-dividers bg-surface flex flex-col gap-space-sm shrink-0">
+<!-- Primary Filter Selectors Row -->
+<div class="grid grid-cols-3 gap-2">
+<!-- Categoria Filter -->
+<div class="relative">
+<label class="block text-[11px] font-label-md text-secondary-text uppercase tracking-wider mb-1">Categoria</label>
+<div class="relative">
+<button class="w-full bg-surface-container-lowest border border-dividers hover:border-input-boundary rounded-lg py-1.5 pl-2.5 pr-7 text-left font-body-md text-body-md text-main-text flex items-center justify-between" type="button">
+<span class="truncate">Odontologia</span>
+<span class="material-symbols-outlined text-secondary-text text-[16px] absolute right-2 pointer-events-none" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Status de Contato Filter -->
+<div class="relative">
+<label class="block text-[11px] font-label-md text-secondary-text uppercase tracking-wider mb-1">Status contato</label>
+<div class="relative">
+<button class="w-full bg-surface-container-lowest border border-dividers hover:border-input-boundary rounded-lg py-1.5 pl-2.5 pr-7 text-left font-body-md text-body-md text-main-text flex items-center justify-between" type="button">
+<span class="truncate">Todos os status</span>
+<span class="material-symbols-outlined text-secondary-text text-[16px] absolute right-2 pointer-events-none" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Canais Filter -->
+<div class="relative">
+<label class="block text-[11px] font-label-md text-secondary-text uppercase tracking-wider mb-1">Canais</label>
+<div class="relative">
+<button class="w-full bg-surface-container-lowest border border-dividers hover:border-input-boundary rounded-lg py-1.5 pl-2.5 pr-7 text-left font-body-md text-body-md text-main-text flex items-center justify-between" type="button"><span class="truncate">Todos os canais</span><span class="material-symbols-outlined text-secondary-text text-[16px] absolute right-2 pointer-events-none" data-icon="expand_more">expand_more</span></button>
+</div>
+</div>
+</div>
+<!-- Secondary Active Filters & Geographic Pin Tag -->
+<div class="flex items-center justify-between pt-1 gap-2 flex-wrap">
+<!-- Region Badge Chip -->
+<div class="inline-flex items-center gap-1.5 py-1 px-2.5 bg-surface-container-low border border-dividers rounded-full font-label-md text-xs text-main-text">
+<span class="material-symbols-outlined text-primary-container text-[14px]" data-icon="location_on">location_on</span>
+<span>Vila Mariana, SP · raio 2 km</span>
+<button aria-label="Remover região" class="hover:text-error transition-colors flex items-center ml-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Checkbox: Sem site informado (Checked) -->
+<label class="inline-flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded border-input-boundary text-primary-container focus:ring-secondary focus:ring-offset-0 transition-colors" type="checkbox"/>
+<span class="font-body-md text-xs text-main-text font-medium">Sem site informado</span>
+</label>
+</div>
+</div>
+<!-- Results Counter Header -->
+<div class="px-space-md py-2.5 bg-canvas border-b border-dividers flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-secondary-text">Resultado:</span>
+<span class="font-action text-action text-main-text">0 empresas encontradas (dados ilustrativos)</span>
+</div>
+<span class="text-xs text-secondary-text">Atualizado há instantes</span>
+</div>
+<!-- Scrollable Content Area: Clean Contextual Empty State -->
+<div class="flex-1 overflow-y-auto p-space-lg flex items-center justify-center">
+<div class="max-w-[420px] w-full text-center flex flex-col items-center">
+<!-- Sober, Operational Slate Search Icon Container -->
+<div class="w-14 h-14 rounded-2xl bg-canvas border border-dividers flex items-center justify-center text-input-boundary mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[28px]" data-icon="filter_alt_off">filter_alt_off</span>
+</div>
+<!-- Concise Main Empty State Headline -->
+<h2 class="font-headline-md text-[18px] leading-6 font-semibold text-main-text mb-2">
+              Nenhuma empresa encontrada com estes filtros
+            </h2>
+<!-- Contextual & Encouraging Operational Explanation -->
+<p class="font-body-md text-body-md text-secondary-text mb-space-lg leading-relaxed">
+              Não encontramos negócios sem site informado com os filtros atuais no raio de 2 km. Você pode ampliar a busca ajustando os filtros ou selecionando outra área.
+            </p>
+<!-- Suggested Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm w-full justify-center">
+<!-- Primary / Contour Action: Ajustar categoria -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-space-md py-2 bg-primary-container text-surface hover:bg-primary rounded-lg font-action text-action transition-colors duration-150 shadow-none">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+<span>Ajustar categoria</span>
+</button>
+<!-- Secondary Action: Alterar região -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-space-md py-2 bg-surface hover:bg-surface-container-low border border-dividers text-secondary-text hover:text-main-text rounded-lg font-action text-action transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]" data-icon="near_me">near_me</span>
+<span>Alterar região</span>
+</button>
+</div>
+<!-- Helpful Tips Micro-Card -->
+<div class="mt-space-xl p-space-md bg-canvas rounded-lg border border-dividers text-left w-full">
+<div class="flex items-center gap-1.5 text-xs font-semibold text-secondary-text mb-1 uppercase tracking-wider">
+<span class="material-symbols-outlined text-[15px] text-primary-container" data-icon="lightbulb">lightbulb</span>
+                Dicas para encontrar prospecções
+              </div>
+<ul class="text-xs text-secondary-text space-y-1 pl-4 list-disc">
+<li>Desmarque temporariamente "Sem site informado" para verificar negócios com sites desatualizados.</li>
+<li>Aumente o raio de varredura no mapa para 5 km ou 10 km.</li>
+<li>Alterne para ramos complementares como "Clínicas Médicas" ou "Laboratórios".</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN (55%): Interactive Map Panel -->
+<section class="w-[55%] h-full flex flex-col relative overflow-hidden bg-slate-100"><div class="absolute inset-0 bg-[#f7faf8] overflow-hidden select-none pointer-events-none"><svg class="w-full h-full" preserveaspectratio="xMidYMid slice" viewbox="0 0 800 900" xmlns="http://www.w3.org/2000/svg"><defs><pattern height="40" id="grid-subtle" patternunits="userSpaceOnUse" width="40"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E2E8F0" stroke-width="0.5"></path></pattern></defs><rect fill="#f8fafc" height="100%" width="100%"></rect><rect fill="url(#grid-subtle)" height="100%" opacity="0.6" width="100%"></rect><path d="M120 0 C 130 180, 160 380, 180 520 C 200 660, 240 780, 270 900" fill="none" opacity="0.7" stroke="#e2e8f0" stroke-width="22"></path><path d="M580 0 C 560 210, 520 420, 480 610 C 440 760, 390 840, 360 900" fill="none" opacity="0.7" stroke="#e2e8f0" stroke-width="18"></path><path d="M0 240 C 210 270, 440 320, 800 360" fill="none" opacity="0.7" stroke="#e2e8f0" stroke-width="16"></path><path d="M0 580 C 260 560, 510 540, 800 520" fill="none" opacity="0.7" stroke="#e2e8f0" stroke-width="20"></path><path d="M220 80 C 240 260, 310 460, 410 650 C 460 740, 530 830, 600 900" fill="none" opacity="0.8" stroke="#cbd5e1" stroke-width="14"></path><path d="M0 450 C 220 440, 450 420, 800 390" fill="none" opacity="0.8" stroke="#cbd5e1" stroke-width="14"></path><path d="M80 0 L 320 900" fill="none" opacity="0.5" stroke="#e2e8f0" stroke-width="6"></path><path d="M480 0 L 720 900" fill="none" opacity="0.5" stroke="#e2e8f0" stroke-width="6"></path><path d="M0 120 L 800 200" fill="none" opacity="0.5" stroke="#e2e8f0" stroke-width="6"></path><path d="M0 720 L 800 680" fill="none" opacity="0.5" stroke="#e2e8f0" stroke-width="6"></path><path d="M280 200 L 560 220 L 590 350 L 310 330 Z" fill="#e8f5e9" opacity="0.75" stroke="#c8e6c9" stroke-width="1.5"></path><text fill="#2e7d32" font-family="Inter" font-size="11" font-weight="600" letter-spacing="0.5" transform="rotate(3 410 270)" x="410" y="270">Parque Ibirapuera</text><path d="M160 560 L 290 550 L 305 660 L 175 670 Z" fill="#f1f5f9" opacity="0.9" stroke="#cbd5e1" stroke-width="1"></path><path d="M480 500 L 610 490 L 625 590 L 495 600 Z" fill="#f1f5f9" opacity="0.9" stroke="#cbd5e1" stroke-width="1"></path><text fill="#64748b" font-family="Inter" font-size="11" font-weight="500" transform="rotate(11 360 435)" x="360" y="435">Rua Sena Madureira</text><text fill="#64748b" font-family="Inter" font-size="11" font-weight="500" transform="rotate(62 260 290)" x="260" y="290">Rua Vergueiro</text><text fill="#64748b" font-family="Inter" font-size="11" font-weight="500" transform="rotate(62 385 620)" x="385" y="620">Av. Domingos de Morais</text><text fill="#94a3b8" font-family="Inter" font-size="10" font-weight="500" transform="rotate(-4 600 535)" x="600" y="535">Rua Luís Góis</text><text fill="#94a3b8" font-family="Inter" font-size="10" font-weight="500" transform="rotate(5 110 575)" x="110" y="575">Av. Rubem Berta</text><g opacity="0.95" transform="translate(400, 450)"><circle cx="0" cy="0" fill="#0f766e" fill-opacity="0.05" r="185" stroke="#0f766e" stroke-dasharray="4 3" stroke-opacity="0.7" stroke-width="2"></circle><circle cx="0" cy="0" fill="none" r="195" stroke="#0f766e" stroke-opacity="0.08" stroke-width="12"></circle><circle cx="0" cy="0" fill="#0f766e" fill-opacity="0.15" r="16"></circle><circle cx="0" cy="0" fill="#ffffff" r="6" stroke="#0f766e" stroke-width="2.5"></circle></g><g transform="translate(400, 450)"><rect fill="#0f172a" height="22" opacity="0.85" rx="4" width="92" x="-46" y="18"></rect><text fill="#ffffff" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="0" y="33">Vila Mariana</text></g><g transform="translate(400, 260)"><rect fill="#ffffff" height="22" opacity="0.95" rx="4" stroke="#cbd5e1" stroke-width="1" width="126" x="-63" y="-11"></rect><text fill="#0f766e" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="0" y="4">Raio ativo: 2,0 km</text></g></svg></div><div class="absolute top-space-md left-0 right-0 flex flex-col items-center gap-1.5 z-10 pointer-events-none"><button class="pointer-events-auto shadow-md inline-flex items-center gap-2 px-space-md py-2 bg-surface hover:bg-surface-container-low text-main-text border border-dividers rounded-full font-action text-action transition-all transform active:scale-95"><span class="material-symbols-outlined text-[18px] text-primary-container" data-icon="refresh">refresh</span><span>Buscar nesta região</span></button><span class="bg-surface/90 backdrop-blur-sm border border-dividers text-[11px] font-label-md text-secondary-text px-2 py-0.5 rounded-full shadow-xs">Mover o mapa não inicia busca automática</span></div><div class="absolute top-space-md right-space-md flex flex-col gap-2 z-10"><div class="bg-surface rounded-lg border border-dividers shadow-sm flex flex-col overflow-hidden"><button class="w-9 h-9 flex items-center justify-center text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors" title="Aumentar zoom"><span class="material-symbols-outlined text-[20px]" data-icon="add">add</span></button><div class="h-[1px] w-full bg-dividers"></div><button class="w-9 h-9 flex items-center justify-center text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors" title="Diminuir zoom"><span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span></button></div><button class="w-9 h-9 bg-surface rounded-lg border border-dividers shadow-sm flex items-center justify-center text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors" title="Centralizar na minha localização"><span class="material-symbols-outlined text-[18px]" data-icon="my_location">my_location</span></button><button class="w-9 h-9 bg-surface rounded-lg border border-dividers shadow-sm flex items-center justify-center text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors" title="Modos de camada"><span class="material-symbols-outlined text-[18px]" data-icon="layers">layers</span></button></div><div class="absolute bottom-space-md left-space-md z-10 pointer-events-auto"><div class="bg-surface/95 backdrop-blur-sm border border-dividers py-1.5 px-space-md rounded-lg shadow-sm flex items-center gap-space-sm text-xs font-label-md text-main-text"><span class="w-2 h-2 rounded-full bg-primary-container"></span><span>Região Selecionada: <strong class="font-semibold">Vila Mariana, São Paulo - SP</strong></span></div></div><div class="absolute bottom-2 right-3 z-10 flex items-center gap-3 select-none pointer-events-auto"><div class="flex flex-col items-center"><div class="text-[10px] text-secondary-text font-label-md leading-none mb-0.5">500 m</div><div class="h-1.5 w-16 border-b-2 border-l-2 border-r-2 border-secondary-text"></div></div><div class="bg-surface/80 backdrop-blur-xs px-2 py-0.5 rounded text-[11px] text-secondary-text border border-dividers">© <a class="hover:underline" href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer" target="_blank">OpenStreetMap</a> contributors</div></div></section>
+</main>
+</div>
+</body></html>

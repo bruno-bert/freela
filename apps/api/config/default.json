@@ -1,0 +1,88 @@
+{
+  "app": {
+    "env": "development",
+    "commit": "unreleased"
+  },
+  "http": {
+    "port": 3011,
+    "swagger": {
+      "enabled": true
+    }
+  },
+  "infra": {
+    "auth": {
+      "provider": "local",
+      "local": {
+        "secretEnv": "LOCAL_SESSION_SECRET"
+      },
+      "firebase-auth": {
+        "projectId": "freela-c8c75",
+        "roleMapping": {
+          "authenticated": "owner"
+        },
+        "apiKeyEnv": "FIREBASE_WEB_API_KEY",
+        "webConfig": {
+          "projectId": "freela-c8c75",
+          "appId": "1:68606654717:web:af89178b765f097eeb2694",
+          "storageBucket": "freela-c8c75.firebasestorage.app",
+          "authDomain": "freela-c8c75.firebaseapp.com",
+          "messagingSenderId": "68606654717",
+          "measurementId": "G-32QXMLP4SV",
+          "projectNumber": "68606654717",
+          "version": "2"
+        }
+      }
+    },
+    "repositories": {
+      "provider": "memory",
+      "process-api": {
+        "baseUrl": "http://127.0.0.1:3011",
+        "timeoutMs": 12000
+      },
+      "firestore": {
+        "projectId": "freela-c8c75"
+      }
+    },
+    "places": {
+      "provider": "demo",
+      "google-places": {
+        "tokenEnv": "GOOGLE_PLACES_API_KEY",
+        "timeoutMs": 10000
+      }
+    },
+    "maps": {
+      "provider": "schematic",
+      "google": {
+        "apiKeyEnv": "GOOGLE_MAPS_BROWSER_KEY"
+      }
+    },
+    "cms": {
+      "provider": "json",
+      "json": {
+        "contentDir": "apps/docs/content"
+      }
+    },
+    "runtime": {
+      "region": "us-central1"
+    }
+  },
+  "domains": {
+    "opportunities": {
+      "usecases": {
+        "search": "default",
+        "details": "default",
+        "recordContact": "default"
+      }
+    },
+    "auth": {
+      "usecases": {
+        "session": "default"
+      }
+    },
+    "content": {
+      "usecases": {
+        "getContent": "default"
+      }
+    }
+  }
+}

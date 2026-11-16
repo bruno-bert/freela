@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Freelancer Workspace - Preparar contato</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#181c1c",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "primary": "#005c55",
+            "canvas": "#F8FAFC",
+            "secondary-text": "#475569",
+            "tertiary-fixed": "#ffdbce",
+            "tertiary": "#7f4025",
+            "dividers": "#E2E8F0",
+            "inverse-on-surface": "#eef1f0",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e0e3e1",
+            "on-secondary-fixed": "#00174b",
+            "surface-container": "#ebefed",
+            "secondary-container": "#316bf3",
+            "on-tertiary-container": "#ffe5db",
+            "on-secondary-fixed-variant": "#003ea8",
+            "surface-tint": "#006a63",
+            "inverse-surface": "#2d3130",
+            "on-tertiary-fixed": "#370e00",
+            "on-tertiary": "#ffffff",
+            "input-boundary": "#64748B",
+            "tertiary-fixed-dim": "#ffb598",
+            "main-text": "#0F172A",
+            "on-error-container": "#93000a",
+            "on-surface": "#181c1c",
+            "outline": "#6e7977",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#00504a",
+            "secondary-fixed-dim": "#b4c5ff",
+            "inverse-primary": "#80d5cb",
+            "tertiary-container": "#9c573a",
+            "primary-fixed-dim": "#80d5cb",
+            "error": "#B91C1C",
+            "on-secondary-container": "#fefcff",
+            "on-primary": "#ffffff",
+            "background": "#f7faf8",
+            "success": "#166534",
+            "primary-container": "#0f766e",
+            "secondary-fixed": "#dbe1ff",
+            "primary-fixed": "#9cf2e8",
+            "surface-bright": "#f7faf8",
+            "secondary": "#0051d5",
+            "warning": "#854D0E",
+            "outline-variant": "#bdc9c6",
+            "on-tertiary-fixed-variant": "#72361b",
+            "surface-container-low": "#f1f4f3",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e5e9e7",
+            "surface-container-highest": "#e0e3e1",
+            "surface": "#FFFFFF",
+            "on-surface-variant": "#3e4947",
+            "on-primary-container": "#a3faef",
+            "surface-dim": "#d7dbd9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "8px",
+            "gutter": "16px",
+            "space-xl": "32px",
+            "space-lg": "24px",
+            "space-xs": "4px",
+            "margin": "24px",
+            "space-md": "16px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "action": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "action": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-canvas text-main-text font-body-md text-body-md antialiased overflow-hidden h-screen w-screen flex">
+<!-- SideNavBar Component (Shared Anchor: Desktop Sidebar 216px) -->
+<aside class="fixed top-0 left-0 h-screen w-[216px] bg-surface border-r border-dividers flex flex-col justify-between shrink-0 p-space-md z-30 select-none">
+<div class="flex flex-col gap-space-lg">
+<!-- Header Workspace Info -->
+<div class="flex items-center gap-space-sm px-space-xs py-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-surface flex items-center justify-center font-action text-action shadow-xs">
+          W
+        </div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-main-text leading-tight tracking-tight">Workspace</span>
+<span class="font-body-md text-body-md text-secondary-text">Área de trabalho</span>
+</div>
+</div>
+<!-- Action: Nova Prospecção -->
+<button class="w-full flex items-center justify-center gap-space-sm bg-primary-container text-surface font-action text-action py-space-sm px-space-md rounded-lg hover:opacity-95 transition-colors duration-150" type="button">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+        Nova Prospecção
+      </button>
+<!-- Main Navigation Cluster -->
+<nav class="flex flex-col gap-space-xs">
+<!-- Item 1: Oportunidades (ACTIVE) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-low text-primary-container font-action text-action transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="business_center" style="font-size: 20px;">business_center</span>
+<span>Oportunidades</span>
+</a>
+<!-- Item 2: Financeiro -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#"><div class="flex items-center gap-space-sm flex-1"><span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-size: 20px;">account_balance_wallet</span><span>Financeiro</span></div><span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-container text-secondary-text border border-dividers">Em breve</span></a>
+<!-- Item 3: Criação de sites com IA -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#"><div class="flex items-center gap-space-sm flex-1"><span class="material-symbols-outlined" data-icon="auto_awesome" style="font-size: 20px;">auto_awesome</span><span class="leading-tight">Criação de sites com IA</span></div><span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-container text-secondary-text border border-dividers shrink-0">Em breve</span></a>
+</nav>
+</div>
+<!-- Footer Navigation Tabs -->
+<div class="flex flex-col gap-space-xs border-t border-dividers pt-space-md">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-size: 20px;">settings</span>
+<span>Configurações</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle" style="font-size: 20px;">account_circle</span>
+<span>Perfil</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas Shell (Pushed right 216px) -->
+<div class="ml-[216px] flex flex-col flex-1 h-screen overflow-hidden">
+<!-- TopNavBar Component (Shared Anchor: Compact Header) -->
+<header class="h-16 px-space-lg w-full bg-surface border-b border-dividers flex items-center justify-between shrink-0 z-20">
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-md text-headline-md font-semibold text-main-text">Oportunidades</h1>
+<div class="h-4 w-[1px] bg-dividers"></div>
+<span class="font-label-md text-label-md text-secondary-text">Vila Mariana e Adjacências • 12 empresas identificadas (ilustrativo)</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="px-space-md py-1.5 rounded-lg border border-amber-200 bg-amber-50 text-warning font-label-md text-xs flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-warning"></span><span>Dados fictícios de demonstração</span></div>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150" title="Notificações" type="button">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-size: 20px;">notifications</span>
+</button>
+<button class="p-space-xs rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150" title="Ajuda" type="button">
+<span class="material-symbols-outlined" data-icon="help_outline" style="font-size: 20px;">help_outline</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm pl-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-dividers flex items-center justify-center font-action text-action text-secondary-text" title="Foto do Freelancer">
+            FP
+          </div>
+</div>
+</div>
+</header>
+<!-- Workspace Split Content (List 45% + Map 55%) -->
+<div class="flex flex-1 overflow-hidden relative">
+<!-- Left Column: Company List & Filters (45% split) -->
+<section class="w-[45%] h-full flex flex-col border-r border-dividers bg-surface overflow-hidden">
+<!-- List Filtering Header -->
+<div class="p-space-md border-b border-dividers bg-canvas/40 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary-text" style="font-size: 18px;">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface border border-dividers rounded-lg text-main-text font-body-md text-body-md focus:border-input-boundary focus:ring-1 focus:ring-input-boundary outline-hidden" placeholder="Buscar por bairro ou segmento..." type="text" value="Vila Mariana"/>
+</div>
+<button class="p-2 border border-dividers rounded-lg bg-surface hover:bg-surface-container-low text-secondary-text" type="button">
+<span class="material-symbols-outlined" style="font-size: 18px;">tune</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto text-secondary-text">
+<span class="px-space-sm py-0.5 rounded-full text-[12px] bg-primary-container text-surface font-label-md">Todos (12)</span>
+<span class="px-space-sm py-0.5 rounded-full text-[12px] bg-surface border border-dividers hover:bg-surface-container-low font-label-md">Sem site informado (8)</span>
+<span class="px-space-sm py-0.5 rounded-full text-[12px] bg-surface border border-dividers hover:bg-surface-container-low font-label-md">Não contatados (9)</span>
+</div>
+</div>
+<!-- Scrollable Company List -->
+<div class="flex-1 overflow-y-auto divide-y divide-dividers">
+<!-- Active Company Item: Ateliê Aurora -->
+<article class="p-space-md bg-surface-container-low/70 border-l-4 border-primary-container cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<h3 class="font-label-md text-label-md font-semibold text-main-text">Ateliê Aurora</h3>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface border border-dividers text-secondary-text">Artesanato</span>
+</div>
+<p class="font-body-md text-body-md text-secondary-text mt-0.5">Rua Joaquim Távora, 412 - Vila Mariana</p>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container text-secondary-text border border-dividers">Não contatado</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-md text-[13px] text-secondary-text">
+<span class="flex items-center gap-1 text-error"><span class="material-symbols-outlined" style="font-size: 16px;">switch_account</span>Sem site informado</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">call</span>
+                (11) 98765-4321
+              </span>
+</div>
+</article>
+<!-- List Item 2 -->
+<article class="p-space-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<h3 class="font-label-md text-label-md font-semibold text-main-text">Café &amp; Bistrô Harmonia</h3>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container-low text-secondary-text">Gastronomia</span>
+</div>
+<p class="font-body-md text-body-md text-secondary-text mt-0.5">Av. Conselheiro Rodrigues Alves, 780</p>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container text-secondary-text">Não contatado</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-md text-[13px] text-secondary-text">
+<span class="flex items-center gap-1 text-error"><span class="material-symbols-outlined" style="font-size: 16px;">switch_account</span>Sem site informado</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">call</span>
+                (11) 97123-8890
+              </span>
+</div>
+</article>
+<!-- List Item 3 -->
+<article class="p-space-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<h3 class="font-label-md text-label-md font-semibold text-main-text">Boutique Floral das Flores</h3>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container-low text-secondary-text">Floricultura</span>
+</div>
+<p class="font-body-md text-body-md text-secondary-text mt-0.5">Rua Domingos de Morais, 1220</p>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-success border border-emerald-200">Em negociação</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-md text-[13px] text-secondary-text">
+<span class="flex items-center gap-1 text-secondary-text">
+<span class="material-symbols-outlined" style="font-size: 16px;">update</span>
+                Contatado ontem
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">call</span>
+                (11) 96541-0023
+              </span>
+</div>
+</article>
+<!-- List Item 4 -->
+<article class="p-space-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<h3 class="font-label-md text-label-md font-semibold text-main-text">Padaria Pão &amp; Tradição</h3>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container-low text-secondary-text">Panificação</span>
+</div>
+<p class="font-body-md text-body-md text-secondary-text mt-0.5">Rua Botucatu, 340</p>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container text-secondary-text">Não contatado</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-md text-[13px] text-secondary-text">
+<span class="flex items-center gap-1 text-error"><span class="material-symbols-outlined" style="font-size: 16px;">switch_account</span>Sem site informado</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">call</span>
+                (11) 94451-2299
+              </span>
+</div>
+</article>
+</div>
+</section>
+<!-- Right Column: Interactive Map Background Canvas (55% split) -->
+<section class="w-[55%] h-full bg-canvas relative flex flex-col overflow-hidden">
+<!-- Floating Region Search in Map -->
+<div class="absolute top-4 left-4 z-10 bg-surface/90 backdrop-blur-sm border border-dividers rounded-lg p-2 shadow-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-text" style="font-size: 18px;">map</span>
+<span class="font-label-md text-label-md text-main-text">São Paulo • Vila Mariana</span>
+<button class="ml-2 text-xs font-semibold text-primary-container hover:underline" type="button">Recarregar área</button>
+</div>
+<!-- Simulated Map Grid / Visual Canvas -->
+<div class="w-full h-full relative bg-slate-100 flex items-center justify-center overflow-hidden" data-location="São Paulo" style="">
+<!-- Stylized Map Texture / Geometric Layout -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#64748B 1px, transparent 1px); background-size: 24px 24px;"></div>
+<svg class="absolute inset-0 w-full h-full opacity-35 stroke-dividers pointer-events-none" fill="none">
+<path d="M-100,200 L900,450 M150,-100 L300,900 M600,-50 L550,850 M-50,600 L850,700" stroke-width="6"></path>
+<path d="M-10,350 L750,150 M400,-50 L450,850" stroke-width="4"></path>
+</svg>
+<!-- Map Pin: Selected Company (Ateliê Aurora) -->
+<div class="absolute top-[38%] left-[42%] flex flex-col items-center">
+<div class="bg-primary-container text-surface px-2.5 py-1 rounded-md text-xs font-semibold shadow-md whitespace-nowrap mb-1 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-on-primary-container animate-pulse"></span>
+              Ateliê Aurora
+            </div>
+<div class="w-8 h-8 rounded-full bg-primary-container text-surface flex items-center justify-center shadow-lg ring-4 ring-primary-container/20">
+<span class="material-symbols-outlined" style="font-size: 18px;">storefront</span>
+</div>
+</div>
+<!-- Other Pins -->
+<div class="absolute top-[25%] left-[65%] flex flex-col items-center opacity-70">
+<div class="w-6 h-6 rounded-full bg-secondary-text text-surface flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined" style="font-size: 14px;">storefront</span>
+</div>
+</div>
+<div class="absolute top-[60%] left-[28%] flex flex-col items-center opacity-70">
+<div class="w-6 h-6 rounded-full bg-secondary-text text-surface flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined" style="font-size: 14px;">storefront</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Semi-transparent backdrop overlay for active right drawer context -->
+<div class="absolute inset-0 bg-main-text/10 backdrop-blur-[1px] pointer-events-none z-30 transition-opacity"></div>
+<!-- RIGHT DRAWER: "Preparar contato" (440px fixed width, floating elevation) -->
+<aside aria-label="Painel de preparação de contato" class="absolute top-0 right-0 h-full w-[440px] bg-surface border-l border-dividers shadow-2xl z-40 flex flex-col justify-between">
+<!-- Drawer Header -->
+<div class="p-space-lg border-b border-dividers bg-surface shrink-0">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-size: 22px;">send</span>
+<h2 class="font-headline-md text-headline-md text-main-text font-bold">Preparar contato</h2>
+</div>
+<!-- Botão fechar acessível -->
+<button aria-label="Fechar painel" class="p-1 rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="close" style="font-size: 20px;">close</span>
+</button>
+</div>
+<!-- Target Company Card Header -->
+<div class="bg-surface-container-low rounded-lg p-space-md border border-dividers flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-action text-action text-main-text">Ateliê Aurora (exemplo)</span>
+<!-- Status Badge -->
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-surface border border-dividers text-secondary-text">
+                Não contatado
+              </span>
+</div>
+<div class="flex items-center gap-2 text-secondary-text font-body-md text-body-md">
+<span class="material-symbols-outlined" style="font-size: 16px;">call</span>
+<span>(11) 98765-4321 (fictício)</span>
+</div>
+</div>
+</div>
+<!-- Drawer Body Content: Scrollable -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
+<!-- SEÇÃO CRÍTICA: Validação de Portfólio -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md font-semibold text-main-text flex items-center gap-1.5" for="portfolio-input">
+<span>Seu link de portfólio</span>
+<span class="text-error font-normal text-xs">*obrigatório</span>
+</label>
+<a class="text-xs font-semibold text-primary-container hover:underline" href="#">Configurar perfil</a>
+</div>
+<!-- Campo com destaque de aviso / [TBD] -->
+<div class="relative">
+<input class="w-full px-space-md py-2 bg-amber-50/40 border-2 border-warning text-warning font-semibold rounded-lg font-body-md text-body-md focus:outline-hidden focus:ring-2 focus:ring-warning" id="portfolio-input" placeholder="Ex: https://meuportfolio.design" type="text" value="[TBD]"/>
+<div class="absolute right-3 top-2.5 text-warning flex items-center">
+<span class="material-symbols-outlined" style="font-size: 20px;">warning</span>
+</div>
+</div>
+<!-- Inline Alert & Helper Text -->
+<div class="p-space-sm rounded-lg bg-amber-50 border border-amber-200 text-warning flex items-start gap-2">
+<span class="text-sm leading-tight font-medium">⚠️ Preencha seu portfólio antes de enviar a proposta aos clientes.</span>
+</div>
+<p class="font-body-md text-body-md text-secondary-text text-[13px] leading-relaxed">
+              O link do seu portfólio será inserido automaticamente na mensagem no lugar de <span class="font-mono text-xs bg-surface-container px-1 py-0.5 rounded text-main-text font-semibold">[TBD]</span>.
+            </p>
+</div>
+<!-- SEÇÃO: Mensagem de Abordagem -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md font-semibold text-main-text" for="approach-message">
+                Mensagem inicial (WhatsApp)
+              </label>
+<span class="text-xs text-secondary-text font-medium">318 caracteres</span>
+</div>
+<!-- Textarea Editável Profissional -->
+<textarea class="w-full p-space-md bg-surface border border-input-boundary rounded-lg text-main-text font-body-md text-body-md leading-relaxed resize-none focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-hidden" id="approach-message" rows="7">Olá, equipe do Ateliê Aurora! Não encontrei um site informado na fonte consultada. Gostaria de apresentar uma proposta de criação de site para valorizar suas peças e facilitar o contato com clientes. Conheça meu portfólio: [TBD]. Podemos conversar?</textarea>
+<span class="text-[12px] text-secondary-text mt-0.5">
+              💡 Você pode editar livremente a redação acima antes de abrir o aplicativo.
+            </span>
+</div>
+<!-- AVISO LEGAL E OPERACIONAL OBRIGATÓRIO (Desvinculação) -->
+<div class="p-space-md rounded-lg bg-surface-container border border-dividers flex items-start gap-2.5">
+<span class="text-base select-none shrink-0 mt-0.5">ℹ️</span>
+<p class="text-[13px] leading-relaxed text-secondary-text">
+<strong class="text-main-text font-medium">Aviso operacional:</strong> Abrir o WhatsApp não confirma envio nem registra contato. A mensagem deve ser enviada diretamente no aplicativo.
+            </p>
+</div>
+</div>
+<!-- Drawer Footer Action Bar -->
+<div class="p-space-lg border-t border-dividers bg-surface flex flex-col gap-space-sm shrink-0">
+<!-- Ação Primária: Abrir WhatsApp -->
+<div class="flex flex-col gap-1 w-full"><button class="w-full flex items-center justify-center gap-space-sm bg-primary-container text-surface font-action text-action py-3 px-space-md rounded-lg shadow-xs opacity-50 cursor-pointer pointer-events-none" disabled="disabled" type="button"><span class="material-symbols-outlined" style="font-size: 20px;">chat</span>Abrir WhatsApp</button><span class="text-[11px] text-center text-warning font-medium flex items-center justify-center gap-1"><span class="material-symbols-outlined" style="font-size: 14px;">warning</span>Preencha seu portfólio para continuar</span></div>
+<!-- Ação Secundária: Registrar Contato (independente) -->
+<button class="w-full flex items-center justify-center gap-space-sm bg-surface border border-dividers text-main-text font-action text-action py-2.5 px-space-md rounded-lg hover:bg-surface-container-low transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-secondary-text" style="font-size: 18px;">check_circle</span>
+            Registrar contato
+          </button>
+<!-- Botão Terciário: Cancelar -->
+<div class="flex justify-center pt-1"><button class="w-full py-2 text-center text-secondary-text hover:text-main-text font-action text-action transition-colors duration-150 rounded-lg hover:bg-surface-container-low" type="button">Cancelar</button></div>
+</div>
+</aside>
+</div>
+</div>
+</body></html>

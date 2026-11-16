@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-canvas" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workspace Freelancer Pro - Oportunidades</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#181c1c",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "primary": "#005c55",
+            "canvas": "#F8FAFC",
+            "secondary-text": "#475569",
+            "tertiary-fixed": "#ffdbce",
+            "tertiary": "#7f4025",
+            "dividers": "#E2E8F0",
+            "inverse-on-surface": "#eef1f0",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e0e3e1",
+            "on-secondary-fixed": "#00174b",
+            "surface-container": "#ebefed",
+            "secondary-container": "#316bf3",
+            "on-tertiary-container": "#ffe5db",
+            "on-secondary-fixed-variant": "#003ea8",
+            "surface-tint": "#006a63",
+            "inverse-surface": "#2d3130",
+            "on-tertiary-fixed": "#370e00",
+            "on-tertiary": "#ffffff",
+            "input-boundary": "#64748B",
+            "tertiary-fixed-dim": "#ffb598",
+            "main-text": "#0F172A",
+            "on-error-container": "#93000a",
+            "on-surface": "#181c1c",
+            "outline": "#6e7977",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#00504a",
+            "secondary-fixed-dim": "#b4c5ff",
+            "inverse-primary": "#80d5cb",
+            "tertiary-container": "#9c573a",
+            "primary-fixed-dim": "#80d5cb",
+            "error": "#B91C1C",
+            "on-secondary-container": "#fefcff",
+            "on-primary": "#ffffff",
+            "background": "#f7faf8",
+            "success": "#166534",
+            "primary-container": "#0f766e",
+            "secondary-fixed": "#dbe1ff",
+            "primary-fixed": "#9cf2e8",
+            "surface-bright": "#f7faf8",
+            "secondary": "#0051d5",
+            "warning": "#854D0E",
+            "outline-variant": "#bdc9c6",
+            "on-tertiary-fixed-variant": "#72361b",
+            "surface-container-low": "#f1f4f3",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e5e9e7",
+            "surface-container-highest": "#e0e3e1",
+            "surface": "#FFFFFF",
+            "on-surface-variant": "#3e4947",
+            "on-primary-container": "#a3faef",
+            "surface-dim": "#d7dbd9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "8px",
+            "gutter": "16px",
+            "space-xl": "32px",
+            "space-lg": "24px",
+            "space-xs": "4px",
+            "margin": "24px",
+            "space-md": "16px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "action": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "action": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+    /* Estilização refinada de scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8FAFC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+<body class="h-full bg-canvas text-main-text font-body-md antialiased overflow-hidden flex flex-row">
+<!-- SIDEBAR FIXA (216px) - Conforme Shared Components JSON SideNavBar -->
+<aside class="fixed top-0 left-0 h-screen w-[216px] bg-surface border-r border-dividers flex flex-col justify-between p-space-md shrink-0 z-30 select-none">
+<div class="flex flex-col gap-y-space-md">
+<!-- Identidade Workspace -->
+<div class="flex items-center gap-space-sm px-space-xs py-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-surface flex items-center justify-center font-action font-bold text-label-md shadow-xs">
+          W
+        </div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-headline-md text-[15px] font-bold text-main-text leading-tight truncate">Workspace</span>
+<span class="font-body-md text-[11px] text-secondary-text truncate leading-none mt-0.5">Área de trabalho</span>
+</div>
+</div>
+<!-- Ação de topo: Nova Prospecção -->
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-surface px-space-md py-2 rounded-lg font-action text-action hover:opacity-95 transition-colors duration-150 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Nova Prospecção</span>
+</button>
+<!-- Divisor sutil -->
+<hr class="border-dividers my-1"/>
+<!-- Navegação Principal -->
+<nav aria-label="Navegação Principal" class="flex flex-col gap-1">
+<!-- Item Ativo: Oportunidades -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-low text-primary-container font-action text-action" href="#">
+<span class="material-symbols-outlined text-primary-container">business_center</span>
+<span class="truncate">Oportunidades</span>
+</a>
+<!-- Item: Financeiro -->
+<div class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-secondary-text font-body-md text-body-md opacity-80 hover:bg-surface-container-low transition-colors duration-150 cursor-not-allowed">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span>Financeiro</span>
+</div>
+<span class="text-[10px] bg-dividers text-secondary-text px-1.5 py-0.5 rounded font-label-md">Em breve</span>
+</div>
+<!-- Item: Criação de sites com IA -->
+<div class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-secondary-text font-body-md text-body-md opacity-80 hover:bg-surface-container-low transition-colors duration-150 cursor-not-allowed">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[13px] leading-tight">Criação de sites com IA</span>
+</div>
+<span class="text-[10px] bg-dividers text-secondary-text px-1.5 py-0.5 rounded font-label-md shrink-0">Em breve</span>
+</div>
+</nav>
+</div>
+<!-- Rodapé da SideNav: Configurações e Perfil -->
+<div class="flex flex-col gap-1 border-t border-dividers pt-space-md">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Configurações</span>
+</a>
+<!-- Card do Usuário Lucas Martins -->
+<div class="flex items-center gap-space-sm px-2 py-2 mt-1 rounded-lg hover:bg-surface-container-low transition-colors duration-150 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-slate-200 border border-dividers flex items-center justify-center text-secondary-text font-action text-xs">
+          LM
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-action text-[13px] text-main-text truncate leading-snug">Lucas Martins</span>
+<span class="font-body-md text-[11px] text-secondary-text truncate leading-none">lucas@freelancer.pro</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- CONTAINER DE CONTEÚDO PRINCIPAL (Offset de 216px da barra lateral) -->
+<div class="pl-[216px] flex-1 flex flex-col h-screen min-w-0 overflow-hidden">
+<!-- TOPBAR COMPACTA - Conforme Shared Components JSON TopNavBar -->
+<header class="h-16 px-space-lg w-full bg-surface border-b border-dividers flex items-center justify-between shrink-0 z-20">
+<!-- Lado Esquerdo: Título & Badges de Contexto -->
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-md text-headline-md font-semibold text-main-text tracking-tight">Oportunidades</h1>
+<div class="h-4 w-px bg-dividers"></div>
+<!-- Badge Modo Demonstração -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-dividers text-secondary-text text-xs font-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+<span>Dados fictícios de demonstração</span>
+</div>
+<!-- Indicador de Oportunidades: Sem site informado -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-success text-xs font-action">
+<span class="material-symbols-outlined text-[15px] text-success">pie_chart</span>
+<span>Sem site informado: 100%</span>
+</div>
+<!-- Tag Região Atual -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container-low border border-dividers text-secondary-text text-xs font-label-md">
+<span class="material-symbols-outlined text-[15px] text-secondary-text">location_on</span>
+<span>Região: <strong class="text-main-text font-action">Vila Mariana</strong></span>
+</div>
+</div>
+<!-- Lado Direito: Ações & Perfil -->
+<div class="flex items-center gap-space-sm">
+<!-- Ajuda -->
+<button class="p-2 text-secondary-text hover:text-main-text hover:bg-surface-container-low rounded-lg transition-colors duration-150" title="Ajuda" type="button">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<!-- Notificações com badge de contagem -->
+<button class="relative p-2 text-secondary-text hover:text-main-text hover:bg-surface-container-low rounded-lg transition-colors duration-150" title="Notificações" type="button">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary-container"></span>
+</button>
+<div class="h-4 w-px bg-dividers mx-1"></div>
+<!-- Botão Secundário Trailing: Demonstração -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-dividers text-secondary-text hover:text-main-text hover:bg-surface-container-low font-action text-action transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>Demonstração</span>
+</button>
+</div>
+</header>
+<!-- ÁREA DE TRABALHO DIVIDIDA (45% Lista / 55% Mapa Interativo) -->
+<main class="flex-1 flex flex-row min-h-0 bg-canvas overflow-hidden">
+<!-- COLUNA ESQUERDA: LISTA & FILTROS (45%) -->
+<section aria-label="Painel de Empresas Identificadas" class="w-[45%] flex flex-col border-r border-dividers bg-surface overflow-hidden z-10">
+<!-- Bloco de Filtros Fixados no Topo da Lista -->
+<div class="p-space-md border-b border-dividers bg-surface flex flex-col gap-3 shrink-0">
+<!-- Dropdowns e Filtros Principais -->
+<div class="grid grid-cols-3 gap-2">
+<!-- Categoria -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[11px] text-secondary-text uppercase tracking-wider">Categoria</label>
+<div class="relative">
+<select class="w-full bg-canvas border border-input-boundary/40 rounded-lg text-main-text font-body-md text-xs py-1.5 pl-2.5 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary cursor-pointer">
+<option selected="">Todos</option>
+<option>Comércio Local</option>
+<option>Serviços</option>
+<option>Alimentação</option>
+<option>Saúde e Beleza</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none text-secondary-text text-[16px]">expand_more</span>
+</div>
+</div>
+<!-- Status Contato -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[11px] text-secondary-text uppercase tracking-wider">Status contato</label>
+<div class="relative">
+<select class="w-full bg-canvas border border-input-boundary/40 rounded-lg text-main-text font-body-md text-xs py-1.5 pl-2.5 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary cursor-pointer">
+<option selected="">Todos</option>
+<option>Não contatado</option>
+<option>Em conversa</option>
+<option>Proposta enviada</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none text-secondary-text text-[16px]">expand_more</span>
+</div>
+</div>
+<!-- Canais -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[11px] text-secondary-text uppercase tracking-wider">Canais</label>
+<div class="relative">
+<select class="w-full bg-canvas border border-input-boundary/40 rounded-lg text-main-text font-body-md text-xs py-1.5 pl-2.5 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary cursor-pointer">
+<option selected="">Todos canais</option>
+<option>WhatsApp verificado</option>
+<option>Telefone comercial</option>
+<option>Instagram ativo</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none text-secondary-text text-[16px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Linha Secundária de Filtros: Checkbox ativo & Badge de Localização -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary-container focus:ring-secondary border-input-boundary" type="checkbox"/>
+<span class="font-action text-xs text-main-text">Sem site informado</span>
+</label>
+<!-- Badge de Raio de Localização Aplicada -->
+<div class="inline-flex items-center gap-1.5 bg-primary/5 text-primary-container border border-primary/20 px-2 py-1 rounded text-xs font-label-md">
+<span class="material-symbols-outlined text-[15px]">radar</span>
+<span>Vila Mariana, SP · raio 2 km</span>
+</div>
+</div>
+</div>
+<!-- Cabeçalho Informativo da Listagem -->
+<div class="px-space-md py-2.5 bg-canvas/70 border-b border-dividers flex items-center justify-between shrink-0">
+<span class="font-action text-xs text-secondary-text">
+            4 resultados ilustrativos <span class="font-body-md text-secondary-text/80">(demonstração não exaustiva)</span>
+</span>
+<button class="text-xs text-primary font-action hover:underline flex items-center gap-0.5" type="button">
+<span>Ordenar</span>
+<span class="material-symbols-outlined text-[14px]">sort</span>
+</button>
+</div>
+<!-- LISTA ROLÁVEL INDEPENDENTE DE CARDS DE EMPRESAS -->
+<div class="flex-1 overflow-y-auto p-space-md flex flex-col gap-space-sm">
+<!-- CARD 1: Ateliê Aurora (Destacado/Selecionado) -->
+<article class="bg-surface rounded-lg border-2 border-primary-container p-3.5 relative flex flex-col gap-2.5 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary-container text-surface font-action text-xs flex items-center justify-center font-bold">1</span>
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-md text-sm font-bold text-main-text leading-tight">Ateliê Aurora Decorações</h2>
+<span class="text-[11px] text-secondary-text font-body-md">(exemplo)</span>
+</div>
+<span class="text-xs text-secondary-text font-body-md">Decoração de Interiores &amp; Reforma Têxtil</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-action bg-amber-50 text-warning border border-amber-200">
+                Sem site informado
+              </span>
+</div>
+<!-- Dados ficcionais de contato -->
+<div class="grid grid-cols-2 gap-2 text-xs text-secondary-text bg-canvas/80 p-2 rounded border border-dividers/60">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-success">chat</span>
+<span class="truncate">WhatsApp verificado (11) 98412-XXXX</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-slate-400">pin_drop</span>
+<span class="truncate">Rua Vergueiro, 2400 (a 450 m)</span>
+</div>
+</div>
+<!-- Ações do Card -->
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-2.5 py-1.5 text-xs font-action text-secondary-text hover:text-main-text hover:bg-surface-container-low rounded border border-dividers transition-colors" type="button">
+                Ver detalhes
+              </button>
+<button class="px-3 py-1.5 text-xs font-action text-surface bg-primary-container hover:opacity-90 rounded flex items-center gap-1 transition-opacity" type="button">
+<span>Preparar contato</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: Oficina Horizonte -->
+<article class="bg-surface rounded-lg border border-dividers hover:border-slate-300 p-3.5 flex flex-col gap-2.5 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slate-200 text-secondary-text font-action text-xs flex items-center justify-center font-bold">2</span>
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-md text-sm font-bold text-main-text leading-tight">Oficina Mecânica Horizonte</h2>
+<span class="text-[11px] text-secondary-text font-body-md">(exemplo)</span>
+</div>
+<span class="text-xs text-secondary-text font-body-md">Manutenção Automotiva &amp; Freios</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-action bg-amber-50 text-warning border border-amber-200">
+                Sem site informado
+              </span>
+</div>
+<!-- Dados ficcionais de contato -->
+<div class="grid grid-cols-2 gap-2 text-xs text-secondary-text bg-canvas/80 p-2 rounded border border-dividers/60">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-success">chat</span>
+<span class="truncate">WhatsApp (11) 97133-XXXX</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-slate-400">pin_drop</span>
+<span class="truncate">Av. Lins de Vasconcelos (a 1.1 km)</span>
+</div>
+</div>
+<!-- Ações do Card -->
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-2.5 py-1.5 text-xs font-action text-secondary-text hover:text-main-text hover:bg-surface-container-low rounded border border-dividers transition-colors" type="button">
+                Ver detalhes
+              </button>
+<button class="px-3 py-1.5 text-xs font-action text-surface bg-primary-container hover:opacity-90 rounded flex items-center gap-1 transition-opacity" type="button">
+<span>Preparar contato</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: Floricultura Ipê Roxo -->
+<article class="bg-surface rounded-lg border border-dividers hover:border-slate-300 p-3.5 flex flex-col gap-2.5 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slate-200 text-secondary-text font-action text-xs flex items-center justify-center font-bold">3</span>
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-md text-sm font-bold text-main-text leading-tight">Floricultura Ipê Roxo</h2>
+<span class="text-[11px] text-secondary-text font-body-md">(exemplo)</span>
+</div>
+<span class="text-xs text-secondary-text font-body-md">Arranjos Florais &amp; Paisagismo Residencial</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-action bg-amber-50 text-warning border border-amber-200">
+                Sem site informado
+              </span>
+</div>
+<!-- Dados ficcionais de contato -->
+<div class="grid grid-cols-2 gap-2 text-xs text-secondary-text bg-canvas/80 p-2 rounded border border-dividers/60">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-success">chat</span>
+<span class="truncate">WhatsApp (11) 99882-XXXX</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-slate-400">pin_drop</span>
+<span class="truncate">Rua Domingos de Morais (a 1.4 km)</span>
+</div>
+</div>
+<!-- Ações do Card -->
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-2.5 py-1.5 text-xs font-action text-secondary-text hover:text-main-text hover:bg-surface-container-low rounded border border-dividers transition-colors" type="button">
+                Ver detalhes
+              </button>
+<button class="px-3 py-1.5 text-xs font-action text-surface bg-primary-container hover:opacity-90 rounded flex items-center gap-1 transition-opacity" type="button">
+<span>Preparar contato</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- CARD 4: Cantina Don Lorenzo -->
+<article class="bg-surface rounded-lg border border-dividers hover:border-slate-300 p-3.5 flex flex-col gap-2.5 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slate-200 text-secondary-text font-action text-xs flex items-center justify-center font-bold">4</span>
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-md text-sm font-bold text-main-text leading-tight">Cantina &amp; Rotisseria Don Lorenzo</h2>
+<span class="text-[11px] text-secondary-text font-body-md">(exemplo)</span>
+</div>
+<span class="text-xs text-secondary-text font-body-md">Massas Artesanais &amp; Gastronomia Italiana</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-action bg-amber-50 text-warning border border-amber-200">
+                Sem site informado
+              </span>
+</div>
+<!-- Dados ficcionais de contato -->
+<div class="grid grid-cols-2 gap-2 text-xs text-secondary-text bg-canvas/80 p-2 rounded border border-dividers/60">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-success">chat</span>
+<span class="truncate">WhatsApp (11) 96521-XXXX</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-slate-400">pin_drop</span>
+<span class="truncate">Rua Sena Madureira (a 1.8 km)</span>
+</div>
+</div>
+<!-- Ações do Card -->
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-2.5 py-1.5 text-xs font-action text-secondary-text hover:text-main-text hover:bg-surface-container-low rounded border border-dividers transition-colors" type="button">
+                Ver detalhes
+              </button>
+<button class="px-3 py-1.5 text-xs font-action text-surface bg-primary-container hover:opacity-90 rounded flex items-center gap-1 transition-opacity" type="button">
+<span>Preparar contato</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- COLUNA DIREITA: MAPA INTERATIVO ILUSTRATIVO (55%) -->
+<section aria-label="Mapa de Seleção de Região" class="w-[55%] relative flex flex-col bg-slate-100 overflow-hidden select-none" data-location="Vila Mariana, São Paulo">
+<!-- BASE DO MAPA: Grid cartográfico sutil ilustrado em SVG -->
+<div class="absolute inset-0 w-full h-full bg-[#f1f5f9] overflow-hidden pointer-events-none">
+<svg class="w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="120" id="street-grid" patternunits="userSpaceOnUse" width="120">
+<path d="M 120 0 L 0 0 0 120" fill="none" stroke="#E2E8F0" stroke-width="2"></path>
+<path d="M 60 0 L 60 120 M 0 60 L 120 60" fill="none" stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="0.8"></path>
+</pattern>
+</defs>
+<rect fill="#F8FAFC" height="100%" width="100%"></rect>
+<rect fill="url(#street-grid)" height="100%" width="100%"></rect>
+<!-- Vias arteriais simuladas -->
+<path d="M -100 280 C 150 290, 400 320, 900 340" fill="none" stroke="#CBD5E1" stroke-width="9"></path>
+<path d="M 220 -50 C 260 200, 310 500, 350 900" fill="none" stroke="#CBD5E1" stroke-width="8"></path>
+<path d="M 50 700 C 300 620, 600 480, 850 200" fill="none" stroke="#E2E8F0" stroke-width="5"></path>
+<!-- Área verde simulada (Parque Ibirapuera / Aclimação) -->
+<rect fill="#e2efe9" height="180" rx="16" stroke="#cbd5e1" stroke-width="1" width="140" x="30" y="40"></rect>
+<text fill="#475569" font-family="Inter" font-size="11" font-weight="500" x="50" y="130">Parque / Área Verde</text>
+</svg>
+<!-- Rótulos de Vias Fictícias no mapa -->
+<div class="absolute top-[295px] left-6 text-[11px] font-action text-slate-400 transform -rotate-1">Av. Domingos de Morais</div>
+<div class="absolute top-[180px] left-[320px] text-[11px] font-action text-slate-400 transform rotate-82">Rua Vergueiro</div>
+</div>
+<!-- CÍRCULO TRANSLÚCIDO DELIMITANDO O RAIO SELECIONADO DE 2 KM -->
+<div class="absolute top-[48%] left-[48%] -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-full bg-primary-container/10 border-2 border-primary-container/80 flex items-center justify-center pointer-events-none">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-sm"></div>
+<div class="absolute -top-3 bg-primary-container text-surface text-[10px] font-action px-2 py-0.5 rounded-full shadow-xs">
+            Raio ativo: 2.0 km
+          </div>
+</div>
+<!-- MARCADORES NUMERADOS NO MAPA (1, 2, 3, 4) -->
+<!-- Marcador 1 (Ateliê Aurora - Selecionado/Ponto central) -->
+<div class="absolute top-[45%] left-[46%] -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer group">
+<div class="w-8 h-8 rounded-full bg-primary-container text-surface flex items-center justify-center font-action text-xs font-bold shadow-md ring-4 ring-primary-container/30 transition-transform group-hover:scale-110">
+            1
+          </div>
+</div>
+<!-- Marcador 2 (Oficina Horizonte) -->
+<div class="absolute top-[34%] left-[62%] -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer group">
+<div class="w-7 h-7 rounded-full bg-main-text text-surface flex items-center justify-center font-action text-xs font-bold shadow-md hover:bg-primary-container transition-transform group-hover:scale-110">
+            2
+          </div>
+</div>
+<!-- Marcador 3 (Floricultura Ipê) -->
+<div class="absolute top-[60%] left-[38%] -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer group">
+<div class="w-7 h-7 rounded-full bg-main-text text-surface flex items-center justify-center font-action text-xs font-bold shadow-md hover:bg-primary-container transition-transform group-hover:scale-110">
+            3
+          </div>
+</div>
+<!-- Marcador 4 (Cantina Don Lorenzo) -->
+<div class="absolute top-[58%] left-[58%] -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer group">
+<div class="w-7 h-7 rounded-full bg-main-text text-surface flex items-center justify-center font-action text-xs font-bold shadow-md hover:bg-primary-container transition-transform group-hover:scale-110">
+            4
+          </div>
+</div>
+<!-- MINI CARD FLUTUANTE NO MAPA: PREVIEW DE ATELIÊ AURORA -->
+<div class="absolute top-[33%] left-[48%] -translate-x-1/2 z-20 w-64 bg-surface rounded-xl p-3 border border-dividers shadow-lg pointer-events-auto">
+<div class="flex items-center justify-between gap-1 mb-1.5">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-action bg-amber-50 text-warning border border-amber-200">
+              Sem site informado
+            </span>
+<span class="text-[10px] text-secondary-text font-label-md">Pin #1</span>
+</div>
+<h3 class="font-action text-xs text-main-text font-bold truncate">Ateliê Aurora Decorações</h3>
+<p class="text-[11px] text-secondary-text mt-0.5 mb-2 truncate">Rua Vergueiro, 2400 · Vila Mariana</p>
+<div class="flex items-center justify-between border-t border-dividers pt-2 text-[11px]">
+<div class="flex items-center gap-1 text-success font-action">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>WhatsApp verificado</span>
+</div>
+<a class="text-primary font-action hover:underline flex items-center gap-0.5" href="#">
+<span>Ver ficha</span>
+<span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</a>
+</div>
+<!-- Seta do popup apontando para o pino -->
+<div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-surface rotate-45 border-r border-b border-dividers"></div>
+</div>
+<!-- ESTADO ESPECÍFICO: BARRA DE FERRAMENTAS DE SELEÇÃO DE REGIÃO EXPANDIDA E ATIVA -->
+<div class="absolute top-4 inset-x-4 z-20 flex flex-col gap-2">
+<!-- Barra Principal com controles e botões -->
+<div class="bg-surface rounded-xl border border-dividers p-2.5 shadow-md flex items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<!-- Botão/modo "Desenhar região" em estado ativo (#0F766E) -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-surface font-action text-xs shadow-xs transition-opacity hover:opacity-95" type="button">
+<span class="material-symbols-outlined text-[16px]">edit_location</span>
+<span>Desenhar região</span>
+</button>
+<div class="h-5 w-px bg-dividers"></div>
+<!-- Campo de entrada editável de raio numérico -->
+<div class="flex items-center gap-1.5 bg-canvas px-2.5 py-1 rounded-lg border border-input-boundary/40 focus-within:border-primary-container focus-within:ring-1 focus-within:ring-primary-container">
+<span class="font-label-md text-xs text-secondary-text whitespace-nowrap">Raio:</span>
+<input class="w-10 bg-transparent text-xs font-action text-main-text p-0 border-0 focus:ring-0 text-center" max="50" min="0.5" step="0.5" type="number" value="2"/>
+<span class="text-xs font-label-md text-secondary-text">km</span>
+</div>
+</div>
+<!-- Botões de Ação Direta da Seleção -->
+<div class="flex items-center gap-2">
+<!-- Cancelar seleção -->
+<button class="px-2.5 py-1.5 rounded-lg border border-dividers text-secondary-text hover:text-main-text hover:bg-surface-container-low font-action text-xs transition-colors" type="button">
+                Cancelar seleção
+              </button>
+<!-- Aplicar região -->
+<button class="px-3 py-1.5 rounded-lg border border-primary-container text-primary-container hover:bg-primary-container/10 font-action text-xs transition-colors" type="button">
+                Aplicar região
+              </button>
+<!-- Botão proeminente: Buscar nesta região -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-surface hover:opacity-90 font-action text-xs shadow-xs transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">search</span>
+<span>Buscar nesta região</span>
+</button>
+</div>
+</div>
+<!-- BANNER INFORMATIVO FLUTUANTE -->
+<div class="self-center bg-slate-900/90 text-surface backdrop-blur-xs px-3.5 py-1 rounded-full text-xs font-label-md flex items-center gap-1.5 shadow-sm border border-slate-700/50">
+<span class="material-symbols-outlined text-[14px] text-slate-300">info</span>
+<span>Mover o mapa não inicia uma busca automática</span>
+</div>
+</div>
+<!-- RODAPÉ DO MAPA: Escala, Atribuição e Controles de Zoom -->
+<div class="absolute bottom-4 inset-x-4 z-20 flex items-end justify-between pointer-events-none">
+<!-- Atribuição OpenStreetMap e Escala métrica -->
+<div class="flex items-center gap-3 bg-surface/90 backdrop-blur-xs px-2.5 py-1 rounded-md border border-dividers shadow-xs pointer-events-auto text-[11px] text-secondary-text font-body-md">
+<!-- Escala 500 m -->
+<div class="flex items-center gap-1">
+<div class="w-10 h-1.5 border-b-2 border-l-2 border-r-2 border-secondary-text"></div>
+<span class="font-action text-[10px]">500 m</span>
+</div>
+<div class="h-3 w-px bg-dividers"></div>
+<!-- Atribuição explícita -->
+<span class="text-[10px] text-secondary-text">© OpenStreetMap contributors</span>
+</div>
+<!-- Botões de Zoom (+ / -) e Recentralizar -->
+<div class="flex flex-col gap-1.5 pointer-events-auto">
+<button class="w-8 h-8 rounded-lg bg-surface border border-dividers hover:bg-surface-container-low text-secondary-text hover:text-main-text flex items-center justify-center shadow-xs transition-colors" title="Recentralizar mapa" type="button">
+<span class="material-symbols-outlined text-[18px]">my_location</span>
+</button>
+<div class="bg-surface rounded-lg border border-dividers shadow-xs flex flex-col divide-y divide-dividers overflow-hidden">
+<button class="w-8 h-8 hover:bg-surface-container-low text-secondary-text hover:text-main-text flex items-center justify-center transition-colors" title="Aumentar zoom" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button class="w-8 h-8 hover:bg-surface-container-low text-secondary-text hover:text-main-text flex items-center justify-center transition-colors" title="Diminuir zoom" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

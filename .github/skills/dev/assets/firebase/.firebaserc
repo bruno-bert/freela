@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "__ENVIRONMENT__": "__FIREBASE_PROJECT_ID__"
+  },
+  "targets": {
+    "__FIREBASE_PROJECT_ID__": {
+      "hosting": {
+        "__HOSTING_TARGET__": [
+          "__HOSTING_SITE_ID__"
+        ]
+      }
+    }
+  }
+}

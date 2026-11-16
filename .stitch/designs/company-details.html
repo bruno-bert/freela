@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Freelancer Workspace - Detalhes da empresa</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#181c1c",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "primary": "#005c55",
+            "canvas": "#F8FAFC",
+            "secondary-text": "#475569",
+            "tertiary-fixed": "#ffdbce",
+            "tertiary": "#7f4025",
+            "dividers": "#E2E8F0",
+            "inverse-on-surface": "#eef1f0",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e0e3e1",
+            "on-secondary-fixed": "#00174b",
+            "surface-container": "#ebefed",
+            "secondary-container": "#316bf3",
+            "on-tertiary-container": "#ffe5db",
+            "on-secondary-fixed-variant": "#003ea8",
+            "surface-tint": "#006a63",
+            "inverse-surface": "#2d3130",
+            "on-tertiary-fixed": "#370e00",
+            "on-tertiary": "#ffffff",
+            "input-boundary": "#64748B",
+            "tertiary-fixed-dim": "#ffb598",
+            "main-text": "#0F172A",
+            "on-error-container": "#93000a",
+            "on-surface": "#181c1c",
+            "outline": "#6e7977",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#00504a",
+            "secondary-fixed-dim": "#b4c5ff",
+            "inverse-primary": "#80d5cb",
+            "tertiary-container": "#9c573a",
+            "primary-fixed-dim": "#80d5cb",
+            "error": "#B91C1C",
+            "on-secondary-container": "#fefcff",
+            "on-primary": "#ffffff",
+            "background": "#f7faf8",
+            "success": "#166534",
+            "primary-container": "#0f766e",
+            "secondary-fixed": "#dbe1ff",
+            "primary-fixed": "#9cf2e8",
+            "surface-bright": "#f7faf8",
+            "secondary": "#0051d5",
+            "warning": "#854D0E",
+            "outline-variant": "#bdc9c6",
+            "on-tertiary-fixed-variant": "#72361b",
+            "surface-container-low": "#f1f4f3",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e5e9e7",
+            "surface-container-highest": "#e0e3e1",
+            "surface": "#FFFFFF",
+            "on-surface-variant": "#3e4947",
+            "on-primary-container": "#a3faef",
+            "surface-dim": "#d7dbd9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "8px",
+            "gutter": "16px",
+            "space-xl": "32px",
+            "space-lg": "24px",
+            "space-xs": "4px",
+            "margin": "24px",
+            "space-md": "16px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "action": ["Inter", "sans-serif"],
+            "headline-md": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "action": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-canvas text-main-text antialiased selection:bg-primary selection:text-white flex h-screen w-screen overflow-hidden">
+<!-- LEFT PERSISTENT SIDEBAR (Shared Component: SideNavBar) -->
+<aside class="fixed top-0 left-0 h-screen w-[216px] bg-surface border-r border-dividers z-20 flex flex-col justify-between p-space-md shrink-0">
+<div class="flex flex-col gap-space-lg">
+<!-- Workspace Brand Anchor -->
+<div class="flex items-center gap-space-sm px-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base shadow-sm">
+          W
+        </div>
+<div class="flex flex-col">
+<span class="font-headline-md text-body-lg font-bold text-main-text leading-tight">Workspace</span>
+<span class="font-body-md text-[12px] text-secondary-text leading-tight">Área de trabalho</span>
+</div>
+</div>
+<!-- Action Button (CTA) -->
+<button class="w-full bg-primary-container hover:bg-primary text-white rounded-lg py-2.5 px-space-md font-action text-action flex items-center justify-center gap-space-sm transition-colors duration-150 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Nova Prospecção</span>
+</button>
+<!-- Primary Navigation Tabs -->
+<nav aria-label="Navegação Principal" class="flex flex-col gap-1.5">
+<!-- Active Tab: Oportunidades -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-low text-primary-container font-action text-action transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">business_center</span>
+<span>Oportunidades</span>
+</a>
+<!-- Secondary Tab: Financeiro -->
+<a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150 font-body-md text-body-md group" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary-text group-hover:text-main-text">account_balance_wallet</span>
+<span>Financeiro</span>
+</div>
+<span class="text-[10px] font-medium tracking-tight bg-slate-100 text-secondary-text px-1.5 py-0.5 rounded">Em breve</span>
+</a>
+<!-- Third Tab: Criação de sites com IA -->
+<a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low transition-colors duration-150 font-body-md text-body-md group" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary-text group-hover:text-main-text">auto_awesome</span>
+<span class="text-[13px] leading-tight">Criação de sites com IA</span>
+</div>
+<span class="text-[10px] font-medium tracking-tight bg-slate-100 text-secondary-text px-1.5 py-0.5 rounded">Em breve</span>
+</a>
+</nav>
+</div>
+<!-- Footer Navigation (Configurações, Perfil) -->
+<div class="flex flex-col gap-1 border-t border-dividers pt-space-md">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Configurações</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-secondary-text hover:text-main-text hover:bg-surface-container-low font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+<span>Perfil</span>
+</a>
+</div>
+</aside>
+<!-- MAIN CANVAS & WORKSPACE AREA (Left offset for 216px sidebar) -->
+<div class="ml-[216px] flex-1 flex flex-col h-screen overflow-hidden bg-canvas relative">
+<!-- TOP HEADER (Shared Component: TopNavBar) -->
+<header class="h-16 bg-surface border-b border-dividers px-space-lg flex items-center justify-between shrink-0 z-10">
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-md text-headline-md font-bold text-main-text tracking-tight">Oportunidades</h1>
+<span class="bg-emerald-50 text-emerald-800 text-[12px] font-medium px-2.5 py-0.5 rounded-full border border-emerald-200">
+          São Paulo, SP
+        </span>
+<span class="bg-slate-100 text-secondary-text text-[12px] font-medium px-2.5 py-0.5 rounded-full border border-dividers">Dados fictícios de demonstração</span></div>
+<div class="flex items-center gap-space-md">
+<button class="px-space-md py-1.5 rounded-lg border border-dividers bg-surface text-secondary-text hover:text-main-text hover:bg-surface-container-low text-body-md font-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>Demonstração</span>
+</button>
+<div class="h-5 w-px bg-dividers"></div>
+<div class="flex items-center gap-1">
+<button aria-label="Notificações" class="p-2 text-secondary-text hover:text-main-text hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button aria-label="Ajuda" class="p-2 text-secondary-text hover:text-main-text hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+</div>
+<div class="flex items-center gap-2 pl-2">
+<img class="w-8 h-8 rounded-full border border-dividers object-cover" data-alt="Professional headshot portrait of a confident Brazilian freelancer against a soft minimalist neutral background in a modern bright workspace setting with warm natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrS-UCxI8rI68yDkxeKmfn56xQgqAmpv7UxXQxFZju6HO_3qwdXIoOOOLdoVW9WbhqX0ZL1ybX0Fni-J-F60_jxqyzchnnNERmeBnoJn1aIdKL7ZHW1qxKmbmWWhohK-3sYUQ9CRiZ9INwC1qRtPZZUdUsLG7cdNvPquEDe2Mfw8b2dLvtAy8piJ6-GtVXCD1dGI_TsziTpJLCvKIyr-s6FcAOyNaSJr77_MUFR_JcnA8ZLLDsKbpZr23CdN2AhGgP-CymD9-vca4"/>
+</div>
+</div>
+</header>
+<!-- CONTENT SECTION (45% List, 55% Interactive Map) -->
+<main class="flex-1 flex overflow-hidden relative">
+<!-- LEFT COLUMN: Company List (approx 45%) -->
+<section class="w-[45%] h-full flex flex-col border-r border-dividers bg-surface overflow-hidden shrink-0">
+<!-- List Filters and Context -->
+<div class="p-space-md border-b border-dividers flex flex-col gap-space-sm bg-surface">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-[16px] font-semibold text-main-text">Empresas encontradas</span>
+<span class="text-xs px-2 py-0.5 bg-slate-100 text-secondary-text rounded-full font-medium">18 locais (demonstração ilustrativa)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs flex items-center gap-1 text-secondary-text hover:text-main-text py-1 px-2 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+                Filtros
+              </button>
+</div>
+</div>
+<!-- Filter chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-0.5">
+<span class="inline-flex items-center gap-1 text-[12px] bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-0.5 rounded-full font-medium shrink-0"><span class="material-symbols-outlined text-[14px]">link_off</span>Sem site informado</span>
+<span class="inline-flex items-center gap-1 text-[12px] bg-slate-100 text-secondary-text border border-dividers px-2.5 py-0.5 rounded-full font-medium shrink-0">
+              Vila Mariana
+            </span>
+<span class="inline-flex items-center gap-1 text-[12px] bg-slate-100 text-secondary-text border border-dividers px-2.5 py-0.5 rounded-full font-medium shrink-0">
+              Não contatados
+            </span>
+</div>
+</div>
+<!-- Scrollable Cards List -->
+<div class="flex-1 overflow-y-auto divide-y divide-dividers">
+<!-- Active/Selected Company: Ateliê Aurora -->
+<article class="p-space-md bg-teal-50/50 border-l-4 border-primary-container relative cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex flex-col">
+<h2 class="font-headline-md text-body-lg font-bold text-main-text">Ateliê Aurora (exemplo)</h2>
+<span class="font-body-md text-xs text-secondary-text">Artesanato &amp; Decoração</span>
+</div>
+<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-200/80 text-secondary-text">
+                Não contatado
+              </span>
+</div>
+<p class="font-body-md text-xs text-secondary-text mb-2.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-slate-400">location_on</span>
+              Rua Domingos de Morais, 1240 - Vila Mariana
+            </p>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-[11px] bg-amber-100/70 text-amber-900 border border-amber-300/60 px-2 py-0.5 rounded-md font-medium">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                Sem site informado
+              </span>
+<span class="text-[11px] text-slate-400 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px] text-emerald-600">verified</span>
+                WhatsApp
+              </span>
+</div>
+</article>
+<!-- Company 2 -->
+<article class="p-space-md hover:bg-slate-50 transition-colors cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex flex-col">
+<h2 class="font-headline-md text-body-lg font-semibold text-main-text">Panetteria Central</h2>
+<span class="font-body-md text-xs text-secondary-text">Padaria &amp; Confeitaria</span>
+</div>
+<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-100 text-secondary-text">
+                Não contatado
+              </span>
+</div>
+<p class="font-body-md text-xs text-secondary-text mb-2.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-slate-400">location_on</span>
+              Av. Lins de Vasconcelos, 890 - Cambuci
+            </p>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-[11px] bg-amber-100/70 text-amber-900 border border-amber-300/60 px-2 py-0.5 rounded-md font-medium">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                Sem site informado
+              </span>
+</div>
+</article>
+<!-- Company 3 -->
+<article class="p-space-md hover:bg-slate-50 transition-colors cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex flex-col">
+<h2 class="font-headline-md text-body-lg font-semibold text-main-text">Studio Estética Bella</h2>
+<span class="font-body-md text-xs text-secondary-text">Beleza &amp; Bem-estar</span>
+</div>
+<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                Em conversa
+              </span>
+</div>
+<p class="font-body-md text-xs text-secondary-text mb-2.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-slate-400">location_on</span>
+              Rua Vergueiro, 2400 - Paraíso
+            </p>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-[11px] bg-slate-100 text-secondary-text border border-dividers px-2 py-0.5 rounded-md font-medium">
+                Instagram ativo
+              </span>
+</div>
+</article>
+<!-- Company 4 -->
+<article class="p-space-md hover:bg-slate-50 transition-colors cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex flex-col">
+<h2 class="font-headline-md text-body-lg font-semibold text-main-text">Oficina Mecânica São José</h2>
+<span class="font-body-md text-xs text-secondary-text">Automotivo</span>
+</div>
+<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-100 text-secondary-text">
+                Não contatado
+              </span>
+</div>
+<p class="font-body-md text-xs text-secondary-text mb-2.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-slate-400">location_on</span>
+              Rua Sena Madureira, 512 - Vila Clementino
+            </p>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-[11px] bg-amber-100/70 text-amber-900 border border-amber-300/60 px-2 py-0.5 rounded-md font-medium">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                Sem site informado
+              </span>
+</div>
+</article>
+</div>
+</section>
+<!-- RIGHT COLUMN: Interactive Map Canvas (approx 55%) -->
+<section class="flex-1 h-full relative overflow-hidden bg-slate-100" data-location="São Paulo">
+<!-- Realistic Cartographic Background Graphic -->
+<div class="absolute inset-0 w-full h-full bg-[#E5E9E8] pointer-events-none opacity-90 overflow-hidden">
+<svg class="w-full h-full object-cover" fill="none" viewbox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+<!-- Major road networks -->
+<path d="M-50,200 L1100,280" stroke="#CBD5E1" stroke-linecap="round" stroke-width="24"></path>
+<path d="M220,-50 L260,850" stroke="#CBD5E1" stroke-linecap="round" stroke-width="20"></path>
+<path d="M600,-50 L520,850" stroke="#CBD5E1" stroke-linecap="round" stroke-width="32"></path>
+<path d="M-50,550 L1100,520" stroke="#CBD5E1" stroke-linecap="round" stroke-width="16"></path>
+<!-- Secondary streets grid -->
+<path d="M50,50 L950,750" stroke="#FFFFFF" stroke-width="8"></path>
+<path d="M100,750 L850,50" stroke="#FFFFFF" stroke-width="8"></path>
+<path d="M-50,380 L1100,420" stroke="#FFFFFF" stroke-width="10"></path>
+<path d="M400,-50 L420,850" stroke="#FFFFFF" stroke-width="12"></path>
+<path d="M780,-50 L750,850" stroke="#FFFFFF" stroke-width="8"></path>
+<!-- Green areas / Parks -->
+<rect fill="#D1E7DD" height="130" opacity="0.75" rx="16" width="160" x="80" y="320"></rect>
+<text fill="#3D7E63" font-family="Inter" font-size="12" font-weight="600" x="110" y="380">Parque Aclimação</text>
+<rect fill="#D1E7DD" height="240" opacity="0.6" rx="24" width="220" x="680" y="120"></rect>
+<text fill="#3D7E63" font-family="Inter" font-size="13" font-weight="600" x="730" y="220">Parque Ibirapuera</text>
+<!-- Map pins -->
+<!-- Inactive pin 1 -->
+<g transform="translate(320, 240)">
+<circle cx="12" cy="12" fill="#64748B" r="10"></circle>
+<circle cx="12" cy="12" fill="#FFFFFF" r="4"></circle>
+</g>
+<!-- Inactive pin 2 -->
+<g transform="translate(680, 480)">
+<circle cx="12" cy="12" fill="#64748B" r="10"></circle>
+<circle cx="12" cy="12" fill="#FFFFFF" r="4"></circle>
+</g>
+<!-- Inactive pin 3 -->
+<g transform="translate(240, 600)">
+<circle cx="12" cy="12" fill="#64748B" r="10"></circle>
+<circle cx="12" cy="12" fill="#FFFFFF" r="4"></circle>
+</g>
+<!-- ACTIVE PIN: Ateliê Aurora -->
+<g transform="translate(480, 360)">
+<circle cx="20" cy="20" fill="#0F766E" fill-opacity="0.18" r="32"></circle>
+<circle cx="20" cy="20" fill="#0F766E" r="20" stroke="#FFFFFF" stroke-width="3"></circle>
+<circle cx="20" cy="20" fill="#FFFFFF" r="7"></circle>
+</g>
+</svg>
+</div>
+<!-- Map floating controls (Zoom, Region search) -->
+<div class="absolute top-space-md left-space-md z-10 flex items-center gap-2">
+<div class="bg-surface rounded-lg border border-dividers shadow-sm px-3 py-1.5 flex items-center gap-2 text-xs font-medium text-main-text">
+<span class="material-symbols-outlined text-[16px] text-primary-container">explore</span>
+<span>Região: Vila Mariana e arredores</span>
+</div>
+<button class="bg-surface text-secondary-text hover:text-main-text rounded-lg border border-dividers shadow-sm p-1.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">my_location</span>
+</button>
+</div>
+<div class="absolute bottom-space-md left-space-md z-10 flex flex-col gap-1">
+<div class="bg-surface rounded-lg border border-dividers shadow-sm flex flex-col overflow-hidden">
+<button aria-label="Aumentar zoom" class="p-2 hover:bg-slate-50 text-secondary-text border-b border-dividers flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button aria-label="Diminuir zoom" class="p-2 hover:bg-slate-50 text-secondary-text flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SEMI-TRANSPARENT BACKDROP OVER MAP TO ACCENTUATE THE DRAWER -->
+<div class="absolute inset-y-0 right-0 left-[45%] bg-slate-900/10 pointer-events-none z-20 backdrop-blur-[0.5px]"></div>
+<!-- RIGHT SIDE DRAWER: "Detalhes da empresa" (Docked, 440px width) -->
+<aside class="absolute top-0 right-0 bottom-0 w-[440px] bg-surface border-l border-dividers shadow-2xl z-30 flex flex-col justify-between overflow-hidden animate-in slide-in-from-right duration-200">
+<!-- DRAWER HEADER -->
+<div class="p-space-lg border-b border-dividers flex items-start justify-between bg-surface shrink-0">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md font-bold text-main-text">Detalhes da empresa</h2>
+</div>
+<p class="font-body-md text-xs text-secondary-text mt-0.5">Dados de demonstração para prospecção</p>
+</div>
+<button aria-label="Fechar detalhes" class="text-secondary-text hover:text-main-text p-1.5 rounded-lg hover:bg-surface-container-low transition-colors duration-150" title="Fechar detalhes">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- DRAWER CONTENT (Scrollable body) -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
+<!-- Block 1: Identificação da empresa -->
+<div class="flex flex-col gap-2.5 pb-space-md border-b border-dividers">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="font-headline-md text-[20px] font-bold text-main-text leading-snug">Ateliê Aurora (exemplo)</h3>
+<span class="font-body-md text-body-md text-secondary-text">Artesanato &amp; Decoração</span>
+</div>
+<span class="shrink-0 px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-secondary-text border border-slate-200">
+                Não contatado
+              </span>
+</div>
+<!-- Prominent Eligibility Tag: "Sem site informado" -->
+<div class="mt-1 flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-2.5">
+<span class="material-symbols-outlined text-[20px] text-amber-700 shrink-0">link_off</span>
+<div class="flex flex-col">
+<span class="font-action text-xs font-semibold leading-tight">Sem site informado</span>
+<span class="font-body-md text-[11px] text-amber-800 leading-tight">Oportunidade ideal para oferta de presença digital e catálogo</span>
+</div>
+</div>
+</div>
+<!-- Block 2: Informações de contato e localização -->
+<div class="flex flex-col gap-3.5 pb-space-md border-b border-dividers">
+<h4 class="font-action text-xs font-semibold text-secondary-text tracking-wide uppercase">Localização &amp; Contato</h4>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-slate-400 mt-0.5">location_on</span>
+<div class="flex flex-col">
+<span class="font-body-md text-xs text-secondary-text">Endereço público</span>
+<span class="font-body-md text-body-md text-main-text font-medium">Rua Domingos de Morais, 1240 - Vila Mariana, São Paulo - SP</span>
+</div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-slate-400 mt-0.5">call</span>
+<div class="flex flex-col">
+<span class="font-body-md text-xs text-secondary-text">Telefone comercial</span>
+<span class="font-body-md text-body-md text-main-text font-medium">(11) 98765-4321 (fictício)</span>
+</div>
+</div>
+<!-- Identified channels / badges -->
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-body-md text-xs text-secondary-text">Canais identificados da fonte de exemplo:</span>
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">chat</span>
+                  WhatsApp verificado
+                </span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-800 border border-slate-200 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px] text-slate-600">photo_camera</span>
+                  Instagram verificado (@atelieaurora.decor)
+                </span>
+</div>
+<p class="font-body-md text-[11px] text-slate-500 italic mt-0.5">
+                Canais identificados a partir do cadastro público de exemplo.
+              </p>
+</div>
+<!-- Audit link -->
+<div class="pt-1">
+<a class="inline-flex items-center gap-1 text-xs text-primary-container font-semibold hover:underline" href="#">
+<span>Ver fonte (exemplo)</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Block 3: Histórico de contato -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h4 class="font-action text-xs font-semibold text-secondary-text tracking-wide uppercase">Histórico de interações</h4>
+<span class="font-body-md text-[11px] text-slate-400">(registros fictícios)</span>
+</div>
+<div class="bg-slate-50 border border-dividers rounded-lg p-space-md flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-slate-400 mt-0.5">history_toggle_off</span>
+<p class="font-body-md text-xs text-secondary-text leading-relaxed">
+                Nenhuma abordagem registrada anteriormente. Oportunidade pronta para primeiro contato.
+              </p>
+</div>
+</div>
+</div>
+<!-- DRAWER FOOTER (Persistent actions) -->
+<div class="p-space-lg border-t border-dividers bg-surface shrink-0 flex items-center justify-between gap-space-md">
+<button class="flex-1 py-2.5 px-space-md rounded-lg border border-dividers bg-surface text-secondary-text hover:text-main-text hover:bg-surface-container-low font-action text-action transition-colors duration-150 text-center">
+            Fechar
+          </button>
+<button class="flex-[2] py-2.5 px-space-md rounded-lg bg-primary-container hover:bg-primary text-white font-action text-action transition-colors duration-150 flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Preparar contato</span>
+</button>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

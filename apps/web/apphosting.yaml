@@ -1,0 +1,9 @@
+# Inactive until deployment setup and environment bindings are verified.
+runConfig:
+  minInstances: 0
+  maxInstances: 2
+env:
+  - variable: APP_ENV
+    value: production
+  - variable: DEPLOY_COMMIT_SHA
+    value: __DEPLOY_COMMIT_SHA__

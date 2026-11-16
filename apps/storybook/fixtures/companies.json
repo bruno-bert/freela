@@ -1,0 +1,86 @@
+[
+  {
+    "id": "atelier-aurora",
+    "name": "Ateli\u00ea Aurora (exemplo)",
+    "category": "Artesanato & Decora\u00e7\u00e3o",
+    "address": "Rua Domingos de Morais, 1240 \u2014 Vila Mariana, S\u00e3o Paulo (fict\u00edcio)",
+    "phone": "(11) 90000-0000 (fict\u00edcio)",
+    "whatsapp": "5511000000000",
+    "instagram": "https://www.instagram.com/",
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": -23.589,
+      "longitude": -46.635
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "oficina-horizonte",
+    "name": "Oficina Horizonte (exemplo)",
+    "category": "Servi\u00e7os automotivos",
+    "address": "Av. Lins de Vasconcelos, 890 \u2014 Vila Mariana, S\u00e3o Paulo (fict\u00edcio)",
+    "phone": "(11) 90000-0000 (fict\u00edcio)",
+    "whatsapp": "5511000000000",
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": -23.582,
+      "longitude": -46.628
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "floricultura-ipe",
+    "name": "Floricultura Ip\u00ea (exemplo)",
+    "category": "Floricultura & Paisagismo",
+    "address": "Rua Vergueiro, 2450 \u2014 Vila Mariana, S\u00e3o Paulo (fict\u00edcio)",
+    "phone": "(11) 90000-0000 (fict\u00edcio)",
+    "whatsapp": null,
+    "instagram": "https://www.instagram.com/",
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": -23.586,
+      "longitude": -46.642
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "cafe-jardim",
+    "name": "Caf\u00e9 Jardim (exemplo)",
+    "category": "Cafeteria & Bistr\u00f4",
+    "address": "Rua Joaquim T\u00e1vora, 510 \u2014 Vila Mariana, S\u00e3o Paulo (fict\u00edcio)",
+    "phone": "(11) 90000-0000 (fict\u00edcio)",
+    "whatsapp": "5511000000000",
+    "instagram": "https://www.instagram.com/",
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": -23.595,
+      "longitude": -46.641
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  }
+]

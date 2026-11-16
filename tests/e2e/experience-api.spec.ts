@@ -1,0 +1,26 @@
+import {test,expect} from '@playwright/test';
+import request from 'supertest';
+test('validates real Next.js Experience routes, session cookies and CSRF boundaries',async()=>{
+ const base='http://localhost:3000'; const anonymous=request(base),agent=request.agent(base);
+ await anonymous.post('/api/opportunities/search').send({}).expect(401);
+ await agent.post('/api/auth/session').set('Origin','https://evil.example').send({credential:'demo'}).expect(401);
+ const login=await agent.post('/api/auth/session').set('Origin',base).send({credential:'demo'}).expect(200);
+ expect(login.headers['set-cookie'][0]).toContain('HttpOnly'); expect(login.headers['set-cookie'][0]).toContain('SameSite=lax');
+ await agent.post('/api/opportunities/search').set('Origin',base).send({}).expect(400);
+ const input={region:{latitude:-23.589,longitude:-46.635,radius:2000},category:'all',status:'all',channel:'all',locale:'en'};
+ const results=await agent.post('/api/opportunities/search').set('Origin',base).send(input).expect(200);
+ expect(results.body.companies.length).toBeGreaterThan(0);
+ await agent.get('/api/opportunities/atelier-aurora?locale=en').expect(200);
+ await agent.get('/api/opportunities/missing?locale=en').expect(404);
+ await agent.post('/api/contacts').set('Origin','https://evil.example').send({}).expect(400);
+ await agent.post('/api/locale').set('Origin',base).send({locale:'xx'}).expect(400);
+ await agent.post('/api/locale').set('Origin',base).send({locale:'en'}).expect(200);
+ const command={companyId:`api-${crypto.randomUUID()}`,expectedVersion:0,idempotencyKey:crypto.randomUUID(),note:'Test contact'};
+ const recorded=await agent.post('/api/contacts').set('Origin',base).send(command).expect(200);
+ const replay=await agent.post('/api/contacts').set('Origin',base).send(command).expect(200);
+ expect(replay.body).toEqual(recorded.body);
+ await agent.post('/api/contacts').set('Origin',base).send({...command,idempotencyKey:crypto.randomUUID()}).expect(409);
+ await agent.post('/api/auth/logout').set('Origin',base).expect(200);
+ await agent.post('/api/opportunities/search').set('Origin',base).send(input).expect(401);
+ await anonymous.get('/api/health').expect(200);
+});

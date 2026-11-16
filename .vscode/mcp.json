@@ -1,0 +1,19 @@
+{
+  "servers": {
+    "stitch": {
+      "type": "http",
+      "url": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "${input:stitch-api-key-reset}"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "stitch-api-key-reset",
+      "description": "Stitch API key (Stitch settings)",
+      "password": true
+    }
+  ]
+}

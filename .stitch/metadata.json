@@ -1,0 +1,146 @@
+{
+  "title": "Freelancer Workspace",
+  "status": "generated-awaiting-screen-review",
+  "projectId": "8650887222206239999",
+  "projectUrl": "https://stitch.withgoogle.com/projects/8650887222206239999",
+  "designSystemId": "assets/514812703809497c8099d48b23b4bf5b",
+  "visualDirection": {
+    "approved": true,
+    "specification": "design-assets/DESIGN-PROPOSAL.md"
+  },
+  "designSystem": {
+    "specification": ".stitch/DESIGN.md",
+    "fontFamily": "INTER",
+    "primaryColor": "#0F766E",
+    "backgroundColor": "#F8FAFC",
+    "roundness": "ROUND_EIGHT"
+  },
+  "screens": [
+    {
+      "screenId": "4e0d4ebffbf24a4a96c3b370b43ee338",
+      "title": "Oportunidades - Freelancer Workspace",
+      "deviceType": "DESKTOP",
+      "html": ".stitch/designs/opportunities-results.html",
+      "screenshot": ".stitch/designs/opportunities-results.png",
+      "screenshotDimensions": {
+        "width": 2560,
+        "height": 2048
+      },
+      "checksums": {
+        "html": "ed25e2d8809071e9fa38773b6b3ec4de5e68b882a34322975e406111a4e449a6",
+        "screenshot": "29ab14f468955ab8b1b3abc7708f8cbe69217ce9593c9f6c70f4be797b3b39f4"
+      }
+    },
+    {
+      "screenId": "1779ae1f5df640a89fa1de3a1fc0f345",
+      "title": "Selecionar região - Freelancer Workspace",
+      "deviceType": "DESKTOP",
+      "html": ".stitch/designs/region-selection.html",
+      "screenshot": ".stitch/designs/region-selection.png",
+      "screenshotDimensions": {
+        "width": 2560,
+        "height": 2048
+      },
+      "checksums": {
+        "html": "41e8d8bda314699934d1164f869d94efc2f3cdd9a68c21c2e6aaa74c43416eba",
+        "screenshot": "6934cc17d02d73f99d573f503a5c3f11feb34aa6ba1cb09c7f731f368cbb7d97"
+      }
+    },
+    {
+      "screenId": "6c7e8c5cbc8c4d0da53bd62598425852",
+      "title": "Detalhes da empresa - Freelancer Workspace",
+      "deviceType": "DESKTOP",
+      "html": ".stitch/designs/company-details.html",
+      "screenshot": ".stitch/designs/company-details.png",
+      "screenshotDimensions": {
+        "width": 2560,
+        "height": 2048
+      },
+      "checksums": {
+        "html": "2bcc12f180d163609f12288307460c96bdebd5377b045d0735246d22c8a82814",
+        "screenshot": "ebe3780ed9c64ade98658f9094c0fc934aa99f281c6e4d6138da27306fc96ecb"
+      }
+    },
+    {
+      "screenId": "180d889bef104b37aa387b8e2eb6b68e",
+      "title": "Preparar contato - Freelancer Workspace",
+      "deviceType": "DESKTOP",
+      "html": ".stitch/designs/contact-preparation.html",
+      "screenshot": ".stitch/designs/contact-preparation.png",
+      "screenshotDimensions": {
+        "width": 2560,
+        "height": 2048
+      },
+      "checksums": {
+        "html": "67bf6afa33eefd2f99668802b5f2e4f24aa637c05bc593fa100dbf4ac41c5929",
+        "screenshot": "63ab79e9680006840a257e18c80f78fc2e32147ad106ed972e07a703a8b0340a"
+      }
+    },
+    {
+      "screenId": "b39cfd7c621542219d336c7b857c96b9",
+      "title": "Buscando oportunidades - Freelancer Workspace",
+      "deviceType": "DESKTOP",
+      "html": ".stitch/designs/opportunities-loading.html",
+      "screenshot": ".stitch/designs/opportunities-loading.png",
+      "screenshotDimensions": {
+        "width": 2560,
+        "height": 2048
+      },
+      "checksums": {
+        "html": "9ae6f5879832d8e80f2d4c52c0e656b173001bbdad9040928f5c569b5194ff00",
+        "screenshot": "3ae1df7732935668a8daaa23b4fbb2ad819836254810f7ffe34cb453e315da02"
+      }
+    },
+    {
+      "screenId": "e486210b76264efa983f38836d6362f4",
+      "title": "Nenhum resultado - Freelancer Workspace",
+      "deviceType": "DESKTOP",
+      "html": ".stitch/designs/opportunities-empty.html",
+      "screenshot": ".stitch/designs/opportunities-empty.png",
+      "screenshotDimensions": {
+        "width": 2560,
+        "height": 2048
+      },
+      "checksums": {
+        "html": "1eb037b1186a7d8ff4769b790543a83c55c4882d5776d84ef7462cabd6e5acee",
+        "screenshot": "94ad90f0228411600053772dbd183933e62f444bb6280e727a63f3a4ee270336"
+      }
+    },
+    {
+      "screenId": "32a1df9601704354a666a87cc130c81e",
+      "title": "Erro na busca - Freelancer Workspace",
+      "deviceType": "DESKTOP",
+      "html": ".stitch/designs/opportunities-error.html",
+      "screenshot": ".stitch/designs/opportunities-error.png",
+      "screenshotDimensions": {
+        "width": 2560,
+        "height": 2048
+      },
+      "checksums": {
+        "html": "31e1676cb14da26015bfba69a908a85e9e35c25d69c5fca829f7e81a739dab8a",
+        "screenshot": "c09bb79b81ce874f23d2b5264e1e6cab4f133cf32ac2e28ad07d84f6bee3ab12"
+      }
+    }
+  ],
+  "generatedAssets": [
+    ".stitch/designs/opportunities-results.html",
+    ".stitch/designs/opportunities-results.png",
+    ".stitch/designs/opportunities-error.html",
+    ".stitch/designs/opportunities-error.png",
+    ".stitch/designs/opportunities-loading.html",
+    ".stitch/designs/opportunities-loading.png",
+    ".stitch/designs/opportunities-empty.html",
+    ".stitch/designs/opportunities-empty.png",
+    ".stitch/designs/company-details.html",
+    ".stitch/designs/company-details.png",
+    ".stitch/designs/contact-preparation.html",
+    ".stitch/designs/contact-preparation.png",
+    ".stitch/designs/region-selection.html",
+    ".stitch/designs/region-selection.png"
+  ],
+  "review": {
+    "visualDirectionApproved": true,
+    "generatedScreensApproved": false,
+    "notes": "Desktop reference exports; no application implementation. Maps, contacts and counts are illustrative. Final responsive behavior and accessibility need implementation validation."
+  }
+}

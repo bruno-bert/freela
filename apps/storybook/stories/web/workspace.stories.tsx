@@ -1,0 +1,9 @@
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { Workspace } from '../../../web/src/components/workspace';
+import { company, t } from '../../fixtures';
+const meta = { title: 'Web/Opportunities/Workspace', component: Workspace, tags: ['autodocs'], args: { copy: t, identity: { id: 'demo-owner', name: 'Lucas Martins', role: 'owner' }, locale: 'pt-BR', initial: { companies: [company], provider: 'demo', exhaustive: false, fetched: 1 }, mapProvider: 'schematic', mapKey: '' } } satisfies Meta<typeof Workspace>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+export const Empty: Story = { args: { initial: { companies: [], provider: 'demo', exhaustive: false, fetched: 0 } } };
+export const Error: Story = { args: { initial: null } };

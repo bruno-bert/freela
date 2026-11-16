@@ -1,0 +1,35 @@
+# Inactive deployment template. Resolve setup and validate all gates before activation.
+name: docs
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/docs/**'
+      - 'packages/core/**'
+      - 'packages/design-system/**'
+      - 'packages/config-tailwind/**'
+      - 'deploy/docs/**'
+      - '.github/workflows/docs.yml'
+permissions:
+  contents: read
+concurrency:
+  group: freela-c8c75-docs
+  cancel-in-progress: false
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm ci:quality
+# Deploy remains disabled until WIF, region, target, private access and smoke checks are verified.

@@ -1,0 +1,8 @@
+import {it,expect,vi} from 'vitest';
+import {render,screen,waitFor} from '@testing-library/react';
+import {RegionMap} from './region-map';
+import {t} from '../../../storybook/fixtures';
+const fake=vi.hoisted(()=>({mount:vi.fn(),update:vi.fn(),destroy:vi.fn()}));
+vi.mock('../lib/client/maps',()=>({createMap:()=>({mount:fake.mount})}));
+it('updates and destroys a live map, and reports a loader failure',async()=>{fake.mount.mockResolvedValue({update:fake.update,destroy:fake.destroy});const props={region:{latitude:0,longitude:0,radius:1000},companies:[],copy:t,provider:'google',apiKey:'key',onSelect:vi.fn(),onCompany:vi.fn()};const {rerender,unmount}=render(<RegionMap {...props}/>);await waitFor(()=>expect(fake.mount).toHaveBeenCalled());rerender(<RegionMap {...props} region={{...props.region,radius:2000}}/>);await waitFor(()=>expect(fake.update).toHaveBeenCalled());fake.mount.mock.calls[0][2]({...props.region,radius:500});expect(props.onSelect).toHaveBeenCalled();unmount();expect(fake.destroy).toHaveBeenCalled();fake.mount.mockRejectedValueOnce(new Error());render(<RegionMap {...props}/>);expect(await screen.findByRole('alert')).toHaveTextContent(t.mapError);});
+it('disposes of a loader which finishes after unmounting',async()=>{let finish!:(value:unknown)=>void;fake.mount.mockReturnValue(new Promise(resolve=>{finish=resolve;}));const {unmount}=render(<RegionMap region={{latitude:0,longitude:0,radius:1000}} companies={[]} copy={t} provider="google" apiKey="key" onSelect={vi.fn()} onCompany={vi.fn()}/>);unmount();finish({update:fake.update,destroy:fake.destroy});await waitFor(()=>expect(fake.destroy).toHaveBeenCalled());});

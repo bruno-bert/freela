@@ -1,0 +1,5 @@
+import { it,expect,vi } from 'vitest';
+import { render,screen,fireEvent } from '@testing-library/react';
+import { RegionMap } from './region-map';
+import { company,t } from '../../../storybook/fixtures';
+it('allows pointer and keyboard selection and independent zoom controls',()=>{const select=vi.fn(),details=vi.fn();render(<RegionMap region={{latitude:-23.589,longitude:-46.635,radius:2000}} companies={[company]} copy={t} provider="schematic" apiKey="" onSelect={select} onCompany={details}/>);const map=screen.getByRole('group',{name:t.selectMap});for(const key of ['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Escape'])fireEvent.keyDown(map,{key});expect(select).toHaveBeenCalledTimes(4);fireEvent.click(screen.getByRole('button',{name:t.zoomIn}));fireEvent.click(screen.getByRole('button',{name:t.zoomOut}));const pin=screen.getByRole('button',{name:`1: ${t.details}: ${company.name}`});fireEvent.click(pin);fireEvent.keyDown(pin,{key:'Enter'});fireEvent.keyDown(pin,{key:' '});expect(details).toHaveBeenCalledTimes(3);});

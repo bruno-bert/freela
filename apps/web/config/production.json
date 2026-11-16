@@ -1,0 +1,16 @@
+{
+  "infra": {
+    "auth": {
+      "provider": "firebase-auth"
+    },
+    "repositories": {
+      "provider": "process-api"
+    },
+    "places": {
+      "provider": "google-places"
+    },
+    "maps": {
+      "provider": "google"
+    }
+  }
+}

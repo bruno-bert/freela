@@ -1,0 +1,76 @@
+# Inactive template: generate ONE workflow per app and a separate shared-rules workflow.
+name: __APP_NAME__ quality and Firebase deployment
+on:
+  pull_request:
+    paths: ["__APP_PATH__/**", "__TRANSITIVE_PACKAGE_PATH__/**", "__DEPLOY_PATH__/**", ".github/workflows/__WORKFLOW_FILE__", "pnpm-lock.yaml", "pnpm-workspace.yaml", "turbo.json", "package.json"]
+  push:
+    branches: [main]
+    paths: ["__APP_PATH__/**", "__TRANSITIVE_PACKAGE_PATH__/**", "__DEPLOY_PATH__/**", ".github/workflows/__WORKFLOW_FILE__", "pnpm-lock.yaml", "pnpm-workspace.yaml", "turbo.json", "package.json"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: firebase-__FIREBASE_PROJECT_ID__-__DEPLOY_TARGET__
+  cancel-in-progress: false
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        # Root package.json must pin packageManager to pnpm@<version>.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      # Implement these aggregator scripts before activating this template.
+      # They must run the complete affected dependency closure and propagate failures.
+      - run: pnpm run ci:quality --filter="__APP_PACKAGE__..."
+      - run: pnpm run ci:emulators --filter="__APP_PACKAGE__..."
+      - run: pnpm run ci:coverage-new --filter="__APP_PACKAGE__..."
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: __APP_NAME__-test-reports
+          path: |
+            **/playwright-report/
+            **/test-results/
+          if-no-files-found: ignore
+  deploy:
+    needs: quality
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment: __GITHUB_ENVIRONMENT__
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      FIREBASE_PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}
+      SITE_URL: ${{ vars.SITE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ vars.WIF_PROVIDER }}
+          service_account: ${{ vars.DEPLOY_SERVICE_ACCOUNT }}
+      # For App Hosting, replace __DEPLOY_COMMIT_SHA__ in the selected apphosting.yaml
+      # with GITHUB_SHA before this command. Add the stamp step when materializing.
+      - run: pnpm exec firebase deploy --config "__FIREBASE_CONFIG_PATH__" --only "__DEPLOY_TARGET__" --project "$FIREBASE_PROJECT_ID" --non-interactive
+      # App Hosting: copy verify-deployment.mjs to this path and implement /api/health.
+      # Functions/Hosting: replace this step with an appropriate authenticated/artifact check.
+      - run: node "__VERIFY_SCRIPT_PATH__"

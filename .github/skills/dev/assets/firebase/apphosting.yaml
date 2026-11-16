@@ -1,0 +1,31 @@
+runConfig:
+  minInstances: 0
+  maxInstances: 5
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+env:
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "__PUBLIC_WEB_API_KEY__"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: "__AUTH_DOMAIN__"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: "__FIREBASE_PROJECT_ID__"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "__WEB_APP_ID__"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: "__STORAGE_BUCKET__"
+    availability: [BUILD, RUNTIME]
+  - variable: NEXT_PUBLIC_FIREBASE_FUNCTIONS_REGION
+    value: "__REGION__"
+    availability: [BUILD, RUNTIME]
+  - variable: SITE_URL
+    value: "__SITE_URL__"
+    availability: [BUILD, RUNTIME]
+  - variable: DEPLOY_COMMIT_SHA
+    value: "__DEPLOY_COMMIT_SHA__"
+    availability: [BUILD, RUNTIME]

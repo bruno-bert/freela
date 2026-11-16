@@ -1,0 +1,12 @@
+{
+  "name": "@apps/storybook",
+  "private": true,
+  "scripts": {
+    "dev": "storybook dev -p 6006 --no-open --disable-telemetry",
+    "build": "storybook build -o storybook-static --disable-telemetry"
+  },
+  "dependencies": {
+    "@freela/design-system": "workspace:*",
+    "@freela/config-tailwind": "workspace:*"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "status": "not-started",
+  "appName": "__APP_NAME__",
+  "githubRepository": "__OWNER_REPOSITORY__",
+  "environments": {
+    "__ENVIRONMENT__": {
+      "projectId": "__FIREBASE_PROJECT_ID__",
+      "projectNumber": "__FIREBASE_PROJECT_NUMBER__",
+      "region": "__REGION__",
+      "storageBucket": "__STORAGE_BUCKET__",
+      "webAppId": "__WEB_APP_ID__",
+      "authMethods": [],
+      "roleMapping": {},
+      "appHostingBackends": {
+        "web": "__WEB_BACKEND_ID__",
+        "docs": "__DOCS_BACKEND_ID__"
+      },
+      "functionsCodebases": {
+        "api": "__API_CODEBASE__"
+      },
+      "hostingTargets": {
+        "storybook": "__STORYBOOK_TARGET__"
+      },
+      "siteUrl": "__SITE_URL__",
+      "githubEnvironment": "__GITHUB_ENVIRONMENT__",
+      "workloadIdentityProvider": "__WIF_PROVIDER_RESOURCE__",
+      "deployServiceAccount": "__DEPLOY_SERVICE_ACCOUNT__",
+      "runtimeServiceAccount": "__RUNTIME_SERVICE_ACCOUNT__"
+    }
+  },
+  "pending": [
+    "Project ID and authenticated access; discover/provision remaining resource values"
+  ],
+  "provisioning": {
+    "authentication": "pending",
+    "billingVerified": false,
+    "enabledApis": [],
+    "verifiedResources": [],
+    "pendingAgentActions": [],
+    "pendingUserActions": [],
+    "lastVerifiedAt": null
+  }
+}

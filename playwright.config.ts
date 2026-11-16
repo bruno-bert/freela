@@ -1,0 +1,2 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({ testDir: './tests/e2e', fullyParallel: false, workers: 1, use: { baseURL: 'http://localhost:3000', headless: true, screenshot: 'only-on-failure' }, webServer: [{ command: 'pnpm --filter @apps/api dev', url: 'http://localhost:3011/health', reuseExistingServer: true }, { command: 'pnpm --filter @apps/web dev', url: 'http://localhost:3000/login', reuseExistingServer: true }, { command: 'pnpm --filter @apps/docs dev', url: 'http://localhost:3002/login', reuseExistingServer: true }] });

@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "allowJs": false,
+    "types": [
+      "node",
+      "google.maps"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": [
+        "packages/core/src/*"
+      ],
+      "@design-system": [
+        "packages/design-system/src/index.tsx"
+      ],
+      "@theme": [
+        "packages/config-tailwind/preset.ts"
+      ],
+      "@web/*": [
+        "apps/web/src/*"
+      ],
+      "@docs/*": [
+        "apps/docs/src/*"
+      ],
+      "@theme/*": [
+        "packages/config-tailwind/*"
+      ]
+    }
+  },
+  "include": [
+    "apps/**/*.ts",
+    "apps/**/*.tsx",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "tests/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/.next/**",
+    "**/dist/**",
+    "**/storybook-static/**"
+  ]
+}
