@@ -42,16 +42,15 @@
     }
   },
   "pending": [
-    "Google provider OAuth client/consent configuration",
-    "ADC for Admin SDK runtime",
-    "Restricted Places and Maps keys",
     "Cloud backend provisioning and app deployment",
     "WIF and CI environment setup",
     "Private docs and Storybook access protection",
-    "App Check configuration"
+    "App Check configuration",
+    "Production runtime identities and secret bindings",
+    "Production App Hosting/API provisioning, CI and served-commit verification"
   ],
   "provisioning": {
-    "authentication": "Firebase CLI project access verified; Admin ADC not verified",
+    "authentication": "Firebase CLI project access and local Application Default Credentials verified; Google provider enabled",
     "billingVerified": true,
     "enabledApis": [
       "firebase.googleapis.com",
@@ -79,18 +78,37 @@
       "GitHub bruno-bert/freela main source commit b56e63cab1942c536c2399b6937991a0e73c95a9; source tree e4adb54d19508b223d6de57293e5863b74895e92 matches local Git tree",
       "Cloud Billing billingEnabled=true verified on November 16, 2026",
       "Identity Platform initialized successfully; Auth config GET returned HTTP 200",
-      "Required runtime, App Hosting, Places, Maps, IAM, build and API Keys services enabled; batch operation completed"
+      "Required runtime, App Hosting, Places, Maps, IAM, build and API Keys services enabled; batch operation completed",
+      "Google provider GET: HTTP 200, enabled=true, OAuth client present",
+      "localhost and 127.0.0.1 authorized in Firebase Auth",
+      "Restricted server Places key and referrer-restricted Maps browser key created; values stored only in ignored local environment",
+      "Local Google ADC authorized for freela-c8c75; live Firestore read and temporary transaction write/cleanup verified",
+      "Live Google login created a session (HTTP 200); authenticated workspace and company details returned HTTP 200",
+      "Live Google Places search: 20 fetched, 10 without a listed website, all non-fictional",
+      "Browser Google Maps smoke: loaded, no authentication failure, no runtime errors"
     ],
     "pendingAgentActions": [
-      "Configure Google provider after its OAuth client is created/consented in Firebase console",
-      "Configure restricted Maps/Places keys and runtime identities, App Hosting backends and independent CI/deploy pipelines",
-      "Deploy the validated checkout and verify the served commit once required integration settings are resolved"
+      "Provision production runtime identities and Secret Manager bindings",
+      "Configure App Hosting/Functions, WIF and independent deployment pipelines",
+      "Configure production domains, App Check and private docs/Storybook protection, then deploy and verify the exact served commit"
     ],
-    "pendingUserActions": [
-      "Open https://console.firebase.google.com/project/freela-c8c75/authentication/providers and enable Google, choose the support email, and save so Firebase can provision its OAuth web client. The supported REST API rejected enablement with INVALID_CONFIG: client_id cannot be empty.",
-      "Complete interactive Google consent/ADC only if needed; never share tokens or OAuth secrets in chat"
-    ],
-    "lastVerifiedAt": "2026-11-16"
+    "pendingUserActions": [],
+    "lastVerifiedAt": "2026-11-16",
+    "apiKeys": {
+      "places": {
+        "name": "projects/68606654717/locations/global/keys/freela-places-server",
+        "apiRestriction": "places.googleapis.com",
+        "exposure": "server-only"
+      },
+      "maps": {
+        "name": "projects/68606654717/locations/global/keys/freela-maps-browser",
+        "apiRestriction": "maps-backend.googleapis.com",
+        "allowedReferrers": [
+          "http://localhost:3000/*",
+          "http://127.0.0.1:3000/*"
+        ]
+      }
+    }
   },
   "verification": {
     "local": {
@@ -98,12 +116,12 @@
       "typecheck": "passed",
       "coverage": {
         "lines": 99.7,
-        "statements": 98.65,
+        "statements": 98.66,
         "branches": 97.56,
-        "functions": 98.64
+        "functions": 98.65
       },
-      "e2e": "5 passed",
-      "stories": "29 passed",
+      "e2e": "5 passed on isolated test ports",
+      "stories": "30 passed",
       "emulator": "3 passed",
       "builds": [
         "api",
@@ -112,16 +130,22 @@
         "storybook"
       ],
       "builtApiSmoke": "health and Swagger HTTP 200",
-      "unitComponentApiContract": "67 passed across 29 test files"
+      "unitComponentApiContract": "70 passed across 30 test files",
+      "cleanSourceTypecheck": "passed without generated next-env files"
     },
     "cloud": {
       "deployed": false,
-      "liveSignInVerified": false,
-      "livePlacesVerified": false,
+      "liveSignInVerified": true,
+      "livePlacesVerified": true,
       "billingEnabled": true,
       "authInitialized": true,
-      "googleSignInEnabled": false
-    }
+      "googleSignInEnabled": true,
+      "liveMapsVerified": true,
+      "liveFirestoreReadVerified": true,
+      "localAdcVerified": true,
+      "liveFirestoreWriteVerified": true
+    },
+    "runtime": "Local frontend and API with real Firebase/Google cloud services; no public app rollout yet"
   },
   "costPreference": {
     "requested": "Cheapest or free",
@@ -141,8 +165,8 @@
     "approvalPreference": "Proceed without repeated confirmations",
     "status": "source-published-deployment-blocked",
     "blockers": [
-      "Google sign-in OAuth client is absent; provider creation returned HTTP 400 INVALID_CONFIG: client_id cannot be empty",
-      "Restricted Maps/Places keys, runtime identities, App Hosting and independent CI/deployment configuration remain pending"
+      "Production runtime identities, secret bindings, App Hosting/Functions and independent WIF/CI configuration remain pending",
+      "Production domains, App Check and private docs/Storybook access protection remain pending"
     ],
     "remotePushVerified": true,
     "applicationDeploymentVerified": false,

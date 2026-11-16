@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import request from 'supertest';
 test('validates real Next.js Experience routes, session cookies and CSRF boundaries',async()=>{
- const base='http://localhost:3000'; const anonymous=request(base),agent=request.agent(base);
+ const base='http://localhost:3100'; const anonymous=request(base),agent=request.agent(base);
  await anonymous.post('/api/opportunities/search').send({}).expect(401);
  await agent.post('/api/auth/session').set('Origin','https://evil.example').send({credential:'demo'}).expect(401);
  const login=await agent.post('/api/auth/session').set('Origin',base).send({credential:'demo'}).expect(200);

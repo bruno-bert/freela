@@ -10,5 +10,5 @@ export default async function Page() {
  const current = (await session())!; const locale = (await cookies()).get('locale')?.value === 'en' ? 'en' : 'pt-BR'; const config = getConfigManager(); let initial: SearchResult | null = null;
  try { initial = await opportunities(current.token).search({ region: defaultRegion, category: 'all', status: 'all', channel: 'all', locale }); } catch { /* The workspace presents a recoverable error while retaining its region. */ }
  const provider = config.get<string>('infra.maps.provider');
- return <Workspace identity={current.identity} locale={locale} copy={await content(locale, 'workspace')} initial={initial} mapProvider={provider} mapKey={provider === 'google' ? config.secret(config.get('infra.maps.google.apiKeyEnv')) : ''}/>;
+ return <Workspace identity={current.identity} locale={locale} copy={await content(locale, 'workspace')} initial={initial} placesProvider={config.get<SearchResult['provider']>('infra.places.provider')} mapProvider={provider} mapKey={provider === 'google' ? config.secret(config.get('infra.maps.google.apiKeyEnv')) : ''}/>;
 }

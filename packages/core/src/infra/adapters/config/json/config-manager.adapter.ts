@@ -6,7 +6,7 @@ import type { ConfigManager } from '../../../../domain/config';
 export function workspaceRoot(start = process.cwd()) { let current = start; while (!existsSync(resolve(current, 'pnpm-workspace.yaml'))) { const parent = dirname(current); if (parent === current) return process.cwd(); current = parent; } return current; }
 const root = workspaceRoot();
 const selector = z.object({ provider: z.string().min(1) }).passthrough();
-const schema = z.object({ app: z.object({ env: z.enum(['development', 'test', 'production']), commit: z.string() }), http: z.object({ port: z.number(), swagger: z.object({ enabled: z.boolean() }) }), infra: z.object({ auth: selector, repositories: selector, places: selector, cms: selector, maps: selector, queue: selector.optional() }).passthrough(), domains: z.record(z.string(), z.object({ usecases: z.record(z.string(), z.string()) })) });
+const schema = z.object({ app: z.object({ env: z.enum(['development', 'test', 'production']), commit: z.string(), buildDirectory: z.enum(['.next','.next-test']).default('.next') }), http: z.object({ port: z.number(), swagger: z.object({ enabled: z.boolean() }) }), infra: z.object({ auth: selector, repositories: selector, places: selector, cms: selector, maps: selector, queue: selector.optional() }).passthrough(), domains: z.record(z.string(), z.object({ usecases: z.record(z.string(), z.string()) })) });
 export class JsonConfigManager implements ConfigManager {
   private readonly data: Record<string, unknown>;
   constructor(private readonly app: string, private readonly env: Record<string, string | undefined> = process.env, rootDirectory = root) {

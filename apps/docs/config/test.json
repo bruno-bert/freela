@@ -1,0 +1,29 @@
+{
+  "http": {
+    "port": 3111,
+    "swagger": {
+      "enabled": true
+    }
+  },
+  "infra": {
+    "auth": {
+      "provider": "local"
+    },
+    "places": {
+      "provider": "demo"
+    },
+    "maps": {
+      "provider": "schematic"
+    },
+    "repositories": {
+      "provider": "process-api",
+      "process-api": {
+        "baseUrl": "http://127.0.0.1:3111",
+        "timeoutMs": 12000
+      }
+    }
+  },
+  "app": {
+    "buildDirectory": ".next-test"
+  }
+}

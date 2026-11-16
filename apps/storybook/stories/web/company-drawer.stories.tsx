@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { SiteRequest } from '@core/domain/model';
 import { fn } from 'storybook/test';
 import { CompanyDrawer } from '../../../web/src/components/company-drawer';
 import { company, t, queuedRequest } from '../../fixtures';
-const meta = { title: 'Web/Opportunities/CompanyDrawer', component: CompanyDrawer, tags: ['autodocs'], args: { company, mode: 'details', copy: t, onRequestSite: async()=>queuedRequest, onLoadSiteRequest: async()=>null, onClose: fn(), onPrepare: fn(), onRecord: fn().mockResolvedValue({ contacted: true, version: 1, history: [] }) } } satisfies Meta<typeof CompanyDrawer>;
+const meta = { title: 'Web/Opportunities/CompanyDrawer', component: CompanyDrawer, tags: ['autodocs'], args: { company, mode: 'details', copy: t, onRequestSite: async()=>queuedRequest, onLoadSiteRequest: async():Promise<SiteRequest|null>=>null, onClose: fn(), onPrepare: fn(), onRecord: fn().mockResolvedValue({ contacted: true, version: 1, history: [] }) } } satisfies Meta<typeof CompanyDrawer>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};

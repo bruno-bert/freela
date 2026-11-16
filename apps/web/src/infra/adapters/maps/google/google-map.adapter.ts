@@ -1,11 +1,14 @@
+import { DomainError } from '@core/domain/errors';
 import { circleStyle } from '@theme/map-tokens';
 import { importLibrary, setOptions } from '@googlemaps/js-api-loader';
 import type { Region, Company } from '@core/domain/model';
 import type { MapPort, MapHandle } from '../../../../domain/ports/maps/map.port';
+let configuredKey: string | undefined;
 export class GoogleMapAdapter implements MapPort {
  constructor(private readonly key: string) {}
  async mount(element: HTMLElement, region: Region, onSelect: (region: Region) => void): Promise<MapHandle> {
-  setOptions({ key: this.key, v: 'quarterly' });
+  if(configuredKey === undefined) {setOptions({key:this.key,v:'quarterly'});configuredKey=this.key;}
+  else if(configuredKey !== this.key) throw new DomainError('Maps configuration changed. Reload the page.');
   const { Map, Circle } = await importLibrary('maps');
   const map = new Map(element, { center: { lat: region.latitude, lng: region.longitude }, zoom: 14, streetViewControl: false, mapTypeControl: false });
   const circle = new Circle({ map, center: map.getCenter(), radius: region.radius, editable: true, draggable: true, ...circleStyle });

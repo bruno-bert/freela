@@ -1,7 +1,7 @@
 import ts from 'typescript-eslint';
 import hooks from 'eslint-plugin-react-hooks';
 export default ts.config(
- { ignores: ['**/node_modules/**', '**/.next/**', '**/dist/**', '**/build/**', '**/coverage/**', '**/storybook-static/**', '.github/**', '.agents/**', '.stitch/**', '**/next-env.d.ts', 'playwright-report/**', 'test-results/**'] },
+ { ignores: ['.data/**', '**/node_modules/**', '**/.next/**', '**/.next-test/**', '**/dist/**', '**/build/**', '**/coverage/**', '**/storybook-static/**', '.github/**', '.agents/**', '.stitch/**', '**/next-env.d.ts', 'playwright-report/**', 'test-results/**'] },
  ...ts.configs.recommended,
  { files: ['**/*.{ts,tsx}'], rules: { '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true }], '@typescript-eslint/no-explicit-any': 'error' } },
  { files: ['**/domain/**/*.{ts,tsx}'], rules: { 'no-restricted-imports': ['error', { patterns: ['**/application/**','**/infra/**','react','next','next/*','firebase*','zod','fastify'] }] } },

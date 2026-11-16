@@ -41,7 +41,7 @@ test('preserves region on search failure and offers retry',async({page})=>{
  await expect(page.getByRole('heading',{name:'Garden Café (example)'})).toBeVisible();
 });
 test('authenticates documentation and serves generated changelog',async({page})=>{
- await page.goto('http://localhost:3002/changelog'); await expect(page).toHaveURL(/\/login/);
+ await page.goto('http://localhost:3102/changelog'); await expect(page).toHaveURL(/\/login/);
  await page.getByRole('button',{name:'Entrar na demonstração'}).click();
  await expect(page.getByRole('heading',{name:'Changelog',exact:true})).toBeVisible();
  await expect(page.getByText(/Unreleased/)).toBeVisible();

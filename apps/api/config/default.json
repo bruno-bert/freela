@@ -11,7 +11,7 @@
   },
   "infra": {
     "auth": {
-      "provider": "local",
+      "provider": "firebase-auth",
       "local": {
         "secretEnv": "LOCAL_SESSION_SECRET"
       },
@@ -34,7 +34,7 @@
       }
     },
     "repositories": {
-      "provider": "memory",
+      "provider": "firestore",
       "process-api": {
         "baseUrl": "http://127.0.0.1:3011",
         "timeoutMs": 12000
@@ -44,14 +44,14 @@
       }
     },
     "places": {
-      "provider": "demo",
+      "provider": "google-places",
       "google-places": {
         "tokenEnv": "GOOGLE_PLACES_API_KEY",
         "timeoutMs": 10000
       }
     },
     "maps": {
-      "provider": "schematic",
+      "provider": "google",
       "google": {
         "apiKeyEnv": "GOOGLE_MAPS_BROWSER_KEY"
       }
@@ -66,7 +66,7 @@
       "region": "us-central1"
     },
     "queue": {
-      "provider": "local-sqlite",
+      "provider": "firestore-pending",
       "local-sqlite": {
         "filePath": ".data/site-requests.sqlite"
       },

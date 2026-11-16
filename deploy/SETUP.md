@@ -11,16 +11,16 @@ Target project: **freela-c8c75**, project number **68606654717**, region **us-ce
 - [x] Functions, Cloud Run, Cloud Build, Artifact Registry, IAM, IAM Credentials, Secret Manager, App Hosting, Hosting, Places, Maps, API Keys, Firestore and Identity Toolkit APIs enabled. The Service Usage batch operation completed successfully.
 - [x] Default Firestore Standard Native database in `us-central1`, with provider-verified `freeTier: true`. Deletion protection is enabled; paid point-in-time recovery is disabled. Billing for other services remains separate.
 - [x] Deny-all browser Firestore rules released and verified: anonymous REST reads return HTTP 403. Emulator tests also deny authenticated browser access.
-- [ ] Google sign-in: provider does not yet exist. Creating it with the supported API returned HTTP 400 `INVALID_CONFIG : client_id cannot be empty.`
-- [ ] Restricted Maps/Places keys, runtime identities/ADC, App Check, App Hosting backends, independent CI/deploy pipelines and production smoke tests.
+- [x] Google provider enabled, with an OAuth web client; verified through the provider API.
+- [x] `localhost` and `127.0.0.1` authorized for Firebase Auth.
+- [x] Separate Places server and Maps browser keys created. Places is restricted to the Places API; Maps is restricted to the Maps JavaScript API and local web referrers. Values are only in ignored `.env.local` with private file permissions.
+- [x] Local Application Default Credentials authorized for this project. A real Firestore read and temporary transaction write/cleanup succeeded.
+- [x] Real Google sign-in/session creation and authenticated workspace/details returned HTTP 200.
+- [x] Live Places pipeline returned 20 places and 10 eligible records without listed websites in the New York preset. No fictional records were used.
+- [x] Browser Google Maps loaded at the intended coordinates with no auth failure or runtime errors.
+- [ ] Production runtime identities/secrets, App Hosting/Functions rollout, WIF/CI, production domains, App Check and private catalog protection.
 
-## Required console step
-
-Open [Firebase Authentication sign-in providers](https://console.firebase.google.com/project/freela-c8c75/authentication/providers), choose **Google**, enable it, select the support email and save. Firebase must provision/configure the Google OAuth web client. The available REST provider API requires an existing OAuth client ID/secret and cannot complete this missing configuration by merely enabling the provider. Never paste credentials into chat.
-
-The agent can then verify the Google provider and continue restricted API keys, runtime identities, separate App Hosting backends, WIF/CI and deployment. Interactive Google consent or ADC should be completed only if the supported tooling requires it. This is missing provider configuration, not a request to approve the already-authorized deployment.
-
-Official references: [initialize Auth](https://docs.cloud.google.com/identity-platform/docs/reference/rest/v2/projects.identityPlatform/initializeAuth), [configure OAuth providers through REST](https://firebase.google.com/docs/auth/configure-oauth-rest-api), [Google provider setup](https://firebase.google.com/docs/auth/web/google-signin).
+No further user credential/configuration step is currently required to use the local live app. A future machine needs its own supported ADC login; cloud runtime identities will use managed ADC.
 
 ## Local applications
 
@@ -29,11 +29,13 @@ Official references: [initialize Auth](https://docs.cloud.google.com/identity-pl
 - Documentation: http://localhost:3002 and http://localhost:3002/changelog
 - Storybook: http://localhost:6006
 
-Signed local sessions and fictional company fixtures support development. Contact history is in API process memory and resets on restart. Site requests are durable in ignored `.data/site-requests.sqlite` and remain pending across restarts. International presets cover eight commercial districts in the US, Canada, Ireland and the Netherlands. The local map is a schematic; live Places/Maps and Google sign-in have not been verified. WhatsApp opens only known real destinations and never records contact automatically. Production refuses development adapters.
+The normal app now uses real Google sign-in, Firestore contact/request persistence, Google Maps and Google Places. It has no demonstration sign-in or fictional search results. The Google provider, ADC and keys are configured for the local runtime. Existing demonstration cookies are rejected by Firebase and require a new Google login.
+
+Tests alone explicitly select `APP_ENV=test`: local signed fixture sessions, memory contacts, SQLite pending requests, demo places and the schematic map. Playwright uses ports 3100/3111/3102 and `.next-test` output, never the live running app. Storybook fixtures remain isolated component examples. No test calls live Google services. `next-env.d.ts` is generated per runtime and ignored.
 
 ## Pending site request capture
 
-The user explicitly deferred the AI backend. The Sites domain only captures durable pending records: `local-sqlite` locally and `firestore-pending` in production. There is no generator, listener, task dispatch or automatic publishing. Site requests are owner-scoped, idempotent and transactionally deduplicated. Contact history stays independent. A future execution stage must add the constitution’s Cloud Tasks/separate-listener and failed-job recovery implementation before dispatch. See [international prospecting](../docs/international-prospecting.md).
+The user explicitly deferred the AI backend. The Sites domain only captures durable pending records: `firestore-pending` in the normal app, with `local-sqlite` only in explicit automated-test profiles. There is no generator, listener, task dispatch or automatic publishing. Site requests are owner-scoped, idempotent and transactionally deduplicated. Contact history stays independent. A future execution stage must add the constitution’s Cloud Tasks/separate-listener and failed-job recovery implementation before dispatch. See [international prospecting](../docs/international-prospecting.md).
 
 ## Source publication
 
@@ -41,6 +43,6 @@ The initial application snapshot and original Stitch PNG/HTML assets were publis
 
 ## Validation
 
-Lint, typecheck, all unit/component/API/contract suites, 5 Playwright flows, 29 Storybook/a11y checks, 3 Firestore emulator tests, coverage gates and all four builds are required and recorded with the feature’s validation evidence in `docs/international-prospecting.md`. OpenAPI is compared against the registered Fastify routes. Native SQLite is development-only and requires the repository’s Node 22 runtime. Java 21 runs the Firestore emulator.
+Lint, typecheck, all unit/component/API/contract suites, 5 Playwright flows, 30 Storybook/a11y checks, 3 Firestore emulator tests, coverage gates and all four builds are required and recorded in `docs/live-services.md` and `docs/international-prospecting.md`. OpenAPI is compared against the registered Fastify routes. Native SQLite is fixture-only and requires the repository’s Node 22 runtime. Java 21 runs the Firestore emulator.
 
 `project.setup.json` is the machine-readable record. No production URL is claimed until deployment and exact served-commit probes succeed. Private docs/Storybook hosting protection remains unresolved, so those private catalogs are not published.

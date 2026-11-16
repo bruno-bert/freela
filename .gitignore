@@ -1,5 +1,6 @@
 node_modules/
 .next/
+.next-test/
 dist/
 build/
 coverage/
@@ -21,3 +22,5 @@ playwright-report/
 test-results/
 *.tsbuildinfo
 .data/
+
+next-env.d.ts

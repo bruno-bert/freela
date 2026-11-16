@@ -1,3 +1,4 @@
 import type { NextConfig } from 'next';
-const config: NextConfig = { transpilePackages: ['@freela/core', '@freela/design-system', '@freela/config-tailwind'], outputFileTracingExcludes: { '/*': ['../../.env*', '../../.data/**/*', '../../.git/**/*', '../../.stitch/**/*'] }, poweredByHeader: false, devIndicators: false };
+import { RuntimeFactory } from '../../packages/core/src/infra/factories/runtime/runtime.factory';
+const config: NextConfig = { ...RuntimeFactory.forApp('web'), transpilePackages: ['@freela/core', '@freela/design-system', '@freela/config-tailwind'], outputFileTracingExcludes: { '/*': ['../../.env*', '../../.data/**/*', '../../.git/**/*', '../../.stitch/**/*'] }, poweredByHeader: false, devIndicators: false };
 export default config;

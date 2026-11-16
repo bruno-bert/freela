@@ -52,6 +52,7 @@
     "node_modules",
     "**/.next/**",
     "**/dist/**",
-    "**/storybook-static/**"
+    "**/storybook-static/**",
+    "**/.next-test/**"
   ]
 }

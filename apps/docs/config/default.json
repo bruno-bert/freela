@@ -11,7 +11,7 @@
   },
   "infra": {
     "auth": {
-      "provider": "local",
+      "provider": "firebase-auth",
       "local": {
         "secretEnv": "LOCAL_SESSION_SECRET"
       },
@@ -44,14 +44,14 @@
       }
     },
     "places": {
-      "provider": "demo",
+      "provider": "google-places",
       "google-places": {
         "tokenEnv": "GOOGLE_PLACES_API_KEY",
         "timeoutMs": 10000
       }
     },
     "maps": {
-      "provider": "schematic",
+      "provider": "google",
       "google": {
         "apiKeyEnv": "GOOGLE_MAPS_BROWSER_KEY"
       }
