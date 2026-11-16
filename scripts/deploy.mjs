@@ -25,5 +25,9 @@ try{
   await new Promise(resolve=>setTimeout(resolve,10000));
  }
  if(!verified)throw Error('Served commit verification failed');
+ if(app==='api'){
+  const probe=await fetch(`${url}?json-probe=${sha}`,{method:'POST',headers:{'Content-Type':'application/json','Cache-Control':'no-cache'},body:'{"probe":true}',signal:AbortSignal.timeout(15000)});
+  if(probe.status!==404)throw Error('Firebase JSON request adapter verification failed');
+ }
  console.log(`Verified ${app}: ${sha}`);
 }finally{try{unlinkSync(generated);}catch{/* Web source deployment uses no generated config. */}}

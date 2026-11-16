@@ -42,3 +42,7 @@ The Process API Functions timeout is 120 seconds. The production API runtime can
 ## Verification
 
 Unit, component, API/contract, Playwright and Storybook/a11y suites cover contactability, all website selections, URL validation, SSRF defenses, structured output, bilingual draft inclusion, mode transitions, failures and preservation of edits. Emulator tests continue verifying existing Firestore boundaries. A separate authorized live smoke fetched public example HTML and received a bilingual structured Gemini result; automated tests use fixtures and mocks without live model calls.
+
+## Firebase JSON transport
+
+Firebase consumes the incoming request stream before the Functions handler runs, as described in the [Fastify serverless guide](https://fastify.dev/docs/latest/Guides/Serverless/). The Functions adapter replays `rawBody` bytes through Fastify injection, discards obsolete request length/encoding headers, and forwards the resulting status, headers and bytes. This preserves authentication, secure JSON parsing, body limits and Zod validation without waiting on a consumed stream. The local Node server is unchanged. A consumed-stream HTTP contract tests searches, audits, contact replay, site-request replay, validation and oversized payloads. Deployment now also posts JSON to the public health path and requires the normal `404` response within 15 seconds, in addition to verifying the served commit. This probe carries no credentials and changes no business data.

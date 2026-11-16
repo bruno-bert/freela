@@ -127,8 +127,8 @@
       "typecheck": "passed",
       "coverage": {
         "lines": 99.77,
-        "statements": 98.84,
-        "branches": 97.83,
+        "statements": 98.85,
+        "branches": 97.84,
         "functions": 98.95
       },
       "e2e": "7 passed on isolated test ports",
@@ -141,7 +141,7 @@
         "storybook"
       ],
       "builtApiSmoke": "Health/Swagger and authenticated fixture website-audit returned HTTP 200",
-      "unitComponentApiContract": "96 passed across 38 test files",
+      "unitComponentApiContract": "97 passed across 39 test files, including consumed Firebase request-stream contract",
       "cleanSourceTypecheck": "passed without generated next-env files"
     },
     "cloud": {
