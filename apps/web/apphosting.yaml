@@ -1,4 +1,3 @@
-# Inactive until deployment setup and environment bindings are verified.
 runConfig:
   minInstances: 0
   maxInstances: 2
@@ -7,3 +6,7 @@ env:
     value: production
   - variable: DEPLOY_COMMIT_SHA
     value: __DEPLOY_COMMIT_SHA__
+  - variable: FIREBASE_WEB_API_KEY
+    secret: FIREBASE_WEB_API_KEY@1
+  - variable: GOOGLE_MAPS_BROWSER_KEY
+    secret: GOOGLE_MAPS_BROWSER_KEY@1

@@ -50,3 +50,7 @@ Lint, typecheck, all unit/component/API/contract suites, 5 Playwright flows, 30 
 ## Category/map workspace update
 
 The live app now offers the complete reviewed Table A category catalog, with clinic/veterinary/grocery/beauty suggestions, and a compact map-above-controls layout with normal visible page scrolling. A real Maps adapter check verified mouse dragging and coordinate recentering. The search route’s category enum is expanded without changing authentication, persistence or provider configuration. See [categories and map](../docs/categories-and-map.md) for the catalog source, interaction details and validation. No cloud resources, keys, billing settings or access rules were changed by this update.
+
+## Production delivery configuration
+
+The `freela-web` App Hosting backend now exists in `us-central1`. Dedicated web/API runtime and deployment identities, a narrowly scoped GitHub OIDC pool/provider, Secret Manager bindings, production Auth domain and Maps referrer have been provisioned. Active independent workflows live in `.github/workflows/web.yml` and `api.yml`. See [production deployment](../docs/production-deployment.md) for delivery, access and health checks. Actual rollout and served-commit results are recorded in `project.setup.json`; a backend existing alone is not a successful release.

@@ -1,0 +1,21 @@
+{
+  "apphosting": [
+    {
+      "backendId": "freela-web",
+      "rootDir": "../..",
+      "ignore": [
+        "node_modules",
+        ".git",
+        ".data",
+        ".env*",
+        "**/.next",
+        "**/.next-test",
+        "**/storybook-static",
+        "**/dist",
+        "**/build",
+        "**/coverage",
+        ".stitch"
+      ]
+    }
+  ]
+}

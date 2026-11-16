@@ -1,0 +1,53 @@
+name: api
+on:
+  push:
+    branches: [main]
+    paths: ["apps/api/**", "packages/core/**", "packages/config-*/**", "packages/design-system/**", "apps/docs/content/**", "deploy/api/**", "scripts/**", "package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "tsconfig.json", "vitest*.ts", "playwright.config.ts", ".github/workflows/api.yml"]
+  pull_request:
+    paths: ["apps/api/**", "packages/core/**", "packages/config-*/**", "packages/design-system/**", "apps/docs/content/**", "deploy/api/**", "scripts/**", "package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "tsconfig.json", "vitest*.ts", "playwright.config.ts", ".github/workflows/api.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: freela-c8c75-api-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: pnpm
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm ci:quality
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: quality
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093
+        with:
+          workload_identity_provider: projects/68606654717/locations/global/workloadIdentityPools/github-freela/providers/main
+          service_account: freela-api-deploy@freela-c8c75.iam.gserviceaccount.com
+      - run: node scripts/deploy.mjs api

@@ -4,7 +4,10 @@
       "provider": "firebase-auth"
     },
     "repositories": {
-      "provider": "process-api"
+      "provider": "process-api",
+      "process-api": {
+        "baseUrl": "https://us-central1-freela-c8c75.cloudfunctions.net/api"
+      }
     },
     "places": {
       "provider": "google-places"

@@ -63,7 +63,8 @@
       }
     },
     "runtime": {
-      "region": "us-central1"
+      "region": "us-central1",
+      "serviceAccount": "freela-api-runtime@freela-c8c75.iam.gserviceaccount.com"
     },
     "queue": {
       "provider": "firestore-pending",

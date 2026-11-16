@@ -5,7 +5,7 @@ const config = new JsonConfigManager('api');
 const region = config.get<string>('infra.runtime.region');
 if (region === '[TBD]') throw new Error('Select and configure a Firebase Functions region before deployment.');
 let server: ReturnType<typeof createServer> | undefined;
-export const api = onRequest({ region, maxInstances: 2, invoker: 'public' }, async (request, response) => {
+export const api = onRequest({ region, maxInstances: 2, invoker: 'public', serviceAccount: config.get<string>('infra.runtime.serviceAccount'), secrets: [config.get<string>('infra.places.google-places.tokenEnv')] }, async (request, response) => {
  server ??= createServer(config);
  const app = await server;
  app.server.emit('request', request, response);

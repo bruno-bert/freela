@@ -15,11 +15,11 @@
         "authenticated": "owner"
       },
       "appHostingBackends": {
-        "web": "[TBD]",
+        "web": "freela-web",
         "docs": "[TBD]"
       },
       "functionsCodebases": {
-        "api": "[TBD]"
+        "api": "opportunities-api"
       },
       "hostingTargets": {
         "storybook": "[TBD]"
@@ -37,6 +37,19 @@
           "httpStatus": 403,
           "status": "PERMISSION_DENIED",
           "message": "Missing or insufficient permissions."
+        }
+      },
+      "siteUrl": "https://freela-web--freela-c8c75.us-central1.hosted.app",
+      "runtimeServiceAccounts": {
+        "web": "freela-web-runtime@freela-c8c75.iam.gserviceaccount.com",
+        "api": "freela-api-runtime@freela-c8c75.iam.gserviceaccount.com"
+      },
+      "ci": {
+        "provider": "projects/68606654717/locations/global/workloadIdentityPools/github-freela/providers/main",
+        "environment": "production",
+        "deployServiceAccounts": {
+          "web": "freela-web-deploy@freela-c8c75.iam.gserviceaccount.com",
+          "api": "freela-api-deploy@freela-c8c75.iam.gserviceaccount.com"
         }
       }
     }
@@ -173,7 +186,7 @@
   "deploymentRequest": {
     "authorized": true,
     "approvalPreference": "Proceed without repeated confirmations",
-    "status": "source-published-deployment-blocked",
+    "status": "rollout-in-progress",
     "blockers": [
       "Production runtime identities, secret bindings, App Hosting/Functions and independent WIF/CI configuration remain pending",
       "Production domains, App Check and private docs/Storybook access protection remain pending"
