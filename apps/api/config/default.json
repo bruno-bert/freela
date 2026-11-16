@@ -95,7 +95,8 @@
       "usecases": {
         "search": "default",
         "details": "default",
-        "recordContact": "default"
+        "recordContact": "default",
+        "confirmWhatsapp": "default"
       }
     },
     "auth": {

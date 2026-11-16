@@ -650,6 +650,9 @@
                             "nullable": true,
                             "type": "string"
                           },
+                          "whatsappConfirmed": {
+                            "type": "boolean"
+                          },
                           "instagram": {
                             "nullable": true,
                             "type": "string"
@@ -707,6 +710,22 @@
                                   ],
                                   "additionalProperties": false
                                 }
+                              },
+                              "whatsappConfirmation": {
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": "string"
+                                  },
+                                  "confirmedAt": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "number",
+                                  "confirmedAt"
+                                ],
+                                "additionalProperties": false
                               }
                             },
                             "required": [
@@ -833,6 +852,9 @@
                       "nullable": true,
                       "type": "string"
                     },
+                    "whatsappConfirmed": {
+                      "type": "boolean"
+                    },
                     "instagram": {
                       "nullable": true,
                       "type": "string"
@@ -890,6 +912,22 @@
                             ],
                             "additionalProperties": false
                           }
+                        },
+                        "whatsappConfirmation": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "string"
+                            },
+                            "confirmedAt": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "number",
+                            "confirmedAt"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -1004,6 +1042,134 @@
                         ],
                         "additionalProperties": false
                       }
+                    },
+                    "whatsappConfirmation": {
+                      "type": "object",
+                      "properties": {
+                        "number": {
+                          "type": "string"
+                        },
+                        "confirmedAt": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "number",
+                        "confirmedAt"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "contacted",
+                    "version",
+                    "history"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/whatsapp-confirmations": {
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200,
+                    "pattern": "^[a-zA-Z0-9_-]+$"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "minLength": 8,
+                    "maxLength": 60
+                  },
+                  "expectedVersion": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "idempotencyKey": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  }
+                },
+                "required": [
+                  "companyId",
+                  "phone",
+                  "expectedVersion",
+                  "idempotencyKey"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "contacted": {
+                      "type": "boolean"
+                    },
+                    "version": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "history": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "at": {
+                            "type": "string"
+                          },
+                          "note": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "at",
+                          "note"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "whatsappConfirmation": {
+                      "type": "object",
+                      "properties": {
+                        "number": {
+                          "type": "string"
+                        },
+                        "confirmedAt": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "number",
+                        "confirmedAt"
+                      ],
+                      "additionalProperties": false
                     }
                   },
                   "required": [

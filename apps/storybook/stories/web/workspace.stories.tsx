@@ -14,3 +14,5 @@ export const LiveProviderError: Story = {args:{initial:null,placesProvider:'goog
 export const ManyResults: Story = {args:{initial:{companies:denseCompanies as Company[],provider:'demo',exhaustive:false,fetched:denseCompanies.length}}};
 
 export const WebsiteSelection:Story={play:async({canvas})=>{await userEvent.click(canvas.getByRole('checkbox',{name:t.noWebsite}));await expect(canvas.getByLabelText(t.websiteFilter)).toHaveValue('all');await userEvent.selectOptions(canvas.getByLabelText(t.websiteFilter),'present');await expect(canvas.getByRole('checkbox',{name:t.noWebsite})).not.toBeChecked();}};
+
+export const VerifiedChannel:Story={args:{initial:{companies:[{...company,phone:'+1 202 555 0100',whatsapp:'12025550100',whatsappConfirmed:true,contact:{contacted:false,version:1,history:[],whatsappConfirmation:{number:'12025550100',confirmedAt:'2026-11-16T12:00:00Z'}}}],provider:'demo',exhaustive:false,fetched:1}}};

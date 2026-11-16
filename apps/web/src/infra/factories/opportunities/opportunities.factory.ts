@@ -1,3 +1,4 @@
+import { ConfirmWhatsapp } from '../../../application/opportunities/confirm-whatsapp';
 import { SearchOpportunities } from '../../../application/opportunities/search';
 import { GetCompanyDetails } from '../../../application/opportunities/details';
 import { RecordContact } from '../../../application/opportunities/record-contact';
@@ -11,6 +12,7 @@ export class OpportunitiesFactory extends AbstractFactory<OpportunitiesPort, Opp
  const search = this.select('domains.opportunities.usecases.search', { default: () => new SearchOpportunities(port) });
  const details = this.select('domains.opportunities.usecases.details', { default: () => new GetCompanyDetails(port) });
  const contact = this.select('domains.opportunities.usecases.recordContact', { default: () => new RecordContact(port) });
- return { search: input => search.execute(input), details: (id, locale) => details.execute({ id, locale }), recordContact: input => contact.execute(input) };
+ const confirmation=this.select('domains.opportunities.usecases.confirmWhatsapp',{default:()=>new ConfirmWhatsapp(port)});
+ return { confirmWhatsapp:input=>confirmation.execute(input), search: input => search.execute(input), details: (id, locale) => details.execute({ id, locale }), recordContact: input => contact.execute(input) };
  }
 }

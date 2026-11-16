@@ -54,3 +54,7 @@ The live app now offers the complete reviewed Table A category catalog, with cli
 ## Production delivery configuration
 
 The `freela-web` App Hosting backend now exists in `us-central1`. Dedicated web/API runtime and deployment identities, a narrowly scoped GitHub OIDC pool/provider, Secret Manager bindings, production Auth domain and Maps referrer have been provisioned. Active independent workflows live in `.github/workflows/web.yml` and `api.yml`. See [production deployment](../docs/production-deployment.md) for delivery, access and health checks. Actual rollout and served-commit results are recorded in `project.setup.json`; a backend existing alone is not a successful release.
+
+## Manual WhatsApp confirmation
+
+The opportunity contact form now offers an explicit owner-private confirmation after trying the listed phone. It reuses existing Firestore contact transactions and the authenticated web/API deployment targets, with no new cloud resources or secrets. See [manual confirmation](../docs/whatsapp-confirmation.md). Pipeline and served-commit checks must complete before reporting this release as live.

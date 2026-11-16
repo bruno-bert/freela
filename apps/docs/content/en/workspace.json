@@ -637,5 +637,12 @@
   "proposal.en.redesign": "Hi! I came across {company} and reviewed your existing website. I would love to discuss a refreshed website that makes your services clearer and helps visitors get in touch.",
   "proposal.pt-BR.redesign": "Olá! Conheci a {company} e analisei o site atual de vocês. Gostaria de conversar sobre uma renovação que apresente melhor os serviços e facilite o contato dos visitantes.",
   "proposal.en.audit": "Based on a preliminary HTML review, here are a few improvements we could explore together (to be confirmed with you):\n{gaps}",
-  "proposal.pt-BR.audit": "Em uma revisão inicial do HTML, encontrei algumas melhorias que podemos avaliar juntos (a confirmar com vocês):\n{gaps}"
+  "proposal.pt-BR.audit": "Em uma revisão inicial do HTML, encontrei algumas melhorias que podemos avaliar juntos (a confirmar com vocês):\n{gaps}",
+  "whatsappConfirmed": "WhatsApp confirmed",
+  "whatsappUnconfirmed": "WhatsApp unconfirmed",
+  "confirmWhatsapp": "Confirm WhatsApp",
+  "confirmingWhatsapp": "Saving confirmation…",
+  "whatsappConfirmError": "Could not save the confirmation. Retry, or reload if the contact changed.",
+  "whatsappVerificationHint": "Open WhatsApp using the listed phone. After checking the number there, return here to confirm it. Opening a tab does not verify the number or record outreach.",
+  "whatsappNumber": "WhatsApp number"
 }
