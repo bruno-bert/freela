@@ -18,13 +18,13 @@ pnpm --filter @apps/storybook dev
 - Documentation: http://localhost:3002 and http://localhost:3002/changelog
 - Storybook: http://localhost:6006
 
-Use “Enter demonstration” for local sign-in. Demo contacts are fictional, and contact history is held in API process memory. Restarting the API clears it. The map is an interactive schematic in local mode; it does not load real Google data. Sign-in creates a signed HttpOnly session, and the API verifies it separately. Production rejects local/demo adapters.
+Use “Enter demonstration” for local sign-in. Demo contacts are fictional, and contact history is held in API process memory. Restarting the API clears it. The map is an interactive schematic in local mode; it does not load real Google data. Sign-in creates a signed HttpOnly session, and the API verifies it separately. Site-request records persist locally in the ignored `.data/site-requests.sqlite` database; restarting the API retains them. Production rejects local/demo adapters.
 
 ## Live integrations
 
 See `deploy/SETUP.md`. Set Firebase configuration, Application Default Credentials and restricted Places/Maps keys through environment references. Production overrides select Firebase Authentication, Firestore, Google Places and Google Maps. Google sign-in is prepared; provider setup must be verified before switching adapters. No credentials are committed. Nothing has been deployed.
 
-Nearby Search is non-exhaustive and limited to 20 ranked places per query. The app filters out records with a website URL listed. Unknown WhatsApp/Instagram remain unknown. Opening WhatsApp never changes contact status; “Record contact” is a separate versioned, idempotent command. The portfolio stays `[TBD]` until supplied by the user.
+Nearby Search is non-exhaustive and limited to 20 ranked places per query. The app filters out records with a website URL listed. Unknown WhatsApp/Instagram remain unknown. Opening WhatsApp never changes contact status; “Record contact” is a separate versioned, idempotent command. Contact proposals default to English independently of the workspace language. Portfolio URLs are optional; an existing preview URL selects a different proposal. Eight international district presets move the map before an explicit search. Website creation requests can be saved as pending, without an AI generator. See [international prospecting](docs/international-prospecting.md).
 
 ## Validate
 

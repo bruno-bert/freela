@@ -8,11 +8,13 @@ import type { Identity } from '@core/domain/model';
 import { DomainError } from '@core/domain/errors';
 import { AuthFactory } from '@core/infra/factories/auth/auth.factory';
 import { OpportunitiesFactory } from '../infra/factories/opportunities/opportunities.factory';
+import { SitesFactory } from '../infra/factories/sites/sites.factory';
 export async function createServer(config: ConfigManager) {
   const app = Fastify({ logger: false, bodyLimit: 32768 }).withTypeProvider<ZodTypeProvider>();
   app.setValidatorCompiler(validatorCompiler); app.setSerializerCompiler(serializerCompiler);
   if (config.get('http.swagger.enabled')) { await app.register(swagger, { openapi: { info: { title: 'Freelancer Workspace Process API', version: '1.0.0' }, components: { securitySchemes: { session: { type: 'http', scheme: 'bearer' } } } }, transform: jsonSchemaTransform }); await app.register(swaggerUi, { routePrefix: '/docs' }); }
   const services = new OpportunitiesFactory(config).make(), auth = new AuthFactory(config).make();
+  const sites = new SitesFactory(config).make();
   const identities = new WeakMap<object, Identity>();
   app.addHook('onRequest', async request => { if (request.url.startsWith('/v1/')) { const token = request.headers.authorization?.replace(/^Bearer /, '') ?? ''; identities.set(request, await auth.verify(token)); } });
   app.setErrorHandler((error, _request, reply) => { const e = error as Error & { statusCode?: number; validation?: unknown }; const status = e instanceof DomainError ? e.status : e.validation ? 400 : e.statusCode ?? 500; reply.code(status).send({ error: status >= 500 ? 'Service unavailable.' : e.message }); });
@@ -26,5 +28,8 @@ export async function createServer(config: ConfigManager) {
   app.post('/v1/opportunities/search', { schema: { security, body: z.object({ region, category: z.enum(['all', 'car_repair', 'cafe', 'florist', 'store']), status: z.enum(['all', 'new', 'contacted']), channel: z.enum(['all', 'whatsapp', 'instagram']), locale }), response: { 200: searchSchema } } }, request => services.search.execute(identities.get(request)!, request.body));
   app.get('/v1/opportunities/:id', { schema: { security, params: z.object({ id }), querystring: z.object({ locale: locale.default('pt-BR') }), response: { 200: companySchema } } }, request => services.details.execute(identities.get(request)!, { companyId: request.params.id, locale: request.query.locale }));
   app.post('/v1/contacts', { schema: { security, body: z.object({ companyId: id, expectedVersion: z.number().int().nonnegative(), idempotencyKey: z.string().uuid(), note: z.string().max(1000) }), response: { 200: contactSchema } } }, request => services.recordContact.execute(identities.get(request)!, request.body));
+  const siteRequest = z.object({ id: z.string(), companyId: id, language: locale, brief: z.string(), status: z.literal('pending'), version: z.literal(0), createdAt: z.string(), schemaVersion: z.literal(1) });
+  app.post('/v1/site-requests', { schema: { security, body: z.object({ companyId: id, language: locale, brief: z.string().trim().max(2000), idempotencyKey: z.string().uuid() }), response: { 202: siteRequest } } }, async (request, reply) => reply.code(202).send(await sites.request.execute(identities.get(request)!, request.body)));
+  app.get('/v1/site-requests/:id', { schema: { security, params: z.object({id}), response: {200: siteRequest.nullable()} } }, request => sites.get.execute(identities.get(request)!, request.params.id));
   await app.ready(); return app;
 }

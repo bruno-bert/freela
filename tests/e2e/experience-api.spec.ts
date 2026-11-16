@@ -20,6 +20,13 @@ test('validates real Next.js Experience routes, session cookies and CSRF boundar
  const replay=await agent.post('/api/contacts').set('Origin',base).send(command).expect(200);
  expect(replay.body).toEqual(recorded.body);
  await agent.post('/api/contacts').set('Origin',base).send({...command,idempotencyKey:crypto.randomUUID()}).expect(409);
+ const site={companyId:`site-${crypto.randomUUID()}`,language:'en',brief:'One page website',idempotencyKey:crypto.randomUUID()};
+ await anonymous.post('/api/site-requests').send(site).expect(401);
+ await agent.post('/api/site-requests').set('Origin','https://evil.example').send(site).expect(400);
+ const queued=await agent.post('/api/site-requests').set('Origin',base).send(site).expect(202);
+ expect(queued.body.status).toBe('pending');expect((await agent.post('/api/site-requests').set('Origin',base).send(site).expect(202)).body).toEqual(queued.body);
+ expect((await agent.get(`/api/site-requests/${site.companyId}`).expect(200)).body).toEqual(queued.body);
+ await agent.post('/api/site-requests').set('Origin',base).send({...site,brief:'Different'}).expect(409);
  await agent.post('/api/auth/logout').set('Origin',base).expect(200);
  await agent.post('/api/opportunities/search').set('Origin',base).send(input).expect(401);
  await anonymous.get('/api/health').expect(200);

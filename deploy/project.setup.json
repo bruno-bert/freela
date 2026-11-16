@@ -42,8 +42,7 @@
     }
   },
   "pending": [
-    "Billing activation",
-    "Firebase Auth initialization and Google provider consent/configuration",
+    "Google provider OAuth client/consent configuration",
     "ADC for Admin SDK runtime",
     "Restricted Places and Maps keys",
     "Cloud backend provisioning and app deployment",
@@ -53,11 +52,23 @@
   ],
   "provisioning": {
     "authentication": "Firebase CLI project access verified; Admin ADC not verified",
-    "billingVerified": false,
+    "billingVerified": true,
     "enabledApis": [
       "firebase.googleapis.com",
       "firestore.googleapis.com",
-      "identitytoolkit.googleapis.com"
+      "identitytoolkit.googleapis.com",
+      "cloudfunctions.googleapis.com",
+      "run.googleapis.com",
+      "cloudbuild.googleapis.com",
+      "artifactregistry.googleapis.com",
+      "iam.googleapis.com",
+      "iamcredentials.googleapis.com",
+      "secretmanager.googleapis.com",
+      "firebaseapphosting.googleapis.com",
+      "firebasehosting.googleapis.com",
+      "places.googleapis.com",
+      "maps-backend.googleapis.com",
+      "apikeys.googleapis.com"
     ],
     "verifiedResources": [
       "Firebase project freela-c8c75 (ACTIVE)",
@@ -65,16 +76,19 @@
       "Firestore (default) database: Standard Native, us-central1, freeTier=true",
       "Firestore deny-all browser rules compiled and released successfully",
       "Anonymous Firestore REST document read denied with HTTP 403 PERMISSION_DENIED",
-      "GitHub bruno-bert/freela main source commit b56e63cab1942c536c2399b6937991a0e73c95a9; source tree e4adb54d19508b223d6de57293e5863b74895e92 matches local Git tree"
+      "GitHub bruno-bert/freela main source commit b56e63cab1942c536c2399b6937991a0e73c95a9; source tree e4adb54d19508b223d6de57293e5863b74895e92 matches local Git tree",
+      "Cloud Billing billingEnabled=true verified on November 16, 2026",
+      "Identity Platform initialized successfully; Auth config GET returned HTTP 200",
+      "Required runtime, App Hosting, Places, Maps, IAM, build and API Keys services enabled; batch operation completed"
     ],
     "pendingAgentActions": [
-      "Resume service provisioning after billing is available",
-      "Initialize Auth, enable Google provider, configure runtime and restricted integrations",
-      "Configure separate CI/deploy pipelines after billing and private hosting protections are resolved"
+      "Configure Google provider after its OAuth client is created/consented in Firebase console",
+      "Configure restricted Maps/Places keys and runtime identities, App Hosting backends and independent CI/deploy pipelines",
+      "Deploy the validated checkout and verify the served commit once required integration settings are resolved"
     ],
     "pendingUserActions": [
-      "Enable billing for freela-c8c75",
-      "Complete Google consent/ADC interactively if needed; never share tokens in chat"
+      "Open https://console.firebase.google.com/project/freela-c8c75/authentication/providers and enable Google, choose the support email, and save so Firebase can provision its OAuth web client. The supported REST API rejected enablement with INVALID_CONFIG: client_id cannot be empty.",
+      "Complete interactive Google consent/ADC only if needed; never share tokens or OAuth secrets in chat"
     ],
     "lastVerifiedAt": "2026-11-16"
   },
@@ -83,26 +97,30 @@
       "lint": "passed",
       "typecheck": "passed",
       "coverage": {
-        "lines": 99.62,
-        "statements": 98.36,
-        "branches": 97.59,
-        "functions": 98.2
+        "lines": 99.7,
+        "statements": 98.65,
+        "branches": 97.56,
+        "functions": 98.64
       },
-      "e2e": "4 passed",
-      "stories": "24 passed",
-      "emulator": "2 passed",
+      "e2e": "5 passed",
+      "stories": "29 passed",
+      "emulator": "3 passed",
       "builds": [
         "api",
         "web",
         "docs",
         "storybook"
       ],
-      "builtApiSmoke": "health and Swagger HTTP 200"
+      "builtApiSmoke": "health and Swagger HTTP 200",
+      "unitComponentApiContract": "67 passed across 29 test files"
     },
     "cloud": {
       "deployed": false,
       "liveSignInVerified": false,
-      "livePlacesVerified": false
+      "livePlacesVerified": false,
+      "billingEnabled": true,
+      "authInitialized": true,
+      "googleSignInEnabled": false
     }
   },
   "costPreference": {
@@ -114,7 +132,7 @@
       "documentWritesPerDay": 20000,
       "documentDeletesPerDay": 20000
     },
-    "billingEnabled": false,
+    "billingEnabled": true,
     "paidRecoveryFeaturesEnabled": false,
     "source": "https://cloud.google.com/firestore/pricing"
   },
@@ -123,8 +141,8 @@
     "approvalPreference": "Proceed without repeated confirmations",
     "status": "source-published-deployment-blocked",
     "blockers": [
-      "Firebase billingEnabled is false; App Hosting and Functions require Blaze",
-      "Firebase Auth is not initialized; Google sign-in and Maps/Places credentials remain unresolved"
+      "Google sign-in OAuth client is absent; provider creation returned HTTP 400 INVALID_CONFIG: client_id cannot be empty",
+      "Restricted Maps/Places keys, runtime identities, App Hosting and independent CI/deployment configuration remain pending"
     ],
     "remotePushVerified": true,
     "applicationDeploymentVerified": false,

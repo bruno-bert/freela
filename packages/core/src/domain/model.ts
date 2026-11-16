@@ -14,3 +14,5 @@ export type Copy = Record<string, string>;
 export interface AuthPort { verify(token: string): Promise<Identity>; signIn?(credential: string): Promise<string>; signOut?(token: string): Promise<void>; }
 export interface CmsPort { read(locale: Locale, page: string): Promise<Copy>; }
 export interface SessionPort { create(idToken: string): Promise<string>; }
+export interface SiteRequestInput { companyId: string; language: Locale; brief: string; idempotencyKey: string; }
+export interface SiteRequest { id: string; companyId: string; language: Locale; brief: string; status: 'pending'; version: 0; createdAt: string; schemaVersion: 1; }

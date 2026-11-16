@@ -64,6 +64,15 @@
     },
     "runtime": {
       "region": "us-central1"
+    },
+    "queue": {
+      "provider": "local-sqlite",
+      "local-sqlite": {
+        "filePath": ".data/site-requests.sqlite"
+      },
+      "firestore-pending": {
+        "projectId": "freela-c8c75"
+      }
     }
   },
   "domains": {
@@ -82,6 +91,12 @@
     "content": {
       "usecases": {
         "getContent": "default"
+      }
+    },
+    "sites": {
+      "usecases": {
+        "request": "default",
+        "get": "default"
       }
     }
   }

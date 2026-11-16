@@ -83,6 +83,12 @@
       "usecases": {
         "getContent": "default"
       }
+    },
+    "sites": {
+      "usecases": {
+        "request": "default",
+        "get": "default"
+      }
     }
   }
 }

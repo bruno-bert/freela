@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { fn } from 'storybook/test';
+import { RegionPresets } from '../../../web/src/components/region-presets';
+import { t } from '../../fixtures';
+const meta = {title:'Web/Opportunities/RegionPresets',component:RegionPresets,tags:['autodocs'],args:{copy:t,selected:'nyc',disabled:false,onSelect:fn()}} satisfies Meta<typeof RegionPresets>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+export const Disabled: Story = {args:{disabled:true}};
+export const CustomRegion: Story = {args:{selected:''}};

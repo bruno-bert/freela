@@ -1,0 +1,10 @@
+import {it,expect,vi} from 'vitest';
+import {ProcessApiSitesAdapter} from './process-api-sites.adapter';
+import {SitesFactory} from '../../../factories/sites/sites.factory';
+import {JsonConfigManager} from '@core/infra/adapters/config/json/config-manager.adapter';
+it('validates Process API responses, forwards credentials and maps failures',async()=>{
+ const input={companyId:'place',language:'en' as const,brief:'',idempotencyKey:crypto.randomUUID()};const result={id:'request',companyId:'place',language:'en',brief:'',status:'pending',version:0,createdAt:'2026-11-16T12:00:00Z',schemaVersion:1};const fetcher=vi.fn().mockImplementation(async()=>Response.json(result));const adapter=new ProcessApiSitesAdapter('http://api','token',1000,fetcher);
+ expect(await adapter.request(input)).toEqual(result);expect(fetcher).toHaveBeenCalledWith('http://api/v1/site-requests',expect.objectContaining({headers:expect.objectContaining({Authorization:'Bearer token'})}));expect(await adapter.get('place')).toEqual(result);
+ fetcher.mockImplementation(async()=>Response.json(null));expect(await adapter.get('place')).toBeNull();await expect(adapter.request(input)).rejects.toMatchObject({status:502});fetcher.mockResolvedValue(new Response('',{status:409}));await expect(adapter.request(input)).rejects.toMatchObject({status:409});fetcher.mockRejectedValue(new Error('private'));await expect(adapter.get('place')).rejects.toMatchObject({status:502});fetcher.mockResolvedValue(Response.json({invalid:true}));await expect(adapter.get('place')).rejects.toMatchObject({status:502});
+ const config=new JsonConfigManager('web',{APP_ENV:'test'});const service=new SitesFactory(config,'token').make();const request=vi.spyOn(ProcessApiSitesAdapter.prototype,'request').mockResolvedValue(result as never),get=vi.spyOn(ProcessApiSitesAdapter.prototype,'get').mockResolvedValue(null);expect(await service.request(input)).toEqual(result);expect(await service.get('place')).toBeNull();expect(request).toHaveBeenCalledWith(input);expect(get).toHaveBeenCalledWith('place');vi.restoreAllMocks();
+});

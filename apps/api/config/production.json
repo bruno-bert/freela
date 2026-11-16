@@ -11,6 +11,9 @@
     },
     "maps": {
       "provider": "google"
+    },
+    "queue": {
+      "provider": "firestore-pending"
     }
   }
 }
