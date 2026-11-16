@@ -1,0 +1,6 @@
+import {it,expect} from 'vitest';
+import {googlePlaceTypes,placeTypeGroups,recommendedPlaceTypes,searchCategoryIds} from './place-types';
+import {validRegion} from './region';
+import {PlaceCategory} from '../../../../apps/api/src/domain/value-objects/opportunities/category.vo';
+it('contains the complete reviewed Table A catalog without response-only types or duplicates',()=>{expect(googlePlaceTypes).toHaveLength(478);expect(placeTypeGroups).toHaveLength(19);expect(new Set(googlePlaceTypes).size).toBe(478);for(const type of recommendedPlaceTypes)expect(googlePlaceTypes).toContain(type);expect(searchCategoryIds).toContain('all');for(const type of searchCategoryIds)expect(new PlaceCategory(type).value).toBe(type);for(const type of ['health','establishment','point_of_interest','invalid'])expect(()=>new PlaceCategory(type)).toThrow('Unsupported');});
+it('validates all coordinate and radius limits before map updates or searches',()=>{const region={latitude:0,longitude:0,radius:1000};expect(validRegion(region)).toBe(true);for(const invalid of [{...region,latitude:NaN},{...region,latitude:91},{...region,longitude:NaN},{...region,longitude:181},{...region,radius:NaN},{...region,radius:99},{...region,radius:50001}])expect(validRegion(invalid)).toBe(false);});

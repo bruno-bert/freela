@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Workspace } from '../../../web/src/components/workspace';
+import type { Company } from '@core/domain/model';
+import denseCompanies from '../../fixtures/dense-companies.json';
 import { company, t } from '../../fixtures';
 const meta = { title: 'Web/Opportunities/Workspace', component: Workspace, tags: ['autodocs'], args: { copy: t, identity: { id: 'demo-owner', name: 'Lucas Martins', role: 'owner' }, locale: 'pt-BR', initial: { companies: [company], provider: 'demo', exhaustive: false, fetched: 1 }, placesProvider:'demo', mapProvider: 'schematic', mapKey: '' } } satisfies Meta<typeof Workspace>;
 export default meta;
@@ -8,3 +10,4 @@ export const Default: Story = {};
 export const Empty: Story = { args: { initial: { companies: [], provider: 'demo', exhaustive: false, fetched: 0 } } };
 export const Error: Story = { args: { initial: null } };
 export const LiveProviderError: Story = {args:{initial:null,placesProvider:'google-places'}};
+export const ManyResults: Story = {args:{initial:{companies:denseCompanies as Company[],provider:'demo',exhaustive:false,fetched:denseCompanies.length}}};

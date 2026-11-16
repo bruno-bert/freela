@@ -7,3 +7,4 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 export const Contacted: Story = { args: { company: { ...company, contact: { contacted: true, version: 1, history: [] } } } };
+export const LongAddress: Story = {args:{company:{...company,name:'Example neighborhood clinic',address:'A long example commercial address with a suite and neighborhood, New York (fictional)'}}};

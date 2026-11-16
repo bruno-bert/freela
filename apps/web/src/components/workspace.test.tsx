@@ -44,3 +44,9 @@ it('reports HTTP detail and queue status failures and selects a preset after ini
 });
 
 it('keeps the live provider label on initial failures and region changes',()=>{render(<Workspace {...props} initial={null} placesProvider="google-places"/>);expect(screen.getByText(t.live)).toBeVisible();expect(screen.queryByText(t.demo)).not.toBeInTheDocument();fireEvent.change(screen.getByRole('combobox',{name:t.presets}),{target:{value:'dublin'}});expect(screen.getByText(t.live)).toBeVisible();expect(screen.queryByText(t.demo)).not.toBeInTheDocument();});
+it('previews coordinate edits, preserves them when changing radius and cancels back to the selected region',()=>{
+ render(<Workspace {...props}/>);fireEvent.click(screen.getAllByRole('button',{name:t.draw}).at(-1)!);fireEvent.change(screen.getByLabelText(t.latitude),{target:{value:'52.3546'}});fireEvent.change(screen.getByLabelText(t.longitude),{target:{value:'4.8933'}});fireEvent.change(screen.getByLabelText(t.radius),{target:{value:'1.5'}});expect(screen.getByLabelText(t.latitude)).toHaveValue(52.3546);expect(screen.getByLabelText(t.longitude)).toHaveValue(4.8933);expect(screen.getByRole('group',{name:t.selectMap})).toHaveTextContent('52.3546, 4.8933');fireEvent.click(screen.getByRole('button',{name:t.cancelSelection}));expect(screen.getByRole('group',{name:t.selectMap})).toHaveTextContent('40.7411, -73.9897');
+});
+it('submits a newly supported medical category without changing its provider identifier',async()=>{
+ const request=vi.fn().mockResolvedValue(Response.json({...props.initial,companies:[]}));vi.stubGlobal('fetch',request);render(<Workspace {...props}/>);fireEvent.change(screen.getByLabelText(t.category),{target:{value:'medical_clinic'}});fireEvent.click(screen.getByRole('button',{name:t.search}));await waitFor(()=>expect(request).toHaveBeenCalledWith('/api/opportunities/search',expect.objectContaining({body:expect.stringContaining('"category":"medical_clinic"')})));
+});

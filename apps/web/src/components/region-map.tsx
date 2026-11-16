@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import type { Region, Company, Copy } from '@core/domain/model';
+import { validRegion } from '@core/domain/region';
 import type { MapHandle } from '../domain/ports/maps/map.port';
 import { createMap } from '../lib/client/maps';
 import { regionPresets } from '../domain/value-objects/opportunities/region-presets';
@@ -10,10 +11,10 @@ export function RegionMap({ region, companies, onSelect, onCompany, copy: t, pro
  const latest = useRef({region,companies}); latest.current={region,companies};
  const [error, setError] = useState(false), [zoom, setZoom] = useState(1);
  callback.current = onSelect;
- useEffect(() => { if (provider !== 'google' || !ref.current) return; let disposed = false; createMap(provider, apiKey).mount(ref.current, region, next => callback.current(next)).then(value => { if (disposed) value.destroy(); else { handle.current = value; value.update(latest.current.region, latest.current.companies); } }).catch(() => setError(true)); return () => { disposed = true; handle.current?.destroy(); handle.current = null; }; /* Initial center is applied once; subsequent updates use the map handle. */
+ useEffect(() => { if (provider !== 'google' || !ref.current) return; let disposed = false; createMap(provider, apiKey).mount(ref.current, region, next => callback.current(next)).then(value => { if (disposed) value.destroy(); else { handle.current = value; if(validRegion(latest.current.region))value.update(latest.current.region, latest.current.companies); } }).catch(() => setError(true)); return () => { disposed = true; handle.current?.destroy(); handle.current = null; }; /* Initial center is applied once; subsequent updates use the map handle. */
  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [provider, apiKey]);
- useEffect(() => { handle.current?.update(region, companies); }, [region, companies]);
+ useEffect(() => { if(validRegion(region))handle.current?.update(region, companies); }, [region, companies]);
  if (provider === 'google') return <div className="relative h-full min-h-map"><div ref={ref} className="absolute inset-0" aria-label={t.region}/>{error && <p role="alert" className="absolute inset-x-0 top-0 bg-danger-soft p-lg text-danger">{t.mapError}</p>}</div>;
  const span = 0.055 / zoom;
  return <div className="relative h-full min-h-map overflow-hidden bg-map-land">

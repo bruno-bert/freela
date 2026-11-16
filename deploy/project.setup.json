@@ -115,13 +115,13 @@
       "lint": "passed",
       "typecheck": "passed",
       "coverage": {
-        "lines": 99.7,
-        "statements": 98.66,
-        "branches": 97.56,
-        "functions": 98.65
+        "lines": 99.72,
+        "statements": 98.7,
+        "branches": 97.63,
+        "functions": 98.72
       },
-      "e2e": "5 passed on isolated test ports",
-      "stories": "30 passed",
+      "e2e": "6 passed on isolated test ports",
+      "stories": "37 passed",
       "emulator": "3 passed",
       "builds": [
         "api",
@@ -130,7 +130,7 @@
         "storybook"
       ],
       "builtApiSmoke": "health and Swagger HTTP 200",
-      "unitComponentApiContract": "70 passed across 30 test files",
+      "unitComponentApiContract": "78 passed across 32 test files",
       "cleanSourceTypecheck": "passed without generated next-env files"
     },
     "cloud": {
@@ -143,7 +143,17 @@
       "liveMapsVerified": true,
       "liveFirestoreReadVerified": true,
       "localAdcVerified": true,
-      "liveFirestoreWriteVerified": true
+      "liveFirestoreWriteVerified": true,
+      "mapInteractionVerified": {
+        "mouseDrag": true,
+        "coordinateRecenter": true,
+        "scope": "Local isolated browser with real Google Maps SDK"
+      },
+      "medicalClinicFilterVerified": {
+        "type": "medical_clinic",
+        "httpStatus": 200,
+        "returned": 20
+      }
     },
     "runtime": "Local frontend and API with real Firebase/Google cloud services; no public app rollout yet"
   },

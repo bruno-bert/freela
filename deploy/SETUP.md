@@ -46,3 +46,7 @@ The initial application snapshot and original Stitch PNG/HTML assets were publis
 Lint, typecheck, all unit/component/API/contract suites, 5 Playwright flows, 30 Storybook/a11y checks, 3 Firestore emulator tests, coverage gates and all four builds are required and recorded in `docs/live-services.md` and `docs/international-prospecting.md`. OpenAPI is compared against the registered Fastify routes. Native SQLite is fixture-only and requires the repository’s Node 22 runtime. Java 21 runs the Firestore emulator.
 
 `project.setup.json` is the machine-readable record. No production URL is claimed until deployment and exact served-commit probes succeed. Private docs/Storybook hosting protection remains unresolved, so those private catalogs are not published.
+
+## Category/map workspace update
+
+The live app now offers the complete reviewed Table A category catalog, with clinic/veterinary/grocery/beauty suggestions, and a compact map-above-controls layout with normal visible page scrolling. A real Maps adapter check verified mouse dragging and coordinate recentering. The search route’s category enum is expanded without changing authentication, persistence or provider configuration. See [categories and map](../docs/categories-and-map.md) for the catalog source, interaction details and validation. No cloud resources, keys, billing settings or access rules were changed by this update.

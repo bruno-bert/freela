@@ -1,0 +1,254 @@
+[
+  {
+    "id": "fixture-new-york-0",
+    "name": "Example business 01",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7391,
+      "longitude": -73.9917
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-1",
+    "name": "Example business 02",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7411,
+      "longitude": -73.9917
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-2",
+    "name": "Example business 03",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.743100000000005,
+      "longitude": -73.9917
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-3",
+    "name": "Example business 04",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7451,
+      "longitude": -73.9917
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-4",
+    "name": "Example business 05",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7391,
+      "longitude": -73.9897
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-5",
+    "name": "Example business 06",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7411,
+      "longitude": -73.9897
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-6",
+    "name": "Example business 07",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.743100000000005,
+      "longitude": -73.9897
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-7",
+    "name": "Example business 08",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7451,
+      "longitude": -73.9897
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-8",
+    "name": "Example business 09",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7391,
+      "longitude": -73.9877
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-9",
+    "name": "Example business 10",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7411,
+      "longitude": -73.9877
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-10",
+    "name": "Example business 11",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.743100000000005,
+      "longitude": -73.9877
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  },
+  {
+    "id": "fixture-new-york-11",
+    "name": "Example business 12",
+    "category": "Local services (fictional)",
+    "address": "Example retail street, New York (fictional)",
+    "phone": null,
+    "whatsapp": null,
+    "instagram": null,
+    "website": null,
+    "sourceUrl": null,
+    "location": {
+      "latitude": 40.7451,
+      "longitude": -73.9877
+    },
+    "contact": {
+      "contacted": false,
+      "version": 0,
+      "history": []
+    },
+    "fictional": true
+  }
+]

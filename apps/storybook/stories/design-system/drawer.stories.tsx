@@ -5,3 +5,4 @@ const meta = { title: 'DesignSystem/Drawer', component: Drawer, tags: ['autodocs
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
+export const ScrollableContent: Story = {args:{children:<div className="space-y-md">{Array.from({length:30},(_,index)=><p key={index}>Company information section {index+1}</p>)}</div>}};

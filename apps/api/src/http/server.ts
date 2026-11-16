@@ -3,6 +3,7 @@ import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 import { validatorCompiler, serializerCompiler, jsonSchemaTransform, type ZodTypeProvider } from 'fastify-type-provider-zod';
 import { z } from 'zod';
+import { searchCategoryIds } from '@core/domain/place-types';
 import type { ConfigManager } from '@core/domain/config';
 import type { Identity } from '@core/domain/model';
 import { DomainError } from '@core/domain/errors';
@@ -25,7 +26,7 @@ export async function createServer(config: ConfigManager) {
   const searchSchema = z.object({ companies: z.array(companySchema), provider: z.enum(['demo', 'google-places']), exhaustive: z.literal(false), fetched: z.number() });
   const security = [{ session: [] }];
   app.get('/health', { schema: { response: { 200: z.object({ status: z.literal('ok'), commit: z.string() }) } } }, async () => ({ status: 'ok' as const, commit: config.get<string>('app.commit') }));
-  app.post('/v1/opportunities/search', { schema: { security, body: z.object({ region, category: z.enum(['all', 'car_repair', 'cafe', 'florist', 'store']), status: z.enum(['all', 'new', 'contacted']), channel: z.enum(['all', 'whatsapp', 'instagram']), locale }), response: { 200: searchSchema } } }, request => services.search.execute(identities.get(request)!, request.body));
+  app.post('/v1/opportunities/search', { schema: { security, body: z.object({ region, category: z.enum(searchCategoryIds), status: z.enum(['all', 'new', 'contacted']), channel: z.enum(['all', 'whatsapp', 'instagram']), locale }), response: { 200: searchSchema } } }, request => services.search.execute(identities.get(request)!, request.body));
   app.get('/v1/opportunities/:id', { schema: { security, params: z.object({ id }), querystring: z.object({ locale: locale.default('pt-BR') }), response: { 200: companySchema } } }, request => services.details.execute(identities.get(request)!, { companyId: request.params.id, locale: request.query.locale }));
   app.post('/v1/contacts', { schema: { security, body: z.object({ companyId: id, expectedVersion: z.number().int().nonnegative(), idempotencyKey: z.string().uuid(), note: z.string().max(1000) }), response: { 200: contactSchema } } }, request => services.recordContact.execute(identities.get(request)!, request.body));
   const siteRequest = z.object({ id: z.string(), companyId: id, language: locale, brief: z.string(), status: z.literal('pending'), version: z.literal(0), createdAt: z.string(), schemaVersion: z.literal(1) });

@@ -6,3 +6,4 @@ const meta = { title: 'Web/Opportunities/RegionMap', component: RegionMap, tags:
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
+export const InternationalRegion: Story = {args:{region:{latitude:52.3546,longitude:4.8933,radius:1200},companies:[]}};
