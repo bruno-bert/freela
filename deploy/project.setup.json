@@ -64,7 +64,8 @@
       "Web App 1:68606654717:web:af89178b765f097eeb2694; SDK config retrieved",
       "Firestore (default) database: Standard Native, us-central1, freeTier=true",
       "Firestore deny-all browser rules compiled and released successfully",
-      "Anonymous Firestore REST document read denied with HTTP 403 PERMISSION_DENIED"
+      "Anonymous Firestore REST document read denied with HTTP 403 PERMISSION_DENIED",
+      "GitHub bruno-bert/freela main source commit b56e63cab1942c536c2399b6937991a0e73c95a9; source tree e4adb54d19508b223d6de57293e5863b74895e92 matches local Git tree"
     ],
     "pendingAgentActions": [
       "Resume service provisioning after billing is available",
@@ -120,15 +121,19 @@
   "deploymentRequest": {
     "authorized": true,
     "approvalPreference": "Proceed without repeated confirmations",
-    "status": "source-publication-in-progress-deployment-blocked",
+    "status": "source-published-deployment-blocked",
     "blockers": [
       "Firebase billingEnabled is false; App Hosting and Functions require Blaze",
       "Firebase Auth is not initialized; Google sign-in and Maps/Places credentials remain unresolved"
     ],
-    "remotePushVerified": false,
+    "remotePushVerified": true,
     "applicationDeploymentVerified": false,
     "localInitialCommit": "8499f077818872e6a7f62eb8e5db1837d680d67a",
     "repositoryUrl": "https://github.com/bruno-bert/freela",
-    "sourceTransfer": "GitHub connector Git Data API; terminal Git has no HTTPS credentials"
+    "sourceTransfer": "GitHub connector Git Data API; terminal Git has no HTTPS credentials",
+    "publishedSourceCommit": "b56e63cab1942c536c2399b6937991a0e73c95a9",
+    "publishedSourceTree": "e4adb54d19508b223d6de57293e5863b74895e92",
+    "sourceTreeVerified": true,
+    "localHistoryBackupBranch": "local-history-before-github-20261116"
   }
 }

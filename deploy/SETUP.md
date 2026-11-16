@@ -69,3 +69,9 @@ A fresh November 16 Cloud Billing check still returned `billingEnabled: false`; 
 Local development adapters must not be published as production. No application deployment or production URL is claimed. Existing Firestore free-tier provisioning and private rules remain verified. Once billing is available, continue setup, validate the exact checkout, deploy each app independently and verify the served commit.
 
 Local initial application commit prepared: `8499f077818872e6a7f62eb8e5db1837d680d67a`. It has not been pushed to any remote.
+
+## Source publication verification — November 16, 2026
+
+The complete source and original Stitch assets were published to [bruno-bert/freela](https://github.com/bruno-bert/freela) through the authenticated GitHub connector. Published application source commit: `b56e63cab1942c536c2399b6937991a0e73c95a9`. Its tree `e4adb54d19508b223d6de57293e5863b74895e92` exactly matches the prepared local source tree; each PNG blob SHA was checked independently. The publication contains no local environment file or generated build artifacts.
+
+Because terminal Git lacks HTTPS credentials, GitHub generated the publication commit through its API. The original local history is preserved on local branch `local-history-before-github-20261116`; local `main` tracks `origin/main`. Subsequent documentation records this verified source publication. Application deployment remains blocked by billing and production integration prerequisites; no deployed app URL is claimed.
