@@ -2,7 +2,7 @@
   "apphosting": [
     {
       "backendId": "freela-web",
-      "rootDir": "../..",
+      "rootDir": "apps/web",
       "ignore": [
         "node_modules",
         ".git",
@@ -14,7 +14,9 @@
         "**/dist",
         "**/build",
         "**/coverage",
-        ".stitch"
+        ".stitch",
+        "gha-creds-*.json",
+        "firebase.*.deploy.json"
       ]
     }
   ]

@@ -2,9 +2,9 @@ name: web
 on:
   push:
     branches: [main]
-    paths: ["apps/web/**", "packages/core/**", "packages/config-*/**", "packages/design-system/**", "apps/docs/content/**", "deploy/web/**", "scripts/**", "package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "tsconfig.json", "vitest*.ts", "playwright.config.ts", ".github/workflows/web.yml"]
+    paths: ["apps/web/**", "packages/core/**", "packages/config-*/**", "packages/design-system/**", "apps/docs/content/**", "deploy/web/**", "scripts/**", ".gitignore", "package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "tsconfig.json", "vitest*.ts", "playwright.config.ts", ".github/workflows/web.yml"]
   pull_request:
-    paths: ["apps/web/**", "packages/core/**", "packages/config-*/**", "packages/design-system/**", "apps/docs/content/**", "deploy/web/**", "scripts/**", "package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "tsconfig.json", "vitest*.ts", "playwright.config.ts", ".github/workflows/web.yml"]
+    paths: ["apps/web/**", "packages/core/**", "packages/config-*/**", "packages/design-system/**", "apps/docs/content/**", "deploy/web/**", "scripts/**", ".gitignore", "package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "tsconfig.json", "vitest*.ts", "playwright.config.ts", ".github/workflows/web.yml"]
   workflow_dispatch:
 permissions:
   contents: read

@@ -26,3 +26,6 @@ test-results/
 next-env.d.ts
 
 firebase.*.deploy.json
+
+gha-creds-*.json
+firebase.deploy.json
