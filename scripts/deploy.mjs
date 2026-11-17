@@ -29,5 +29,12 @@ try{
   const probe=await fetch(`${url}?json-probe=${sha}`,{method:'POST',headers:{'Content-Type':'application/json','Cache-Control':'no-cache'},body:'{"probe":true}',signal:AbortSignal.timeout(15000)});
   if(probe.status!==404)throw Error('Firebase JSON request adapter verification failed');
  }
+ if(app==='web'){
+  const origin=new URL(url).origin;
+  for(const [requestOrigin,expectedStatus] of [[origin,200],['https://invalid-origin.example',400]]){
+   const probe=await fetch(`${origin}/api/auth/logout`,{method:'POST',headers:{Origin:requestOrigin,'Cache-Control':'no-cache'},signal:AbortSignal.timeout(15000)});
+   if(probe.status!==expectedStatus)throw Error('Published browser origin verification failed');
+  }
+ }
  console.log(`Verified ${app}: ${sha}`);
 }finally{try{unlinkSync(generated);}catch{/* Web source deployment uses no generated config. */}}

@@ -1,7 +1,8 @@
 {
   "infra": {
     "auth": {
-      "provider": "firebase-auth"
+      "provider": "firebase-auth",
+      "publicOrigin": "https://freela-web--freela-c8c75.us-central1.hosted.app"
     },
     "repositories": {
       "provider": "process-api",

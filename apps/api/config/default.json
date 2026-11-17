@@ -31,7 +31,8 @@
           "projectNumber": "68606654717",
           "version": "2"
         }
-      }
+      },
+      "publicOrigin": ""
     },
     "repositories": {
       "provider": "firestore",
@@ -117,7 +118,7 @@
     },
     "audits": {
       "usecases": {
-        "analyze": "default"
+        "analyze": "deferred"
       }
     }
   }

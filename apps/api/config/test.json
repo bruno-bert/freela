@@ -34,5 +34,12 @@
     "websites": {
       "provider": "fixture"
     }
+  },
+  "domains": {
+    "audits": {
+      "usecases": {
+        "analyze": "default"
+      }
+    }
   }
 }

@@ -58,3 +58,7 @@ The `freela-web` App Hosting backend now exists in `us-central1`. Dedicated web/
 ## Manual WhatsApp confirmation
 
 The opportunity contact form now offers an explicit owner-private confirmation after trying the listed phone. It reuses existing Firestore contact transactions and the authenticated web/API deployment targets, with no new cloud resources or secrets. See [manual confirmation](../docs/whatsapp-confirmation.md). Pipeline and served-commit checks must complete before reporting this release as live.
+
+## Reverse-proxy login correction and deferred analysis
+
+The public-origin check is configured explicitly for the web backend; deployment smoke checks exercise anonymous same-origin and rejected foreign-origin POSTs through App Hosting. The website analysis usecase is deferred at the user's request: no place, website or LLM call runs from that action until the implementation is explicitly switched. See [login and persistence](../docs/production-login-and-storage.md). No IAM permissions or Auth providers are added by this correction.

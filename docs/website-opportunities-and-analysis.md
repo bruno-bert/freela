@@ -1,5 +1,7 @@
 # Reachable prospects and website improvement analysis
 
+Current availability: analysis is prepared but disconnected at the user’s request. The Process API selector `domains.audits.usecases.analyze=deferred` returns 503 without external calls. The analysis flow below describes the prepared `default` implementation for a later explicit connection. See [current login and storage behavior](production-login-and-storage.md).
+
 Opportunity searches now require at least one non-blank phone, WhatsApp or email value. An Instagram profile alone does not satisfy this contact requirement. Filtering happens in `SearchOpportunities` after applying the owner’s saved contact state and manual WhatsApp confirmation, and applies to every website selection. Google Places does not provide an email field in its [place resource contract](https://developers.google.com/maps/documentation/places/web-service/reference/rest/v1/places); the current Google adapter explicitly leaves email and WhatsApp unknown. Neither channel is guessed from a telephone number, and no mail addresses are scraped automatically.
 
 ## Finding redesign opportunities

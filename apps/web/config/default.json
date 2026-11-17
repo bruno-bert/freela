@@ -31,7 +31,8 @@
           "projectNumber": "68606654717",
           "version": "2"
         }
-      }
+      },
+      "publicOrigin": ""
     },
     "repositories": {
       "provider": "process-api",

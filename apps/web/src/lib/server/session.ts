@@ -11,6 +11,6 @@ export async function session(required = true) {
 }
 export function assertOrigin(request: Request) {
  const origin = request.headers.get('origin');
- if (!origin || origin !== new URL(request.url).origin) throw new Error('Invalid request origin.');
+ if (!origin || origin !== (getConfigManager().get<string>('infra.auth.publicOrigin') || new URL(request.url).origin)) throw new Error('Invalid request origin.');
 }
 export const safeReturnTo = (value: string | null) => value?.startsWith('/') && !value.startsWith('//') && !value.includes('\\') && !/[\r\n]/.test(value) ? value : '/';
