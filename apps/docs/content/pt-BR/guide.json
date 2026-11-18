@@ -26,5 +26,6 @@
   "whatsappConfirmation": "Abrir WhatsApp tenta o telefone informado e mantém a etiqueta de não confirmado. Confira o número lá, volte e clique em Confirmar WhatsApp para salvá-lo na sua conta. Abrir não confirma nem registra contato. A confirmação permanece após recarregar; um telefone alterado precisa ser confirmado novamente.",
   "productionLogin": "O login em produção valida a origem HTTPS pública configurada atrás do App Hosting. O acesso com Google então cria uma sessão protegida no servidor.",
   "storage": "Os resultados ficam na memória da tela. O Firestore salva identificadores das empresas, seu histórico de contato, confirmações manuais de WhatsApp e pedidos de site; uma lista de prospecção salva ainda não foi implementada.",
-  "auditAvailability": "Somente preparado: domains.audits.usecases.analyze=deferred na API de processo. A implementação Vertex preparada anteriormente não é chamada até ser conectada explicitamente."
+  "auditAvailability": "Somente preparado: domains.audits.usecases.analyze=deferred na API de processo. A implementação Vertex preparada anteriormente não é chamada até ser conectada explicitamente.",
+  "navigation": "Use Buscar oportunidades junto aos filtros ou Buscar nesta região abaixo do mapa. O campo textual de busca de categorias foi removido; o catálogo agrupado continua completo. Cada resultado tem apenas Preparar contato. Os resultados e marcadores do mapa abrem o mesmo formulário, com os dados da empresa."
 }

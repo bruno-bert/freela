@@ -644,5 +644,6 @@
   "confirmingWhatsapp": "Saving confirmation…",
   "whatsappConfirmError": "Could not save the confirmation. Retry, or reload if the contact changed.",
   "whatsappVerificationHint": "Open WhatsApp using the listed phone. After checking the number there, return here to confirm it. Opening a tab does not verify the number or record outreach.",
-  "whatsappNumber": "WhatsApp number"
+  "whatsappNumber": "WhatsApp number",
+  "searchFilters": "Search opportunities"
 }

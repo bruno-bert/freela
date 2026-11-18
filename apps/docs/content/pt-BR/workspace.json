@@ -644,5 +644,6 @@
   "confirmingWhatsapp": "Salvando confirmação…",
   "whatsappConfirmError": "Não foi possível salvar a confirmação. Tente novamente ou atualize os dados se o contato mudou.",
   "whatsappVerificationHint": "Abra o WhatsApp usando o telefone informado. Depois de verificar o número lá, volte aqui para confirmar. Abrir a aba não verifica o número nem registra contato.",
-  "whatsappNumber": "Número do WhatsApp"
+  "whatsappNumber": "Número do WhatsApp",
+  "searchFilters": "Buscar oportunidades"
 }

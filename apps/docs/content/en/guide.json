@@ -26,5 +26,6 @@
   "whatsappConfirmation": "Open WhatsApp tries the listed phone and keeps the unconfirmed badge. Check the number there, return and click Confirm WhatsApp to save it privately in your account. Opening does not confirm or register contact. Confirmation survives reload; a changed phone needs confirmation again.",
   "productionLogin": "Production login validates the configured public HTTPS origin behind App Hosting. Google sign-in then creates a protected server session.",
   "storage": "Search results remain in page memory. Firestore stores only company identifiers, your contact history, manual WhatsApp confirmations and pending site requests; a saved prospect list is not implemented.",
-  "auditAvailability": "Prepared only: domains.audits.usecases.analyze=deferred in the Process API. The previously prepared Vertex implementation is not invoked until explicitly connected."
+  "auditAvailability": "Prepared only: domains.audits.usecases.analyze=deferred in the Process API. The previously prepared Vertex implementation is not invoked until explicitly connected.",
+  "navigation": "Use Search opportunities beside the filters or Search this region below the map. The category text search was removed; the grouped catalog remains complete. Each result has one Prepare contact action. Results and map markers open the same contact form with business details."
 }

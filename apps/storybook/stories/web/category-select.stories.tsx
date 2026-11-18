@@ -1,5 +1,5 @@
 import type {Meta,StoryObj} from '@storybook/nextjs-vite';
-import {fn} from 'storybook/test';
+import {fn,expect} from 'storybook/test';
 import {CategorySelect} from '../../../web/src/components/category-select';
 import {t} from '../../fixtures';
 const meta={title:'Web/Opportunities/CategorySelect',component:CategorySelect,tags:['autodocs'],args:{value:'all',copy:t,disabled:false,onChange:fn()}} satisfies Meta<typeof CategorySelect>;
@@ -8,3 +8,4 @@ type Story=StoryObj<typeof meta>;
 export const Default:Story={};
 export const MedicalClinic:Story={args:{value:'medical_clinic'}};
 export const Disabled:Story={args:{disabled:true}};
+export const CompleteCatalog:Story={play:async({canvas})=>{await expect(canvas.getAllByRole('option')).toHaveLength(479);await expect(canvas.queryByRole('searchbox')).not.toBeInTheDocument();}};

@@ -62,3 +62,7 @@ The opportunity contact form now offers an explicit owner-private confirmation a
 ## Reverse-proxy login correction and deferred analysis
 
 The public-origin check is configured explicitly for the web backend; deployment smoke checks exercise anonymous same-origin and rejected foreign-origin POSTs through App Hosting. The website analysis usecase is deferred at the user's request: no place, website or LLM call runs from that action until the implementation is explicitly switched. See [login and persistence](../docs/production-login-and-storage.md). No IAM permissions or Auth providers are added by this correction.
+
+## Opportunity navigation simplification
+
+The workspace adds search beside filters, removes the category text input and opens one contact form from result cards and map markers. This uses existing authenticated routes and infrastructure; no cloud provisioning or permission changes are required. See [navigation](../docs/opportunity-navigation.md). Production readiness still requires successful pipelines and exact served-commit verification.
